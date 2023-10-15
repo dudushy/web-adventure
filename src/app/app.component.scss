@@ -5,6 +5,7 @@
   width: 100%;
   scroll-behavior: smooth;
   color: $light;
+  background: $dark;
   font-family: monospace;
 }
 
@@ -23,7 +24,6 @@ router-outlet {
 }
 
 header {
-  background: $dark;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +42,6 @@ header {
 }
 
 footer {
-  background: $dark;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,10 +67,12 @@ footer {
 
 @media (orientation: portrait) {
   header {
-    background: $primary;
+    color: $dark;
+    background: $light;
   }
 
   footer {
-    background: $primary;
+    color: $dark;
+    background: $light;
   }
 }

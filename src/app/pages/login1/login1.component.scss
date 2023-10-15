@@ -1,0 +1,139 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: $light;
+}
+
+#content {
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-image: url('https://github.com/dudushy/assets/blob/main/wallpaper2.jpg?raw=true');
+  background-position: center;
+  background-size: cover;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(var(--responsiveUnit) * 16.5);
+  width: calc(var(--responsiveUnit) * 16);
+  backdrop-filter: blur(25px);
+  overflow: hidden;
+  border-radius: calc(var(--responsiveUnit) * 0.4);
+  border: calc(var(--responsiveUnit) * 0.08) solid transparentize($color: $light, $amount: 0.8);
+  box-shadow: 0px 0px 15px 3px transparentize($color: $dark, $amount: 0.6);
+
+  .loginTitle {
+    font-size: calc(var(--responsiveUnit) * 1.5);
+    color: $light;
+    font-weight: bolder;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loginInput {
+    height: 12%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-block: 3%;
+
+    input {
+      height: 100%;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: calc(var(--responsiveUnit) * 0.09) solid transparentize($color: $light, $amount: 0.8);
+      border-radius: calc(var(--responsiveUnit) * 1);
+      font-size: calc(var(--responsiveUnit) * 0.7);
+      color: $light;
+      text-indent: 5%;
+      &::placeholder {
+        color: $light;
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 5%;
+      aspect-ratio: 1;
+      height: 50%;
+      filter: invert(1);
+    }
+  }
+
+  .loginRememberForgot {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .loginRememberMe, .loginForgotPassword {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $light;
+      font-size: calc(var(--responsiveUnit) * 0.575);
+      & > * {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .loginSubmit {
+    width: 80%;
+    height: 10%;
+    margin-block: 4%;
+
+    input {
+      height: 100%;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      margin: 0;
+      padding: 0;
+      border-radius: calc(var(--responsiveUnit) * 1);
+      font-size: calc(var(--responsiveUnit) * 0.7);
+      background: $light;
+      color: $dark;
+      font-weight: bolder;
+    }
+  }
+
+  .loginRegister {
+    width: 80%;
+
+    span {
+      color: $light;
+    }
+
+    a {
+      text-decoration: none;
+      color: $light;
+      font-weight: bolder;
+    }
+  }
+}

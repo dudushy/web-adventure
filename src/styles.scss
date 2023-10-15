@@ -1,0 +1,203 @@
+$void: #ffffff00;
+$primary: #3880ff;
+$secondary: #3dc2ff;
+$tertiary: #5260ff;
+$success: #2dd36f;
+$warning: #ffc409;
+$danger: #eb445a;
+$dark: #222428;
+$medium: #92949c;
+$light: #f4f5f8;
+
+:root {
+  --responsiveUnit: calc(1vmin + 1vmax);
+  --headerHeight: calc(var(--responsiveUnit) * 3);
+  --footerHeight: calc(var(--responsiveUnit) * 4);
+  --scrollbarWidth: 10px;
+}
+
+html,
+body,
+app-root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+//* MIXIN [START]
+@mixin fixedHeight($height) {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+}
+
+@mixin fixedWidth($width) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+}
+
+@mixin allVendors($property, $args) {
+  @each $prefix in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+    #{$prefix + $property}: $args;
+  }
+}
+//* MIXIN [END]
+
+//* SCROLLBAR [START]
+::-webkit-scrollbar {
+  width: var(--scrollbarWidth);
+}
+
+::-webkit-scrollbar-track {
+  background: $dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $medium;
+}
+//* SCROLLBAR [END]
+
+//* FONTS [START]
+@font-face {
+  font-family: "Comfortaa";
+  src: url("assets/fonts/comfortaa/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("assets/fonts/minecraft/Minecraft.ttf");
+}
+
+@font-face {
+  font-family: "OldLondon";
+  src: url("assets/fonts/old_london/OldLondon.ttf");
+}
+
+@font-face {
+  font-family: "college";
+  src: url("assets/fonts/college/college.ttf");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/fonts/quicksand/Quicksand_Dash.otf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/fonts/roboto/Roboto-Thin.ttf");
+}
+
+@font-face {
+  font-family: "VCR";
+  src: url("assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf");
+}
+
+@font-face {
+  font-family: "CaviarDreams";
+  src: url("assets/fonts/caviar_dreams/CaviarDreams.ttf");
+}
+//* FONTS [END]
+
+//* ANIMATIONS [START]
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rainbowColor {
+  100%,
+  0% {
+    color: #ff0000;
+  }
+
+  8% {
+    color: #ff7f00;
+  }
+
+  16% {
+    color: #ffff00;
+  }
+
+  25% {
+    color: #7fff00;
+  }
+
+  33% {
+    color: #00ff00;
+  }
+
+  41% {
+    color: #00ff7f;
+  }
+
+  50% {
+    color: #00ffff;
+  }
+
+  58% {
+    color: #007fff;
+  }
+
+  66% {
+    color: #0000ff;
+  }
+
+  75% {
+    color: #7f00ff;
+  }
+
+  83% {
+    color: #ff00ff;
+  }
+
+  91% {
+    color: #ff007f;
+  }
+}
+//* ANIMATIONS [END]

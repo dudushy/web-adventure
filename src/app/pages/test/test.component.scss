@@ -1,0 +1,19 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: $light;
+}
+
+#content {
+  height: 100%;
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}

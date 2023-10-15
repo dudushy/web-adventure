@@ -1,0 +1,77 @@
+@import "/src/styles.scss";
+
+:host {
+  position: relative;
+  width: 100%;
+  scroll-behavior: smooth;
+  color: $light;
+  font-family: monospace;
+}
+
+main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+router-outlet {
+  display: none;
+}
+
+header {
+  background: $dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include fixedHeight(var(--headerHeight));
+
+  h1 {
+    margin: 0;
+    font-size: calc(var(--responsiveUnit) * 2);
+    @include allVendors(transition, all 250ms ease-in-out);
+    &:hover {
+      color: $medium;
+      cursor: pointer;
+    }
+  }
+}
+
+footer {
+  background: $dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include fixedHeight(var(--footerHeight));
+
+  h2 {
+    font-size: calc(var(--responsiveUnit) * 1);
+
+    #heart {
+      color: $danger;
+    }
+
+    a {
+      color: $tertiary;
+      @include allVendors(transition, all 250ms ease-in-out);
+      &:hover {
+        color: $medium;
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  header {
+    background: $primary;
+  }
+
+  footer {
+    background: $primary;
+  }
+}

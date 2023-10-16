@@ -7,7 +7,7 @@ My CSS adventure.
 ## Prerequisites:
 - [NodeJS](https://nodejs.org/)
 
-## How to install:
+## How to install and run:
 1. Install packages
     ```bash
     npm i
@@ -24,3 +24,8 @@ My CSS adventure.
     ```bash
     npm run deploy
     ```
+
+## Create new adventure:
+```bash
+ng g component adventures/ADVENTURE_NAME
+```

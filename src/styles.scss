@@ -51,6 +51,12 @@ app-root {
     #{$prefix + $property}: $args;
   }
 }
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
 //* MIXIN [END]
 
 //* SCROLLBAR [START]

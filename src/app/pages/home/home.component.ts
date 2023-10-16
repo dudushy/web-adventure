@@ -34,5 +34,5 @@ export class HomeComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0;}
+  defaultOrder() { return 0; }
 }

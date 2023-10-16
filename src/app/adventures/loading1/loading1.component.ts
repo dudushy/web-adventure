@@ -3,12 +3,12 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../../app.component';
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.scss']
+  selector: 'app-loading1',
+  templateUrl: './loading1.component.html',
+  styleUrls: ['./loading1.component.scss']
 })
-export class NotFoundComponent implements OnInit {
-  title = 'NotFoundComponent';
+export class Loading1Component implements OnInit {
+  title = 'Loading1Component';
 
   constructor(
     private cdr: ChangeDetectorRef,

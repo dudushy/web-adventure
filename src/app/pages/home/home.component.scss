@@ -29,7 +29,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @include fixedHeight(calc(var(--responsiveUnit) * 7));
+    overflow: hidden;
+    @include fixedHeight(calc(var(--responsiveUnit) * 10));
     aspect-ratio: 1;
     margin: 2%;
     border-radius: calc(var(--responsiveUnit) * 2);
@@ -37,20 +38,31 @@
     box-shadow:
       inset 20px 20px 60px #7c7e85,
       inset -20px -20px 60px #a8aab3;
-      @include allVendors(transition, all 300ms ease-in-out);
+    @include allVendors(transition, all 300ms ease-in-out);
     &:hover {
       transform: scale(1.05);
       cursor: pointer;
     }
 
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: $dark;
       text-decoration: none;
-      font-size: calc(var(--responsiveUnit) * 1.5);
+      font-size: calc(var(--responsiveUnit) * 1.2);
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
       font-weight: bolder;
     }
 
     span {
+      background: $light;
+      border-radius: calc(var(--responsiveUnit) * 1);
+      padding: 4%;
       position: absolute;
       top: 10%;
       right: 10%;

@@ -8,7 +8,7 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./login1.component.scss']
 })
 export class Login1Component implements OnInit {
-  title = 'TestComponent';
+  title = 'Login1Component';
 
   constructor(
     private cdr: ChangeDetectorRef,

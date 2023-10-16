@@ -10,6 +10,7 @@
 }
 
 #content {
+  height: 100%;
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;
@@ -21,8 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  background-image: url('https://github.com/dudushy/assets/blob/main/wallpaper2.jpg?raw=true');
+  background-image: url("https://github.com/dudushy/assets/blob/main/wallpaper2.jpg?raw=true");
   background-position: center;
   background-size: cover;
 }
@@ -31,37 +31,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(var(--responsiveUnit) * 16.5);
-  width: calc(var(--responsiveUnit) * 16);
+  @include fixedHeight(calc(var(--responsiveUnit) * 16.5));
+  @include fixedWidth(calc(var(--responsiveUnit) * 16));
   backdrop-filter: blur(25px);
   overflow: hidden;
   border-radius: calc(var(--responsiveUnit) * 0.4);
   border: calc(var(--responsiveUnit) * 0.08) solid transparentize($color: $light, $amount: 0.8);
   box-shadow: 0px 0px 15px 3px transparentize($color: $dark, $amount: 0.6);
+  @include portrait {
+    @include fixedHeight(calc(var(--responsiveUnit) * 35));
+    @include fixedWidth(calc(var(--responsiveUnit) * 25));
+  }
 
   .loginTitle {
     font-size: calc(var(--responsiveUnit) * 1.5);
     color: $light;
     font-weight: bolder;
-    height: 25%;
-    width: 100%;
+    @include fixedHeight(25%);
+    @include fixedWidth(100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    @include portrait {
+      @include fixedHeight(18%);
+      font-size: calc(var(--responsiveUnit) * 1.8);
+    }
   }
 
   .loginInput {
-    height: 12%;
-    width: 80%;
+    @include fixedHeight(12%);
+    @include fixedWidth(80%);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     margin-block: 3%;
+    @include portrait {
+      @include fixedHeight(10%);
+    }
 
     input {
-      height: 100%;
-      width: 100%;
+      @include fixedHeight(100%);
+      @include fixedWidth(100%);
       border: 0;
       outline: 0;
       margin: 0;
@@ -74,6 +85,9 @@
       text-indent: 5%;
       &::placeholder {
         color: $light;
+      }
+      @include portrait {
+        font-size: calc(var(--responsiveUnit) * 1.1);
       }
     }
 
@@ -89,29 +103,44 @@
   .loginRememberForgot {
     display: flex;
     align-items: center;
-    width: 100%;
+    @include fixedWidth(80%);
 
-    .loginRememberMe, .loginForgotPassword {
-      width: 50%;
+    .loginRememberMe,
+    .loginForgotPassword {
+      @include fixedWidth(50%);
       display: flex;
       align-items: center;
-      justify-content: center;
       color: $light;
-      font-size: calc(var(--responsiveUnit) * 0.575);
       & > * {
         cursor: pointer;
+        font-size: calc(var(--responsiveUnit) * 0.6);
+        @include portrait {
+          font-size: calc(var(--responsiveUnit) * 1.05);
+        }
       }
+    }
+
+    .loginRememberMe {
+      justify-content: flex-start;
+    }
+
+    .loginForgotPassword {
+      justify-content: flex-end;
     }
   }
 
   .loginSubmit {
-    width: 80%;
-    height: 10%;
-    margin-block: 4%;
+    @include fixedHeight(10%);
+    @include fixedWidth(80%);
+    margin-block: 5%;
+    @include portrait {
+      @include fixedHeight(12%);
+      margin-block: 16%;
+    }
 
     input {
-      height: 100%;
-      width: 100%;
+      @include fixedHeight(100%);
+      @include fixedWidth(100%);
       border: 0;
       outline: 0;
       margin: 0;
@@ -121,11 +150,21 @@
       background: $light;
       color: $dark;
       font-weight: bolder;
+      cursor: pointer;
+      @include portrait {
+        font-size: calc(var(--responsiveUnit) * 1.5);
+      }
     }
   }
 
   .loginRegister {
-    width: 80%;
+    @include fixedWidth(80%);
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(var(--responsiveUnit) * 0.7);
+    @include portrait {
+      font-size: calc(var(--responsiveUnit) * 1.2);
+    }
 
     span {
       color: $light;
@@ -135,6 +174,7 @@
       text-decoration: none;
       color: $light;
       font-weight: bolder;
+      cursor: pointer;
     }
   }
 }

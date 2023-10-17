@@ -27,6 +27,7 @@
   .card {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -48,15 +49,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       color: $dark;
       text-decoration: none;
       font-size: calc(var(--responsiveUnit) * 1.2);
       white-space: pre-wrap;
       word-break: break-all;
       overflow: hidden;
-      height: 100%;
+      margin-top: 30%;
+      height: 40%;
       width: 100%;
       font-weight: bolder;
+    }
+
+    p {
+      margin: 0;
+      height: 40%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: calc(var(--responsiveUnit) * 1);
     }
 
     span {
@@ -67,7 +81,7 @@
       top: 10%;
       right: 10%;
       color: $dark;
-      font-size: calc(var(--responsiveUnit) * 1.5);
+      font-size: calc(var(--responsiveUnit) * 1);
     }
   }
 }

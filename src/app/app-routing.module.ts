@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'not-found', component: NotFoundComponent },
 
-  { path: 'login1', component: Login1Component },
-  { path: 'loading1', component: Loading1Component },
-  { path: 'loading2', component: Loading2Component },
+  { path: 'login1', component: Login1Component, title: '' },
+  { path: 'loading1', component: Loading1Component, title: 'Flower' },
+  { path: 'loading2', component: Loading2Component, title: 'Newton Disc' },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' },

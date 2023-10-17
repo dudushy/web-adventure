@@ -3,6 +3,8 @@
     <div class="card" *ngFor="let page of app.allPages | keyvalue : defaultOrder" (click)="app.redirectTo(page.value['path'], title)">
       <a>{{page.value['path']}}</a>
 
+      <p>{{page.value['title']}}</p>
+
       <span>#{{page.key}}</span>
     </div>
   </div>

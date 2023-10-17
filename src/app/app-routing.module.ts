@@ -7,6 +7,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 import { Login1Component } from './adventures/login1/login1.component';
 import { Loading1Component } from './adventures/loading1/loading1.component';
+import { Loading2Component } from './adventures/loading2/loading2.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
 
   { path: 'login1', component: Login1Component },
   { path: 'loading1', component: Loading1Component },
+  { path: 'loading2', component: Loading2Component },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' },

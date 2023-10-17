@@ -10,6 +10,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 import { Login1Component } from './adventures/login1/login1.component';
 import { Loading1Component } from './adventures/loading1/loading1.component';
+import { Loading2Component } from './adventures/loading2/loading2.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Loading1Component } from './adventures/loading1/loading1.component';
     NotFoundComponent,
 
     Login1Component,
-    Loading1Component
+    Loading1Component,
+    Loading2Component
   ],
   imports: [
     BrowserModule,

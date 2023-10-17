@@ -1,0 +1,85 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newton-disc {
+  @include fixedHeight(calc(var(--responsiveUnit) * 10));
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 calc(var(--responsiveUnit) * 0.6) calc(var(--responsiveUnit) * 0.2) white;
+  position: relative;
+  overflow: hidden;
+  // animation: spin 3s linear infinite;
+  animation: spin 250ms linear infinite;
+
+  .disc-color {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    // clip-path: polygon(50% 0, 49% 49%, 51% 49%);
+    // clip-path: polygon(50% 50%, 50% 120%, 0% 75%);
+    clip-path: polygon(50% 50%, 60% 0, 0 0);
+    transform-origin: 50% 50%;
+    background: var(--discColor);
+    // transform: rotate(calc(360 / 7 + var(--discRotation)));
+    transform: rotate(var(--discRotation));
+    &:nth-child(1) {
+      --discColor: red;
+      --discRotation: 35deg;
+    }
+    &:nth-child(2) {
+      --discColor: orange;
+      --discRotation: -15deg;
+    }
+    &:nth-child(3) {
+      --discColor: yellow;
+      --discRotation: -65deg;
+    }
+    &:nth-child(4) {
+      --discColor: green;
+      --discRotation: -115deg;
+    }
+    &:nth-child(5) {
+      --discColor: blue;
+      --discRotation: -165deg;
+    }
+    &:nth-child(6) {
+      --discColor: indigo;
+      --discRotation: -215deg;
+    }
+    &:nth-child(7) {
+      --discColor: violet;
+      --discRotation: -270deg;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

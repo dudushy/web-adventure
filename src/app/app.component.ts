@@ -82,7 +82,7 @@ export class AppComponent {
     // { skipLocationChange: true }
     await this.router.navigateByUrl(`/${url}`);
 
-    // if (url == '' || url == 'home') window.history.pushState({}, '', '/');
+    if (url == '' || url == 'home') window.history.pushState({}, '', '/css-adventure');
 
     document.title = 'CSS Adventure';
 

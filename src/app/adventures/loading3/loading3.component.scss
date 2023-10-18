@@ -24,3 +24,35 @@
   justify-content: center;
   align-items: center;
 }
+
+.fairy {
+  @include fixedHeight(calc(var(--responsiveUnit) * 10));
+  aspect-ratio: 1;
+  background: $light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .fairy-body {
+    height: 80%;
+    width: 80%;
+    background: $dark;
+  }
+
+  .fairy-wing {
+    height: 100%;
+    width: 100%;
+    background: purple;
+    animation: flipWings 1s infinite alternate;
+  }
+}
+
+@keyframes flipWings {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}

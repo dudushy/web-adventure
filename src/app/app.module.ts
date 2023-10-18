@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { TestComponent } from './pages/test/test.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 import { Login1Component } from './adventures/login1/login1.component';
 import { Loading1Component } from './adventures/loading1/loading1.component';
@@ -19,7 +18,6 @@ import { Loading3Component } from './adventures/loading3/loading3.component';
 
     HomeComponent,
     TestComponent,
-    NotFoundComponent,
 
     Login1Component,
     Loading1Component,

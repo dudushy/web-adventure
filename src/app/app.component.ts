@@ -61,7 +61,7 @@ export class AppComponent {
 
       const url = this.router.url.replace('/', '');
       console.log(`[${this.title}#window.onload] url`, url);
-      if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}`);
+      if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);
 
       this.loadLastScrollPosition();
 
@@ -86,7 +86,7 @@ export class AppComponent {
     // { skipLocationChange: true }
     await this.router.navigateByUrl(`/${url}`);
 
-    if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}`);
+    if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);
 
     document.title = this.PROJECT_NAME;
 

@@ -84,6 +84,8 @@ export class AppComponent {
 
     if (url == '' || url == 'home') window.history.pushState({}, '', '/');
 
+    document.title = 'CSS Adventure';
+
     this.currentPage = url;
     this.db.set('last_page', url);
     console.log(`[${this.title}#redirectTo] last_page`, [this.db.get('last_page')]);

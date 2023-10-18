@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'not-found', component: NotFoundComponent },
 
-  { path: 'login1', component: Login1Component, title: 'A login form' },
+  { path: 'login1', component: Login1Component, title: 'Login form' },
   { path: 'loading1', component: Loading1Component, title: 'Flower' },
   { path: 'loading2', component: Loading2Component, title: 'Newton Disc' },
 

@@ -59,6 +59,10 @@ export class AppComponent {
     window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
+      const url = this.router.url.replace('/', '');
+      console.log(`[${this.title}#window.onload] url`, url);
+      if (url == '' || url == 'home') window.history.pushState({}, '', `/${this.PROJECT_DIR}`);
+
       this.loadLastScrollPosition();
 
       this.detectScrollbar();

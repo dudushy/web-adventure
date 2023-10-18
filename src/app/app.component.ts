@@ -12,6 +12,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  PROJECT_NAME = 'CSS Adventure';
+  PROJECT_DIR = 'css-adventure';
+
   title = 'AppComponent';
 
   allPages: any = [];
@@ -58,9 +61,6 @@ export class AppComponent {
 
       this.loadLastScrollPosition();
 
-      this.currentPage = this.router.url.split('/')[1];
-      if (this.currentPage == '' || this.currentPage == 'home') window.history.pushState({}, '', '/');
-
       this.detectScrollbar();
     };
 
@@ -82,9 +82,9 @@ export class AppComponent {
     // { skipLocationChange: true }
     await this.router.navigateByUrl(`/${url}`);
 
-    if (url == '' || url == 'home') window.history.pushState({}, '', '/css-adventure');
+    if (url == '' || url == 'home') window.history.pushState({}, '', `/${this.PROJECT_DIR}`);
 
-    document.title = 'CSS Adventure';
+    document.title = this.PROJECT_NAME;
 
     this.currentPage = url;
     this.db.set('last_page', url);

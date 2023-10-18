@@ -83,7 +83,6 @@ export class AppComponent {
   async redirectTo(url: any, from: any) {
     console.log(`[${this.title}#redirectTo] ${from} | url`, [url]);
 
-    // { skipLocationChange: true }
     await this.router.navigateByUrl(`/${url}`);
 
     if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);

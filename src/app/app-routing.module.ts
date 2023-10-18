@@ -10,7 +10,7 @@ import { Loading1Component } from './adventures/loading1/loading1.component';
 import { Loading2Component } from './adventures/loading2/loading2.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'test', component: TestComponent },
   { path: 'not-found', component: NotFoundComponent },
 
@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'loading1', component: Loading1Component, title: 'Flower' },
   { path: 'loading2', component: Loading2Component, title: 'Newton Disc' },
 
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' },
 ];
 

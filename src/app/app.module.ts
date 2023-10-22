@@ -11,6 +11,7 @@ import { Login1Component } from './adventures/login1/login1.component';
 import { Loading1Component } from './adventures/loading1/loading1.component';
 import { Loading2Component } from './adventures/loading2/loading2.component';
 import { Loading3Component } from './adventures/loading3/loading3.component';
+import { Loading4Component } from './adventures/loading4/loading4.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Loading3Component } from './adventures/loading3/loading3.component';
     Login1Component,
     Loading1Component,
     Loading2Component,
-    Loading3Component
+    Loading3Component,
+    Loading4Component
   ],
   imports: [
     BrowserModule,

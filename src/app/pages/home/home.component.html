@@ -1,9 +1,9 @@
 <div id="content">
   <div class="cards">
-    <div class="card" *ngFor="let page of app.allPages | keyvalue : defaultOrder" (click)="app.redirectTo(page.value['path'], title)">
+    <div class="card" *ngFor="let page of app.allPages | keyvalue : defaultOrder" (click)="app.redirectTo(page.value['path'], title)" [attr.type]="page.value['data']['type']">
       <a>{{page.value['path']}}</a>
 
-      <p>{{page.value['title']}}</p>
+      <p>{{page.value['data']['description']}}</p>
 
       <span>#{{page.key}}</span>
     </div>

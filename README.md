@@ -27,5 +27,5 @@ My CSS adventure.
 
 ## Create new adventure:
 ```bash
-ng g component adventures/ADVENTURE_NAME
+ng g component adventures/ADVENTURE_TYPE/ADVENTURE_NAME
 ```

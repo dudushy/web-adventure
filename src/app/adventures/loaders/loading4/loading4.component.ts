@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { AppComponent } from '../../app.component';
+import { AppComponent } from '../../../app.component';
 
 @Component({
-  selector: 'app-loading3',
-  templateUrl: './loading3.component.html',
-  styleUrls: ['./loading3.component.scss']
+  selector: 'app-loading4',
+  templateUrl: './loading4.component.html',
+  styleUrls: ['./loading4.component.scss']
 })
-export class Loading3Component implements OnInit {
-  title = 'Loading3Component';
+export class Loading4Component implements OnInit {
+  title = 'Loading4Component';
 
   constructor(
     private cdr: ChangeDetectorRef,

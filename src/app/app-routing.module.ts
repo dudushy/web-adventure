@@ -9,6 +9,7 @@ import { Loading1Component } from './adventures/loaders/loading1/loading1.compon
 import { Loading2Component } from './adventures/loaders/loading2/loading2.component';
 import { Loading3Component } from './adventures/loaders/loading3/loading3.component';
 import { Loading4Component } from './adventures/loaders/loading4/loading4.component';
+import { Loading5Component } from './adventures/loaders/loading5/loading5.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'loading2', component: Loading2Component, data: { type: 'loader', description: 'Newton Disc'} },
   { path: 'loading3', component: Loading3Component, data: { type: 'loader', description: 'Fairy'} },
   { path: 'loading4', component: Loading4Component, data: { type: 'loader', description: 'Quest 2'} },
+  { path: 'loading5', component: Loading5Component, data: { type: 'loader', description: 'Shyland'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

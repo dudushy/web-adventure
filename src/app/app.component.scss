@@ -7,6 +7,10 @@
   color: $light;
   background: $dark;
   font-family: monospace;
+  @include portrait {
+    color: $dark;
+    background: $light;
+  }
 }
 
 main {
@@ -63,17 +67,5 @@ footer {
         color: $medium;
       }
     }
-  }
-}
-
-@media (orientation: portrait) {
-  header {
-    color: $dark;
-    background: $light;
-  }
-
-  footer {
-    color: $dark;
-    background: $light;
   }
 }

@@ -24,3 +24,77 @@
   justify-content: center;
   align-items: center;
 }
+
+.shy-wrapper {
+  --animationArgs: 3s ease-in-out infinite;
+
+  @include fixedHeight(calc(var(--responsiveUnit) * 10));
+  aspect-ratio: 1;
+  background: $light;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: move var(--animationArgs);
+
+  .face {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: roll var(--animationArgs);
+
+    .eyes {
+      display: flex;
+      justify-content: center;
+
+      .eye {
+        @include fixedHeight(calc(var(--responsiveUnit) * 3));
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: $dark;
+        margin-inline: 15%;
+      }
+    }
+
+    .mouth {
+      @include fixedHeight(calc(var(--responsiveUnit) * 2));
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: $dark;
+      margin-top: 12%;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(50%);
+  }
+  75% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(60deg);
+  }
+  75% {
+    transform: rotate(-60deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'loading2', component: Loading2Component, data: { type: 'loader', description: 'Newton Disc'} },
   { path: 'loading3', component: Loading3Component, data: { type: 'loader', description: 'Fairy'} },
   { path: 'loading4', component: Loading4Component, data: { type: 'loader', description: 'Quest 2'} },
-  { path: 'loading5', component: Loading5Component, data: { type: 'loader', description: 'Shyland'} },
+  { path: 'loading5', component: Loading5Component, data: { type: 'loader', description: 'Shy'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

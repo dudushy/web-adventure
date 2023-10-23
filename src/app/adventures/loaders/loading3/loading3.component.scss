@@ -3,7 +3,6 @@
 :host {
   display: flex;
   justify-content: center;
-  height: 100%;
   width: 100%;
   background: $medium;
   color: $dark;
@@ -23,6 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: (calc(var(--responsiveUnit) * 20));
 }
 
 .fairy {

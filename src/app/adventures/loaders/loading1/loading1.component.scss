@@ -3,7 +3,6 @@
 :host {
   display: flex;
   justify-content: center;
-  height: 100%;
   width: 100%;
   background: $medium;
   color: $dark;
@@ -23,13 +22,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: (calc(var(--responsiveUnit) * 20));
 }
 
 .flower-loader {
   display: flex;
   justify-content: center;
   align-items: center;
-  @include fixedHeight(calc(var(--responsiveUnit) * 3));
+  // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+  height: (calc(var(--responsiveUnit) * 3));
   aspect-ratio: 1;
   border-radius: 50%;
   // border: calc(var(--responsiveUnit) * 0.15) solid $dark;
@@ -41,8 +42,10 @@
   // animation: rotateAndPulse 200ms linear infinite;
 
   .flower-petal {
-    @include fixedHeight(calc(var(--responsiveUnit) * 6));
-    @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    // @include fixedHeight(calc(var(--responsiveUnit) * 6));
+    height: (calc(var(--responsiveUnit) * 6));
+    // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    width: (calc(var(--responsiveUnit) * 3));
     border-radius: 50%;
     // border: calc(var(--responsiveUnit) * 0.2) solid $dark;
     position: absolute;

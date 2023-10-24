@@ -1,6 +1,7 @@
 #? TITLE && BRANCH setup
 TITLE="[build_n_deploy.sh]"
 BRANCH_NAME=$(git branch --show-current)
+COMMIT_SHORT_HASH=$(git rev-parse --short HEAD)
 
 echo $TITLE "setup config..."
 echo $TITLE "- - - - - - - - - - - - - - - - - - - - - - - - - -"
@@ -12,7 +13,7 @@ echo $TITLE "- PAGE_URL=" $PAGE_URL
 PROJECT_NAME="css-adventure"
 echo $TITLE "- PROJECT_NAME=" $PROJECT_NAME
 
-COMMIT_MESSAGE='`'"${BRANCH_NAME}"'`'
+COMMIT_MESSAGE='`'"${BRANCH_NAME}"':'"${COMMIT_SHORT_HASH}"'`'
 echo $TITLE "- COMMIT_MESSAGE=" $COMMIT_MESSAGE
 
 echo $TITLE "- - - - - - - - - - - - - - - - - - - - - - - - - -"

@@ -9,8 +9,8 @@
 }
 
 #content {
-  // height: 100%;
-  height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+  height: 100%;
+  // height: calc(100vh - var(--headerHeight) - var(--footerHeight));
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;

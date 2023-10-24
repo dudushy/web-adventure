@@ -3,13 +3,14 @@
 :host {
   display: flex;
   justify-content: center;
+  height: 100%;
   width: 100%;
   background: $medium;
   color: $dark;
 }
 
 #content {
-  height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+  height: 100%;
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;

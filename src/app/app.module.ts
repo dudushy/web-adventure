@@ -13,6 +13,7 @@ import { Loading2Component } from './adventures/loaders/loading2/loading2.compon
 import { Loading3Component } from './adventures/loaders/loading3/loading3.component';
 import { Loading4Component } from './adventures/loaders/loading4/loading4.component';
 import { Loading5Component } from './adventures/loaders/loading5/loading5.component';
+import { CubeComponent } from './adventures/loaders/cube/cube.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { Loading5Component } from './adventures/loaders/loading5/loading5.compon
     Loading2Component,
     Loading3Component,
     Loading4Component,
-    Loading5Component
+    Loading5Component,
+    CubeComponent
   ],
   imports: [
     BrowserModule,

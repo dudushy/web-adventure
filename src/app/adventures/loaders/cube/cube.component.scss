@@ -1,0 +1,86 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: calc(var(--responsiveUnit) * 15);
+}
+
+.cube {
+  width: calc(var(--responsiveUnit) * 5);
+  height: calc(var(--responsiveUnit) * 5);
+  animation: rotate 10s infinite alternate;
+  transform-style: preserve-3d;
+}
+
+.face {
+  background: linear-gradient(45deg, #4fd1c522, #4fd1c5cc);
+  border: calc(var(--responsiveUnit) * 0.1) solid #8c4fd1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--responsiveUnit) * 2);
+  font-weight: bolder;
+  color: #234e52;
+  width: calc(var(--responsiveUnit) * 10.5);
+  height: calc(var(--responsiveUnit) * 10.5);
+  position: absolute;
+}
+
+.face--front {
+  transform: translateZ(calc(var(--responsiveUnit) * 5.25));
+}
+
+.face--right {
+  transform: rotateY(90deg) translateZ(calc(var(--responsiveUnit) * 5.25));
+}
+
+.face--back {
+  transform: rotateY(180deg) translateZ(calc(var(--responsiveUnit) * 5.25));
+}
+
+.face--left {
+  transform: rotateY(-90deg) translateZ(calc(var(--responsiveUnit) * 5.25));
+}
+
+.face--top {
+  transform: rotateX(90deg) translateZ(calc(var(--responsiveUnit) * 5.25));
+}
+
+.face--bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--responsiveUnit) * 5.25));
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(-20deg) rotateY(-10deg);
+  }
+
+  50% {
+    transform: rotateX(20deg) rotateY(320deg);
+  }
+
+  to {
+    transform: rotateX(-20deg) rotateY(-20deg);
+  }
+}

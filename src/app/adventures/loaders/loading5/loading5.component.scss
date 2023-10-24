@@ -9,7 +9,8 @@
 }
 
 #content {
-  height: 100%;
+  // height: 100%;
+  height: calc(100vh - var(--headerHeight) - var(--footerHeight));
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;
@@ -22,7 +23,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: (calc(var(--responsiveUnit) * 20));
 }
 
 .shy-wrapper {

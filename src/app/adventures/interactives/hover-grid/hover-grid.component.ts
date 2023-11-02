@@ -35,4 +35,38 @@ export class HoverGridComponent implements OnInit {
   }
 
   defaultOrder() { return 0; }
+
+  triggerFade(event) {
+    console.log(`[${this.title}#triggerFade] event`, event);
+    console.log(`[${this.title}#triggerFade] event.target`, event.target);
+
+    event.target.classList.remove('fade');
+    void event.target.offsetWidth;
+    event.target.classList.add('fade');
+    event.target.addEventListener('animationend', () => {
+      event.target.classList.remove('fade');
+    });
+  }
+
+  triggerFadeMobile(event) {
+    console.log(`[${this.title}#triggerFadeMobile] event`, event);
+
+    event.preventDefault();
+
+    const touch = event.touches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+
+    const hoveredElement = document.elementFromPoint(x, y) as HTMLElement;
+    console.log(`[${this.title}#triggerFadeMobile] hoveredElement`, hoveredElement);
+
+    if (!hoveredElement) return;
+
+    hoveredElement.classList.remove('fade');
+    void hoveredElement.offsetWidth;
+    hoveredElement.classList.add('fade');
+    hoveredElement.addEventListener('animationend', () => {
+      hoveredElement.classList.remove('fade');
+    });
+  }
 }

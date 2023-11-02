@@ -11,6 +11,7 @@ import { Loading3Component } from './adventures/loaders/loading3/loading3.compon
 import { Loading4Component } from './adventures/loaders/loading4/loading4.component';
 import { Loading5Component } from './adventures/loaders/loading5/loading5.component';
 import { CubeComponent } from './adventures/loaders/cube/cube.component';
+import { HoverGridComponent } from './adventures/interactives/hover-grid/hover-grid.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'loading4', component: Loading4Component, data: { type: 'loader', description: 'Quest 2'} },
   { path: 'loading5', component: Loading5Component, data: { type: 'loader', description: 'Shy'} },
   { path: 'cube', component: CubeComponent, data: { type: 'loader', description: '3D Cube'} },
+  { path: 'hover-grid', component: HoverGridComponent, data: { type: 'interactive', description: 'Animated Hover Grid'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

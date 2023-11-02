@@ -14,6 +14,7 @@ import { Loading3Component } from './adventures/loaders/loading3/loading3.compon
 import { Loading4Component } from './adventures/loaders/loading4/loading4.component';
 import { Loading5Component } from './adventures/loaders/loading5/loading5.component';
 import { CubeComponent } from './adventures/loaders/cube/cube.component';
+import { HoverGridComponent } from './adventures/interactives/hover-grid/hover-grid.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CubeComponent } from './adventures/loaders/cube/cube.component';
     Loading3Component,
     Loading4Component,
     Loading5Component,
-    CubeComponent
+    CubeComponent,
+    HoverGridComponent
   ],
   imports: [
     BrowserModule,

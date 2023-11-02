@@ -1,0 +1,53 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  --grid-background: #000;
+  --grid-color: #00ff00;
+
+  // height: 100%;
+  // width: 100%;
+  background: var(--grid-background);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  .grid-item {
+    height: calc(var(--responsiveUnit) * 2);
+    aspect-ratio: 1;
+    // background: var(--grid-background);
+    // background: $light;
+    border: calc(var(--responsiveUnit) * 0.2) solid var(--grid-background);
+    transition: all 5s;
+    // transition-timing-function: cubic-bezier(0, 1, 0, 0.2);
+    // transition-timing-function: cubic-bezier(0, 0.5, 0, 0.5);
+    transition-timing-function: cubic-bezier(0, 1.5, 1, 1);
+    &:hover {
+      background-color: var(--grid-color);
+    }
+  }
+}

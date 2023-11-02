@@ -54,6 +54,9 @@
     &[type="loader"] {
       border-color: $secondary;
     }
+    &[type="interactive"] {
+      border-color: $tertiary;
+    }
 
     a {
       display: flex;

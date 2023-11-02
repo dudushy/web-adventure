@@ -1,6 +1,7 @@
 #? TITLE && BRANCH setup
 TITLE="[build_n_deploy.sh]"
 BRANCH_NAME=$(git branch --show-current)
+COMMIT_HASH=$(git rev-parse HEAD)
 COMMIT_SHORT_HASH=$(git rev-parse --short HEAD)
 
 echo $TITLE "setup config..."

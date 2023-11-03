@@ -57,6 +57,9 @@
     &[type="interactive"] {
       border-color: $tertiary;
     }
+    &[type="random"] {
+      border-color: $danger;
+    }
 
     a {
       display: flex;

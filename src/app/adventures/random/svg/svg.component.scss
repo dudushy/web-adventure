@@ -1,0 +1,30 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+app-svg-renderer {
+  width: 8%;
+  // width: calc(var(--responsiveUnit) * 2);
+  fill: red;
+  stroke: green;
+}

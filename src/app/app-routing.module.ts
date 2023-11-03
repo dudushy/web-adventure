@@ -12,6 +12,7 @@ import { Loading4Component } from './adventures/loaders/loading4/loading4.compon
 import { Loading5Component } from './adventures/loaders/loading5/loading5.component';
 import { CubeComponent } from './adventures/loaders/cube/cube.component';
 import { HoverGridComponent } from './adventures/interactives/hover-grid/hover-grid.component';
+import { SvgComponent } from './adventures/random/svg/svg.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'loading5', component: Loading5Component, data: { type: 'loader', description: 'Shy'} },
   { path: 'cube', component: CubeComponent, data: { type: 'loader', description: '3D Cube'} },
   { path: 'hover-grid', component: HoverGridComponent, data: { type: 'interactive', description: 'Animated Hover Grid'} },
+  { path: 'svg', component: SvgComponent, data: { type: 'random', description: 'Testing SVGs'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

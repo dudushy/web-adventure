@@ -40,8 +40,8 @@ export class HoverGridComponent implements OnInit {
     console.log(`[${this.title}#triggerFade] event`, event);
     console.log(`[${this.title}#triggerFade] event.target`, event.target);
 
-    event.target.classList.remove('fade');
-    void event.target.offsetWidth;
+    if (event.target.classList.contains('fade')) this.resetAnimation(event.target);
+
     event.target.classList.add('fade');
     event.target.addEventListener('animationend', () => {
       event.target.classList.remove('fade');
@@ -62,11 +62,32 @@ export class HoverGridComponent implements OnInit {
 
     if (!hoveredElement) return;
 
-    hoveredElement.classList.remove('fade');
-    void hoveredElement.offsetWidth;
+    if (hoveredElement.classList.contains('fade')) this.resetAnimation(hoveredElement);
+
     hoveredElement.classList.add('fade');
     hoveredElement.addEventListener('animationend', () => {
       hoveredElement.classList.remove('fade');
     });
+  }
+
+  resetAnimation(element) {
+    console.log(`[${this.title}#resetAnimation] element`, element);
+
+    //? Method 1
+    element.classList.remove('fade');
+    void element.offsetWidth;
+
+    //? Method 2
+    // const parent = element.parentElement;
+    // const sibling = element.nextElementSibling;
+    // const clonedElement = element.cloneNode(true);
+
+    // if (sibling) {
+    //   parent.insertBefore(clonedElement, sibling);
+    // } else {
+    //   parent.appendChild(clonedElement);
+    // }
+
+    // parent.removeChild(element);
   }
 }

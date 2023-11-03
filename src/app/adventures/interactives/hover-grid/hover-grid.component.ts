@@ -74,20 +74,20 @@ export class HoverGridComponent implements OnInit {
     console.log(`[${this.title}#resetAnimation] element`, element);
 
     //? Method 1
-    element.classList.remove('fade');
-    void element.offsetWidth;
+    // element.classList.remove('fade');
+    // void element.offsetWidth;
 
     //? Method 2
-    // const parent = element.parentElement;
-    // const sibling = element.nextElementSibling;
-    // const clonedElement = element.cloneNode(true);
+    const parent = element.parentElement;
+    const sibling = element.nextElementSibling;
+    const clonedElement = element.cloneNode(true);
 
-    // if (sibling) {
-    //   parent.insertBefore(clonedElement, sibling);
-    // } else {
-    //   parent.appendChild(clonedElement);
-    // }
+    if (sibling) {
+      parent.insertBefore(clonedElement, sibling);
+    } else {
+      parent.appendChild(clonedElement);
+    }
 
-    // parent.removeChild(element);
+    parent.removeChild(element);
   }
 }

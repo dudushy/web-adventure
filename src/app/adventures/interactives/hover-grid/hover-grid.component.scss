@@ -35,11 +35,16 @@
   align-content: space-between;
   justify-content: space-between;
 
-  .grid-item {
+  .grid-cell {
     height: calc(var(--responsiveUnit) * 3);
     aspect-ratio: 1;
     // background: $light;
     border: calc(var(--responsiveUnit) * 0.2) solid var(--grid-background);
+    transition: all 0.5s ease-in-out;
+    animation: fadeOut 1.5s;
+    &:hover {
+      animation: fadeIn 1.5s;
+    }
     &.fade {
       animation: fade 1.5s linear forwards;
     }
@@ -47,6 +52,24 @@
 }
 
 @keyframes fade {
+  from {
+    background: var(--grid-color);
+  }
+  to {
+    background: var(--grid-background);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background: var(--grid-background);
+  }
+  to {
+    background: var(--grid-color);
+  }
+}
+
+@keyframes fadeOut {
   from {
     background: var(--grid-color);
   }

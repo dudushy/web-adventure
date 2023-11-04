@@ -37,10 +37,15 @@ export class HoverGridComponent implements OnInit {
   defaultOrder() { return 0; }
 
   triggerFade(event) {
+    return;
+
     console.log(`[${this.title}#triggerFade] event`, event);
     console.log(`[${this.title}#triggerFade] event.target`, event.target);
+    console.log(`[${this.title}#triggerFade] event.target.classList`, event.target.classList);
 
-    if (event.target.classList.contains('fade')) this.resetAnimation(event.target);
+    if (!event.target) return;
+
+    // if (event.target.classList.contains('fade')) this.resetAnimation(event.target);
 
     event.target.classList.add('fade');
     event.target.addEventListener('animationend', () => {
@@ -49,45 +54,55 @@ export class HoverGridComponent implements OnInit {
   }
 
   triggerFadeMobile(event) {
+    return; //TODO fix this shit
+
     console.log(`[${this.title}#triggerFadeMobile] event`, event);
+    console.log(`[${this.title}#triggerFadeMobile] event.target`, event.target);
+    console.log(`[${this.title}#triggerFadeMobile] event.target.classList`, event.target.classList);
 
     event.preventDefault();
 
-    const touch = event.touches[0];
-    const x = touch.clientX;
-    const y = touch.clientY;
+    if (!event.target) return;
 
-    const hoveredElement = document.elementFromPoint(x, y) as HTMLElement;
-    console.log(`[${this.title}#triggerFadeMobile] hoveredElement`, hoveredElement);
+    // if (event.target.classList.contains('fade')) this.resetAnimation(event.target);
 
-    if (!hoveredElement) return;
-
-    if (hoveredElement.classList.contains('fade')) this.resetAnimation(hoveredElement);
-
-    hoveredElement.classList.add('fade');
-    hoveredElement.addEventListener('animationend', () => {
-      hoveredElement.classList.remove('fade');
+    event.target.classList.add('fade');
+    event.target.addEventListener('animationend', () => {
+      event.target.classList.remove('fade');
     });
   }
 
   resetAnimation(element) {
     console.log(`[${this.title}#resetAnimation] element`, element);
-
     //? Method 1
     // element.classList.remove('fade');
     // void element.offsetWidth;
 
     //? Method 2
-    const parent = element.parentElement;
-    const sibling = element.nextElementSibling;
-    const clonedElement = element.cloneNode(true);
+    // const parent = element.parentElement;
+    // const sibling = element.nextElementSibling;
+    // const clonedElement = element.cloneNode(true);
+    // if (sibling) {
+    //   parent.insertBefore(clonedElement, sibling);
+    // } else {
+    //   parent.appendChild(clonedElement);
+    // }
+    // parent.removeChild(element);
 
-    if (sibling) {
-      parent.insertBefore(clonedElement, sibling);
-    } else {
-      parent.appendChild(clonedElement);
-    }
+    //? Method 3
+    const animation = element.style.animation;
+    console.log(`[${this.title}#resetAnimation] animation`, animation);
 
-    parent.removeChild(element);
+    element.style.animation = 'none';
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        element.style.animation = animation;
+      }, 0);
+    });
+  }
+
+  test(event) {
+    console.log(`[${this.title}#test] event`, event);
   }
 }

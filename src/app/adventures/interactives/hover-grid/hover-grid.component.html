@@ -1,5 +1,5 @@
 <div id="content">
-  <div class="grid" (mouseover)="triggerFade($event)" (touchmove)="triggerFadeMobile($event)">
-    <div class="grid-item" *ngFor="let cell of [].constructor(200)"></div>
+  <div class="grid" (touchmove)="triggerFadeMobile($event)">
+    <div class="grid-cell" *ngFor="let cell of [].constructor(200)"></div>
   </div>
 </div>

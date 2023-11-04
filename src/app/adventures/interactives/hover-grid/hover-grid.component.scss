@@ -43,10 +43,10 @@
     transition: all 0.5s ease-in-out;
     animation: fadeOut 1.5s;
     &:hover {
-      animation: fadeIn 1.5s;
+      animation: fadeIn 1.5s forwards;
     }
     &.fade {
-      animation: fade 1.5s linear forwards;
+      animation: fade 1.5s forwards;
     }
   }
 }

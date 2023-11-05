@@ -18,6 +18,7 @@ import { HoverGridComponent } from './adventures/interactives/hover-grid/hover-g
 import { SvgComponent } from './adventures/random/svg/svg.component';
 import { SvgRendererComponent } from './components/svg-renderer/svg-renderer.component';
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
+import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HoverPatternComponent } from './adventures/interactives/hover-pattern/h
     HoverGridComponent,
     SvgComponent,
     SvgRendererComponent,
-    HoverPatternComponent
+    HoverPatternComponent,
+    RubiksCubeComponent
   ],
   imports: [
     BrowserModule,

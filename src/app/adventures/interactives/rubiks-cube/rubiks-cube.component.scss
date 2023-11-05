@@ -1,0 +1,109 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // perspective: calc(var(--responsiveUnit) * 15);
+  cursor: grab;
+}
+
+#cube {
+  // position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(36deg) rotateY(-135deg);
+}
+
+.face {
+  --faceSize: calc(var(--responsiveUnit) * 6);
+
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: calc(var(--responsiveUnit) * 0.2);
+  width: var(--faceSize);
+  height: var(--faceSize);
+  background: $black;
+  border: calc(var(--responsiveUnit) * 0.1) solid $black;
+  font-size: calc(var(--responsiveUnit) * 1.2);
+  font-weight: bolder;
+  color: $white;
+  user-select: none;
+}
+
+.front {
+  //? face1
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+
+  .cell {
+    background: green;
+  }
+}
+
+.back {
+  //? face2
+  transform: rotateX(-90deg);
+  transform-origin: top;
+
+  .cell {
+    background: blue;
+  }
+}
+
+.right {
+  //? face3
+  transform: rotateY(90deg);
+  transform-origin: left;
+
+  .cell {
+    background: red;
+  }
+}
+
+.left {
+  //? face4
+  transform: rotateY(-90deg);
+  transform-origin: right;
+
+  .cell {
+    background: orange;
+  }
+}
+
+.down {
+  //? face5
+
+  .cell {
+    background: yellow;
+  }
+}
+
+.up {
+  //? face6
+  transform: translate3d(0, 0, calc(var(--faceSize) * -1));
+
+  .cell {
+    background: white;
+  }
+}

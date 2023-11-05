@@ -14,6 +14,7 @@ import { CubeComponent } from './adventures/loaders/cube/cube.component';
 import { HoverGridComponent } from './adventures/interactives/hover-grid/hover-grid.component';
 import { SvgComponent } from './adventures/random/svg/svg.component';
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
+import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'hover-grid', component: HoverGridComponent, data: { type: 'interactive', description: 'Animated Hover Grid'} },
   { path: 'svg', component: SvgComponent, data: { type: 'random', description: 'Testing SVGs'} },
   { path: 'hover-pattern', component: HoverPatternComponent, data: { type: 'interactive', description: 'Hover this!'} },
+  { path: 'rubiks-cube', component: RubiksCubeComponent, data: { type: 'interactive', description: 'Rubik\u0027s Cube'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

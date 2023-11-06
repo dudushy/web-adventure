@@ -121,7 +121,7 @@ export class RubiksCubeComponent implements OnInit {
     const rotateCubeMobile = (event) => {
       console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] event`, event);
 
-      // event.preventDefault();
+      event.preventDefault();
 
       const deltaX = event.touches[0].pageX - lastMouseX;
       console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] deltaX`, deltaX);

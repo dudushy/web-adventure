@@ -45,87 +45,142 @@ export class RubiksCubeComponent implements OnInit {
     const cube = document.getElementById('cube');
     console.log(`[${this.title}#setupCubeInteraction] cube`, cube);
 
+    let x = 0;
+    let y = 0;
+
     let lastMouseX = 0;
     let lastMouseY = 0;
     let rotX = 0;
     let rotY = 0;
 
-    window.addEventListener('mousedown', (event) => {
-      const x = event.clientX;
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] x`, x);
+    const updateCoordinates = (event) => {
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinates] event`, event);
 
-      const y = event.clientY;
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] y`, y);
+      x = event.clientX;
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinates] x`, x);
+
+      y = event.clientY;
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinates] y`, y);
 
       lastMouseX = event.pageX;
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] lastMouseX`, lastMouseX);
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinates] lastMouseX`, lastMouseX);
 
       lastMouseY = event.pageY;
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] lastMouseY`, lastMouseY);
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinates] lastMouseY`, lastMouseY);
+    };
+    console.log(`[${this.title}#setupCubeInteraction] updateCoordinates`, updateCoordinates);
+
+    const rotateCube = (event) => {
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] event`, event);
+
+      const deltaX = event.pageX - lastMouseX;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] deltaX`, deltaX);
+
+      const deltaY = event.pageY - lastMouseY;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] deltaY`, deltaY);
+
+      lastMouseX = event.pageX;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] lastMouseX`, lastMouseX);
+
+      lastMouseY = event.pageY;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] lastMouseY`, lastMouseY);
+
+      const aux = -0.5;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] aux`, aux);
+
+      rotX += deltaY * aux;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] rotX`, rotX);
+
+      rotY -= deltaX * aux;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] rotY`, rotY);
+
+      const transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCube] transform`, transform);
+
+      cube.style.transform = transform;
+    };
+    console.log(`[${this.title}#setupCubeInteraction] rotateCube`, rotateCube);
+
+    const updateCoordinatesMobile = (event) => {
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinatesMobile] event`, event);
+
+      x = event.touches[0].clientX;
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinatesMobile] x`, x);
+
+      y = event.touches[0].clientY;
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinatesMobile] y`, y);
+
+      lastMouseX = event.touches[0].pageX;
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinatesMobile] lastMouseX`, lastMouseX);
+
+      lastMouseY = event.touches[0].pageY;
+      console.log(`[${this.title}#setupCubeInteraction#updateCoordinatesMobile] lastMouseY`, lastMouseY);
+    };
+    console.log(`[${this.title}#setupCubeInteraction] updateCoordinatesMobile`, updateCoordinatesMobile);
+
+    const rotateCubeMobile = (event) => {
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] event`, event);
+
+      const deltaX = event.touches[0].pageX - lastMouseX;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] deltaX`, deltaX);
+
+      const deltaY = event.touches[0].pageY - lastMouseY;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] deltaY`, deltaY);
+
+      lastMouseX = event.touches[0].pageX;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] lastMouseX`, lastMouseX);
+
+      lastMouseY = event.touches[0].pageY;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] lastMouseY`, lastMouseY);
+
+      const aux = -0.5;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] aux`, aux);
+
+      rotX += deltaY * aux;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] rotX`, rotX);
+
+      rotY -= deltaX * aux;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] rotY`, rotY);
+
+      const transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      console.log(`[${this.title}#setupCubeInteraction#rotateCubeMobile] transform`, transform);
+
+      cube.style.transform = transform;
+    };
+    console.log(`[${this.title}#setupCubeInteraction] rotateCubeMobile`, rotateCubeMobile);
+
+    window.addEventListener('mousedown', (event) => {
+      console.log(`[${this.title}#setupCubeInteraction#mousedown]`);
+
+      updateCoordinates(event);
 
       content.style.cursor = 'grabbing';
 
-      const rotateCube = (event) => {
-        // console.log(`[${this.title}#setupCubeInteraction#rotateCube] cube`, cube);
-
-        const deltaX = event.clientX - x;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube] deltaX`, deltaX);
-
-        const deltaY = event.clientY - y;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube] deltaY`, deltaY);
-
-        const rotateX = deltaY / 2;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube] rotateX`, rotateX);
-
-        const rotateY = deltaX / 2;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube] rotateY`, rotateY);
-
-        const transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube] transform`, transform);
-
-        cube.style.transform = transform;
-      };
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] rotateCube`, rotateCube);
-
-      const rotateCube2 = (event) => {
-        // console.log(`[${this.title}#setupCubeInteraction#rotateCube2] cube`, cube);
-
-        const deltaX = event.pageX - lastMouseX;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] deltaX`, deltaX);
-
-        const deltaY = event.pageY - lastMouseY;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] deltaY`, deltaY);
-
-        lastMouseX = event.pageX;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] lastMouseX`, lastMouseX);
-
-        lastMouseY = event.pageY;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] lastMouseY`, lastMouseY);
-
-        const aux = -0.5;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] aux`, aux);
-
-        rotX += deltaY * aux;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] rotX`, rotX);
-
-        rotY -= deltaX * aux;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] rotY`, rotY);
-
-        const transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        console.log(`[${this.title}#setupCubeInteraction#rotateCube2] transform`, transform);
-
-        cube.style.transform = transform;
-      };
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] rotateCube2`, rotateCube2);
-
-      // window.addEventListener('mousemove', rotateCube);
-      window.addEventListener('mousemove', rotateCube2);
+      window.addEventListener('mousemove', rotateCube);
 
       window.addEventListener('mouseup', () => {
         console.log(`[${this.title}#setupCubeInteraction#mouseup]`);
 
-        // window.removeEventListener('mousemove', rotateCube);
-        window.removeEventListener('mousemove', rotateCube2);
+        window.removeEventListener('mousemove', rotateCube);
+
+        content.style.cursor = 'grab';
+      });
+    });
+
+    window.addEventListener('touchstart', (event) => {
+      console.log(`[${this.title}#setupCubeInteraction#touchstart]`);
+
+      updateCoordinatesMobile(event);
+
+      content.style.cursor = 'grabbing';
+
+      window.addEventListener('touchmove', rotateCubeMobile);
+
+      window.addEventListener('touchend', () => {
+        console.log(`[${this.title}#setupCubeInteraction#touchend]`);
+
+        window.removeEventListener('touchmove', rotateCubeMobile);
+
         content.style.cursor = 'grab';
       });
     });

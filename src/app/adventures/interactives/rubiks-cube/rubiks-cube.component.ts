@@ -46,21 +46,27 @@ export class RubiksCubeComponent implements OnInit {
     console.log(`[${this.title}#setupCubeInteraction] cube`, cube);
 
     window.addEventListener('mousedown', (event) => {
-      const x = event.clientX;
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] x`, x);
+      const previousX = event.clientX;
+      console.log(`[${this.title}#setupCubeInteraction#mousedown] previousX`, previousX);
 
-      const y = event.clientY;
-      console.log(`[${this.title}#setupCubeInteraction#mousedown] y`, y);
+      const previousY = event.clientY;
+      console.log(`[${this.title}#setupCubeInteraction#mousedown] previousY`, previousY);
 
       content.style.cursor = 'grabbing';
 
       const rotateCube = (event) => {
         // console.log(`[${this.title}#setupCubeInteraction#rotateCube] cube`, cube);
 
-        const rotateX = (event.clientY - y) / 2;
+        const deltaX = event.clientX - previousX;
+        console.log(`[${this.title}#setupCubeInteraction#rotateCube] deltaX`, deltaX);
+
+        const deltaY = event.clientY - previousY;
+        console.log(`[${this.title}#setupCubeInteraction#rotateCube] deltaY`, deltaY);
+
+        const rotateX = deltaY / 2;
         console.log(`[${this.title}#setupCubeInteraction#rotateCube] rotateX`, rotateX);
 
-        const rotateY = (event.clientX - x) / 2;
+        const rotateY = deltaX / 2;
         console.log(`[${this.title}#setupCubeInteraction#rotateCube] rotateY`, rotateY);
 
         const transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;

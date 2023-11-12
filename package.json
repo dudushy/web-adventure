@@ -1,5 +1,5 @@
 {
-  "name": "css-adventure",
+  "name": "web-adventure",
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",

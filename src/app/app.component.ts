@@ -12,8 +12,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  PROJECT_NAME = 'CSS Adventure';
-  PROJECT_DIR = 'css-adventure';
+  PROJECT_NAME = 'Web Adventure';
+  PROJECT_DIR = 'web-adventure';
 
   title = 'AppComponent';
 

@@ -32,7 +32,8 @@
     align-items: center;
     overflow: hidden;
     @include fixedHeight(calc(var(--responsiveUnit) * 10));
-    aspect-ratio: 1;
+    @include fixedWidth(calc(var(--responsiveUnit) * 10));
+    // aspect-ratio: 1;
     margin: 2%;
     border-radius: calc(var(--responsiveUnit) * 2);
     background: $medium;

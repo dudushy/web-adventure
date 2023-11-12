@@ -30,7 +30,8 @@
   --animationArgs: 3s linear infinite;
 
   @include fixedHeight(calc(var(--responsiveUnit) * 10));
-  aspect-ratio: 1;
+  @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  // aspect-ratio: 1;
   background: $light;
   border-radius: 50%;
   display: flex;

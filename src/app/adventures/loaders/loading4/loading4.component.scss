@@ -27,7 +27,8 @@
 
 .loader-wrapper {
   @include fixedHeight(calc(var(--responsiveUnit) * 10));
-  aspect-ratio: 1;
+  @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  // aspect-ratio: 1;
   background: $medium;
   display: flex;
   align-items: center;
@@ -35,7 +36,8 @@
 
   .ball {
     @include fixedHeight(calc(var(--responsiveUnit) * 2));
-    aspect-ratio: 1;
+    @include fixedWidth(calc(var(--responsiveUnit) * 2));
+    // aspect-ratio: 1;
     border-radius: 50%;
     background: $dark;
     animation: pulse 2s infinite ease-in-out;

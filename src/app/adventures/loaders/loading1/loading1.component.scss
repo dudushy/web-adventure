@@ -31,7 +31,8 @@
   align-items: center;
   // @include fixedHeight(calc(var(--responsiveUnit) * 3));
   height: (calc(var(--responsiveUnit) * 3));
-  aspect-ratio: 1;
+  width: (calc(var(--responsiveUnit) * 3));
+  // aspect-ratio: 1;
   border-radius: 50%;
   // border: calc(var(--responsiveUnit) * 0.15) solid $dark;
   // box-shadow: 0 0 15px 5px $warning;

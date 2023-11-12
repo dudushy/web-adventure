@@ -1,7 +1,7 @@
-[![pages-build-deployment](https://github.com/dudushy/css-adventure/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/dudushy/css-adventure/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/dudushy/web-adventure/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/dudushy/web-adventure/actions/workflows/pages/pages-build-deployment)
 
-# [css-adventure](https://github.com/dudushy/css-adventure/)
-My CSS adventure.
+# [web-adventure](https://github.com/dudushy/web-adventure/)
+My Web Adventure.
 
 ---
 ## Prerequisites:

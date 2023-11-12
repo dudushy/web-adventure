@@ -27,7 +27,8 @@
 
 .newton-disc {
   @include fixedHeight(calc(var(--responsiveUnit) * 10));
-  aspect-ratio: 1;
+  @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  // aspect-ratio: 1;
   background: white;
   border-radius: 50%;
   box-shadow: 0 0 calc(var(--responsiveUnit) * 0.6) calc(var(--responsiveUnit) * 0.2) white;

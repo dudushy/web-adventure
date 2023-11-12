@@ -27,7 +27,8 @@
 
 .fairy {
   @include fixedHeight(calc(var(--responsiveUnit) * 10));
-  aspect-ratio: 1;
+  @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  // aspect-ratio: 1;
   background: $light;
   display: flex;
   align-items: center;

@@ -47,10 +47,11 @@
   border: calc(var(--responsiveUnit) * 0.2) solid $dark;
 
   .grid-cell {
-    background-image: url("/assets/imgs/WEBPs/redstone_lamp-off.webp");
+    background-color: $medium;
+    background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-off.webp");
+    // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-off.webp");
     background-position: center;
     background-size: cover;
-    // background: $medium;
     border: calc(var(--responsiveUnit) * 0.1) solid $dark;
     @include allVendors(transition, all 100ms ease-in-out);
     &:hover {
@@ -58,8 +59,9 @@
       border: calc(var(--responsiveUnit) * 0.1) solid $light;
     }
     &.on {
-      // background: $light;
-      background-image: url("/assets/imgs/WEBPs/redstone_lamp-on.webp");
+      background-color: $light;
+      background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-on.webp");
+      // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-on.webp");
     }
   }
 }

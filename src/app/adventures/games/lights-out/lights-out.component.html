@@ -1,0 +1,19 @@
+<div id="content">
+  <!-- <div class="menu">
+    <div class="customInput">
+      <label for="rows">Rows</label>
+      <input disabled type="number" value="5" [(ngModel)]="rows">
+    </div>
+
+    <div class="customInput">
+      <label for="columns">Columns</label>
+      <input disabled type="number" value="5" [(ngModel)]="columns">
+    </div>
+
+    <input type="button" value="New Game">
+  </div> -->
+
+  <div class="grid" style="--rows: {{rows}}; --columns: {{columns}};">
+    <div class="grid-cell" *ngFor="let cell of [].constructor(rows * columns); let i = index" id="cell-{{i + 1}}" (click)="toggleLights($event)"></div>
+  </div>
+</div>

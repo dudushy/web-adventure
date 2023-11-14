@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './pages/home/home.component';
 import { TestComponent } from './pages/test/test.component';
@@ -19,6 +20,7 @@ import { SvgComponent } from './adventures/random/svg/svg.component';
 import { SvgRendererComponent } from './components/svg-renderer/svg-renderer.component';
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
 import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
+import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +40,13 @@ import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubik
     SvgComponent,
     SvgRendererComponent,
     HoverPatternComponent,
-    RubiksCubeComponent
+    RubiksCubeComponent,
+    LightsOutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

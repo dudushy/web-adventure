@@ -61,6 +61,9 @@
     &[type="random"] {
       border-color: $danger;
     }
+    &[type="game"] {
+      border-color: $success;
+    }
 
     a {
       display: flex;

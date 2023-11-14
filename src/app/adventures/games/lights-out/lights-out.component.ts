@@ -98,5 +98,7 @@ export class LightsOutComponent implements OnInit {
 
       this.randomLights--;
     }
+
+    this.updateView();
   }
 }

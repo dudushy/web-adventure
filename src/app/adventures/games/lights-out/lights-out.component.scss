@@ -34,8 +34,82 @@
   padding: 1%;
 }
 
-.grid {
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1%;
+
+  span {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: calc(var(--responsiveUnit) * 1.5);
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 1%;
+  width: 55%;
+
+  span {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: calc(var(--responsiveUnit) * 1.5);
+  }
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+
+  @include portrait {
+    flex-direction: column;
+  }
+}
+
+.pattern {
+  display: grid;
+  grid-template-rows: repeat(var(--rows), 1fr);
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-column-gap: calc(var(--responsiveUnit) * 0.1);
+  grid-row-gap: calc(var(--responsiveUnit) * 0.1);
+  background: $black;
+  height: calc(var(--responsiveUnit) * 20);
+  width: calc(var(--responsiveUnit) * 20);
+  border: calc(var(--responsiveUnit) * 0.2) solid $warning;
+
+  @include landscape {
+    margin-right: 5%;
+  }
+
+  @include portrait {
+    margin-bottom: 5%;
+  }
+
+  .pattern-cell {
+    background-color: $medium;
+    background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-off.webp");
+    // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-off.webp");
+    background-position: center;
+    background-size: cover;
+    border: calc(var(--responsiveUnit) * 0.1) solid $dark;
+    @include allVendors(transition, all 100ms ease-in-out);
+    &.on {
+      background-color: $light;
+      background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-on.webp");
+      // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-on.webp");
+    }
+  }
+}
+
+.grid {
+  // margin-top: 1%;
   display: grid;
   grid-template-rows: repeat(var(--rows), 1fr);
   grid-template-columns: repeat(var(--columns), 1fr);
@@ -63,5 +137,18 @@
       background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-on.webp");
       // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-on.webp");
     }
+  }
+}
+
+
+#content[gameEnd="true"] {
+  // background: $light;
+
+  header span, footer span{
+    color: $success;
+  }
+
+  .pattern, .grid {
+    border-color: $success;
   }
 }

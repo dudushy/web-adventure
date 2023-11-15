@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content" [attr.gameEnd]="gameEnd">
   <!-- <div class="menu">
     <div class="customInput">
       <label for="rows">Rows</label>
@@ -13,7 +13,22 @@
     <input type="button" value="New Game">
   </div> -->
 
-  <div class="grid" style="--rows: {{rows}}; --columns: {{columns}};">
-    <div class="grid-cell" *ngFor="let cell of [].constructor(rows * columns); let i = index" id="cell-{{i + 1}}" (click)="toggleLights($event)"></div>
+  <header>
+    <span>{{randomPattern}}</span>
+  </header>
+
+  <div class="game">
+    <div class="pattern" style="--rows: {{rows}}; --columns: {{columns}};">
+      <div class="pattern-cell" *ngFor="let cell of [].constructor(rows * columns); let i = index" id="patternCell-{{i + 1}}"></div>
+    </div>
+
+    <div class="grid" style="--rows: {{rows}}; --columns: {{columns}};">
+      <div class="grid-cell" *ngFor="let cell of [].constructor(rows * columns); let i = index" id="gridCell-{{i + 1}}" (click)="toggleLights($event)"></div>
+    </div>
   </div>
+
+  <footer>
+    <span>{{counterClicks}}</span>
+    <span>{{counterTime}}</span>
+  </footer>
 </div>

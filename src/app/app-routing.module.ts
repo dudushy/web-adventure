@@ -16,6 +16,7 @@ import { SvgComponent } from './adventures/random/svg/svg.component';
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
 import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
+import { QxirComponent } from './adventures/random/qxir/qxir.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'hover-pattern', component: HoverPatternComponent, data: { type: 'interactive', description: 'Hover this!'} },
   { path: 'rubiks-cube', component: RubiksCubeComponent, data: { type: 'interactive', description: 'Rubik\u0027s Cube'} },
   { path: 'lights-out', component: LightsOutComponent, data: { type: 'game', description: 'Lights Out'} },
+  { path: 'qxir', component: QxirComponent, data: { type: 'random', description: 'Qxir Text'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

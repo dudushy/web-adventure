@@ -21,6 +21,7 @@ import { SvgRendererComponent } from './components/svg-renderer/svg-renderer.com
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
 import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
+import { QxirComponent } from './adventures/random/qxir/qxir.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LightsOutComponent } from './adventures/games/lights-out/lights-out.com
     SvgRendererComponent,
     HoverPatternComponent,
     RubiksCubeComponent,
-    LightsOutComponent
+    LightsOutComponent,
+    QxirComponent
   ],
   imports: [
     BrowserModule,

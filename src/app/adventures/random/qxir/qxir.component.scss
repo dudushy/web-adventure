@@ -1,0 +1,46 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customStroke {
+  // font-family: "Segoe UI", sans-serif;
+  font-family: "Roadgeek";
+  font-size: calc(var(--responsiveUnit) * 10);
+  font-weight: bolder;
+  // letter-spacing: calc(var(--responsiveUnit) * 0.1);
+  letter-spacing: calc(var(--responsiveUnit) * -0.2);
+  color: $black;
+  background: linear-gradient(
+    90deg,
+    rgb(251, 0, 109),
+    rgb(126, 38, 252),
+    rgb(14, 0, 252),
+    rgb(0, 255, 214),
+    rgb(1, 250, 12),
+    rgb(228, 252, 58),
+    rgb(255, 219, 9)
+  );
+  @include allVendors(background-clip, text);
+  @include allVendors(text-stroke-color, transparent);
+  @include allVendors(text-stroke-width, calc(var(--responsiveUnit) * 0.5));
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-renderer',
+  selector: 'svg-renderer',
   templateUrl: './svg-renderer.component.html',
   styleUrls: ['./svg-renderer.component.scss']
 })
@@ -36,6 +36,8 @@ export class SvgRendererComponent implements OnInit, AfterViewInit {
       })
       .catch(error => {
         console.log(`[${this.title}#loadSvgFile] error`, error);
+
+        this.svgContainer.nativeElement.innerHTML = `<p>Failed to load SVG file: ${this.svgFilePath}</p>`;
       });
   }
 }

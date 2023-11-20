@@ -22,6 +22,7 @@ import { HoverPatternComponent } from './adventures/interactives/hover-pattern/h
 import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
 import { QxirComponent } from './adventures/random/qxir/qxir.component';
+import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { QxirComponent } from './adventures/random/qxir/qxir.component';
     HoverPatternComponent,
     RubiksCubeComponent,
     LightsOutComponent,
-    QxirComponent
+    QxirComponent,
+    GlowTextComponent
   ],
   imports: [
     BrowserModule,

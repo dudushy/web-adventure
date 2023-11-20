@@ -1,0 +1,119 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+  overflow: hidden;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include portrait {
+    flex-direction: column;
+  }
+}
+
+.glowChar {
+  @include fixedHeight(calc(var(--responsiveUnit) * 5));
+  @include fixedWidth(calc(var(--responsiveUnit) * 5));
+  background: $black;
+  color: $white;
+  font-size: calc(var(--responsiveUnit) * 3);
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: calc(var(--responsiveUnit) * 0.5);
+  // text-shadow: 0 0 20px $white;
+  // text-shadow: 0 0 10px $white, 0 0 20px $white;
+  text-shadow:
+    0 0 20px $white,
+    0 0 20px $white,
+    0 0 20px $white;
+  box-shadow: 0 0 20px $white;
+  @include allVendors(transition, 0.5s ease-in-out);
+
+  &.glow {
+    animation: glow-rainbow 5s linear infinite;
+  }
+}
+
+@keyframes glow-rainbow {
+  0% {
+    color: red;
+    text-shadow:
+      0 0 20px red,
+      0 0 20px red,
+      0 0 20px red;
+    box-shadow: 0 0 20px red;
+  }
+  15% {
+    color: orange;
+    text-shadow:
+      0 0 20px orange,
+      0 0 20px orange,
+      0 0 20px orange;
+    box-shadow: 0 0 20px orange;
+  }
+  30% {
+    color: yellow;
+    text-shadow:
+      0 0 20px yellow,
+      0 0 20px yellow,
+      0 0 20px yellow;
+    box-shadow: 0 0 20px yellow;
+  }
+  45% {
+    color: green;
+    text-shadow:
+      0 0 20px green,
+      0 0 20px green,
+      0 0 20px green;
+    box-shadow: 0 0 20px green;
+  }
+  60% {
+    color: blue;
+    text-shadow:
+      0 0 20px blue,
+      0 0 20px blue,
+      0 0 20px blue;
+    box-shadow: 0 0 20px blue;
+  }
+  70% {
+    color: indigo;
+    text-shadow:
+      0 0 20px indigo,
+      0 0 20px indigo,
+      0 0 20px indigo;
+    box-shadow: 0 0 20px indigo;
+  }
+  85% {
+    color: violet;
+    text-shadow:
+      0 0 20px violet,
+      0 0 20px violet,
+      0 0 20px violet;
+    box-shadow: 0 0 20px violet;
+  }
+  100% {
+    color: red;
+    text-shadow:
+      0 0 20px red,
+      0 0 20px red,
+      0 0 20px red;
+    box-shadow: 0 0 20px red;
+  }
+}

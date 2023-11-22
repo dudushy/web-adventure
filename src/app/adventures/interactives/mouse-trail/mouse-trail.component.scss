@@ -1,0 +1,43 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+  overflow: hidden;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  background: $black;
+}
+
+:host ::ng-deep .trail {
+// ::ng-deep .trail {
+  position: absolute;
+  // box-shadow: 0 0 calc(var(--responsiveUnit) * 0.6) calc(var(--responsiveUnit) * 0.3) $white;
+  background: red;
+  border-radius: 50%;
+  height: calc(var(--responsiveUnit) * 1);
+  width: calc(var(--responsiveUnit) * 1);
+  pointer-events: none;
+  @include allVendors(animation, hue-rainbow var(--trailDuration) linear forwards);
+}
+
+// .trail {
+//   animation: hue-rainbow var(--trailDuration) linear forwards;
+// }
+
+@keyframes hue-rainbow {
+  from {
+    filter: hue-rotate(0deg) blur(calc(var(--responsiveUnit) * 1));
+  }
+  to {
+    filter: hue-rotate(360deg) blur(calc(var(--responsiveUnit) * 1));
+    transform: scale(0.5);
+  }
+}

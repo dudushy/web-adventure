@@ -18,6 +18,7 @@ import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubik
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
 import { QxirComponent } from './adventures/random/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
+import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'lights-out', component: LightsOutComponent, data: { type: 'game', description: 'Lights Out'} },
   { path: 'qxir', component: QxirComponent, data: { type: 'random', description: 'Qxir Text'} },
   { path: 'glow-text', component: GlowTextComponent, data: { type: 'interactive', description: 'Glow Text'} },
+  { path: 'mouse-trail', component: MouseTrailComponent, data: { type: 'interactive', description: 'Mouse Trail'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

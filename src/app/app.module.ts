@@ -23,6 +23,7 @@ import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubik
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
 import { QxirComponent } from './adventures/random/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
+import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text
     RubiksCubeComponent,
     LightsOutComponent,
     QxirComponent,
-    GlowTextComponent
+    GlowTextComponent,
+    MouseTrailComponent
   ],
   imports: [
     BrowserModule,

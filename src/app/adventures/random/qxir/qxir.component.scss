@@ -23,8 +23,11 @@
 }
 
 .customStroke {
-  // font-family: "Segoe UI", sans-serif;
-  font-family: "Roadgeek";
+  // width: 100%;
+  padding-inline: 2%;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  // font-family: "Roadgeek";
   font-size: calc(var(--responsiveUnit) * 10);
   font-weight: bolder;
   // letter-spacing: calc(var(--responsiveUnit) * 0.1);

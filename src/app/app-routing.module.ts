@@ -19,6 +19,7 @@ import { LightsOutComponent } from './adventures/games/lights-out/lights-out.com
 import { QxirComponent } from './adventures/random/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
+import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'qxir', component: QxirComponent, data: { type: 'random', description: 'Qxir Text'} },
   { path: 'glow-text', component: GlowTextComponent, data: { type: 'interactive', description: 'Glow Text'} },
   { path: 'mouse-trail', component: MouseTrailComponent, data: { type: 'interactive', description: 'Mouse Trail'} },
+  { path: 'hover-light', component: HoverLightComponent, data: { type: 'interactive', description: 'Hover Light'} },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

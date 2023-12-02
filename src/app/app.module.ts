@@ -24,6 +24,7 @@ import { LightsOutComponent } from './adventures/games/lights-out/lights-out.com
 import { QxirComponent } from './adventures/random/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
+import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse
     LightsOutComponent,
     QxirComponent,
     GlowTextComponent,
-    MouseTrailComponent
+    MouseTrailComponent,
+    HoverLightComponent
   ],
   imports: [
     BrowserModule,

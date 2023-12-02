@@ -1,0 +1,145 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .light-card {
+    --transitionTime: 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: calc(var(--responsiveUnit) * 1);
+    @include fixedHeight(calc(var(--responsiveUnit) * 20));
+    @include fixedWidth(calc(var(--responsiveUnit) * 10));
+    & * {
+      @include allVendors(transition, all var(--transitionTime) ease-in-out);
+    }
+    &:hover {
+      .spot {
+        .light {
+          background: linear-gradient(to bottom, var(--hoverColor) 0%, transparent 100%);
+        }
+
+        span {
+          background: var(--hoverColor);
+        }
+      }
+
+      .card {
+        border-color: var(--hoverColor);
+
+        .card-icon {
+          svg-renderer {
+            fill: var(--hoverColor);
+          }
+        }
+
+        .card-text {
+          p {
+            color: var(--hoverColor);
+          }
+        }
+      }
+    }
+
+    .spot {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 50%;
+      width: 100%;
+
+      .light {
+        width: 100%;
+        height: 150%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -22%);
+        @include allVendors(clip-path, polygon(50% 0%, 0% 100%, 100% 100%));
+        background: transparent;
+      }
+
+      span {
+        margin-top: 10%;
+        @include square(10%);
+        border-radius: 50%;
+        // background: $medium;
+        background: darken($medium, 35%);
+      }
+    }
+
+    .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 50%;
+      width: 100%;
+      border-radius: calc(var(--responsiveUnit) * 1);
+      border: calc(var(--responsiveUnit) * 0.3) solid $dark;
+      background: $dark;
+
+      .card-icon {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 45%;
+        width: 100%;
+
+        svg-renderer {
+          @include square(40%);
+          // @include square(calc(var(--responsiveUnit) * 2));
+          // fill: $medium;
+          fill: darken($medium, 35%);
+        }
+      }
+
+      .card-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // height: 40%;
+        width: 100%;
+
+        p {
+          margin: 0;
+          padding: 0;
+          font-size: calc(var(--responsiveUnit) * 1.4);
+          font-weight: bolder;
+          // color: $medium;
+          color: darken($medium, 35%);
+        }
+      }
+    }
+  }
+}

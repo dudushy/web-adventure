@@ -48,6 +48,17 @@ app-root {
   max-width: $width;
 }
 
+@mixin square($size) {
+  // width: $size;
+  // min-width: $size;
+  // max-width: $size;
+  // height: $size;
+  // min-height: $size;
+  // max-height: $size;
+  @include fixedWidth($size);
+  @include fixedHeight($size);
+}
+
 @mixin allVendors($property, $args) {
   @each $prefix in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
     #{$prefix + $property}: $args;

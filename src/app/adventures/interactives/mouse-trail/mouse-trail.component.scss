@@ -17,20 +17,15 @@
 }
 
 :host ::ng-deep .trail {
-// ::ng-deep .trail {
   position: absolute;
-  // box-shadow: 0 0 calc(var(--responsiveUnit) * 0.6) calc(var(--responsiveUnit) * 0.3) $white;
-  background: red;
+  background: #ff0000;
+  // background: lighten($color: #ff0000, $amount: 5%);
   border-radius: 50%;
   height: calc(var(--responsiveUnit) * 1);
   width: calc(var(--responsiveUnit) * 1);
   pointer-events: none;
   @include allVendors(animation, hue-rainbow var(--trailDuration) linear forwards);
 }
-
-// .trail {
-//   animation: hue-rainbow var(--trailDuration) linear forwards;
-// }
 
 @keyframes hue-rainbow {
   from {

@@ -23,8 +23,14 @@
 }
 
 svg-renderer {
-  width: 8%;
+  // width: 8%;
   // width: calc(var(--responsiveUnit) * 2);
+  // height: calc(var(--responsiveUnit) * 2);
+  @include square(calc(var(--responsiveUnit) * 2));
   fill: red;
   stroke: green;
+
+  &.bootstrap {
+    stroke: blue;
+  }
 }

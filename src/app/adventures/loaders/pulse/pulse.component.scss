@@ -23,3 +23,46 @@
   justify-content: center;
   align-items: center;
 }
+
+.circle {
+  --animationDuration: 3s;
+
+  position: relative;
+  @include square(calc(var(--responsiveUnit) * 6));
+  border-radius: 50%;
+  background: $success;
+  animation: pulse var(--animationDuration) infinite;
+  // animation: pulse calc(var(--animationDuration) / 2) infinite;
+
+  .circle-pulse {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background: $success;
+    animation: spread var(--animationDuration) infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spread {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

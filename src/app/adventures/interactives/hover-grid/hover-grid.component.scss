@@ -3,7 +3,9 @@
 :host {
   display: flex;
   justify-content: center;
-  height: 100%;
+  // height: 100%;
+  height: var(--defaultContentHeight);
+  min-height: var(--defaultContentHeight);
   width: 100%;
   background: $medium;
   color: $dark;
@@ -11,7 +13,7 @@
 }
 
 #content {
-  height: 100%;
+  // height: 100%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
   background: $medium;

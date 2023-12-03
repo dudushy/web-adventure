@@ -7,6 +7,7 @@
   width: 100%;
   background: $medium;
   color: $dark;
+  min-height: var(--defaultContentHeight);
 }
 
 #content {

@@ -40,7 +40,7 @@ header {
 
 #main-content {
   @include fixedWidth(100%);
-  // @include fixedHeight(calc(100% - var(--headerHeight) - var(--footerHeight)));
+  // min-height: var(--defaultContentHeight);
 }
 
 footer {

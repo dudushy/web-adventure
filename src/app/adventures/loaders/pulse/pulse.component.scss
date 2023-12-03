@@ -31,8 +31,7 @@
   @include square(calc(var(--responsiveUnit) * 6));
   border-radius: 50%;
   background: $success;
-  animation: pulse var(--animationDuration) infinite;
-  // animation: pulse calc(var(--animationDuration) / 2) infinite;
+  @include allVendors(animation, pulse var(--animationDuration) infinite);
 
   .circle-pulse {
     position: absolute;
@@ -40,7 +39,7 @@
     width: 100%;
     border-radius: 50%;
     background: $success;
-    animation: spread var(--animationDuration) infinite;
+    @include allVendors(animation, spread var(--animationDuration) infinite);
   }
 }
 

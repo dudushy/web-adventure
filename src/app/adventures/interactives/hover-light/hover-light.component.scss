@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   // @include fixedHeight(calc(var(--responsiveUnit) * 20));
-  // @include fixedHeight(100%);
+  @include fixedHeight(100%);
   // @include fixedWidth(calc(var(--responsiveUnit) * 10));
   @include fixedWidth(100%);
 

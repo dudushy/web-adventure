@@ -16,7 +16,7 @@ $white: #ffffff;
   --headerHeight: calc(var(--responsiveUnit) * 3);
   --footerHeight: calc(var(--responsiveUnit) * 4);
   --scrollbarWidth: calc(var(--responsiveUnit) * 0.5);
-  --defaultContentHeight: calc(100vh - var(--headerHeight) - var(--footerHeight));
+  --defaultContentHeight: calc(100dvh - var(--headerHeight) - var(--footerHeight));
 }
 
 //* MIXIN [START]

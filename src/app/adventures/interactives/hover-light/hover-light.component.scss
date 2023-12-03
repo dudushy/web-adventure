@@ -26,8 +26,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  // @include fixedHeight(calc(var(--responsiveUnit) * 20));
+  // @include fixedHeight(100%);
+  // @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  @include fixedWidth(100%);
 
   .light-card {
     --transitionTime: 0.3s;
@@ -36,9 +38,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: calc(var(--responsiveUnit) * 1);
+    padding: calc(var(--responsiveUnit) * 1);
     @include fixedHeight(calc(var(--responsiveUnit) * 20));
+    // height: 100%;
     @include fixedWidth(calc(var(--responsiveUnit) * 10));
+    // width: 10%;
     & * {
       @include allVendors(transition, all var(--transitionTime) ease-in-out);
     }
@@ -134,7 +138,7 @@
         p {
           margin: 0;
           padding: 0;
-          font-size: calc(var(--responsiveUnit) * 1.4);
+          font-size: calc(var(--responsiveUnit) * 1.2);
           font-weight: bolder;
           // color: $medium;
           color: darken($medium, 35%);

@@ -25,6 +25,7 @@ import { QxirComponent } from './adventures/random/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
+import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HoverLightComponent } from './adventures/interactives/hover-light/hover
     QxirComponent,
     GlowTextComponent,
     MouseTrailComponent,
-    HoverLightComponent
+    HoverLightComponent,
+    PulseComponent
   ],
   imports: [
     BrowserModule,

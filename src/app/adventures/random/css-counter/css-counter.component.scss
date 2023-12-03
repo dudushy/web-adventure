@@ -1,0 +1,46 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  // height: 100%;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  background: $medium;
+  color: $dark;
+}
+
+#content {
+  // height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#content {
+  counter-reset: h1;
+}
+
+h1 {
+  font-size: calc(var(--responsiveUnit) * 1.5);
+  counter-reset: h2;
+  &::before {
+    counter-increment: h1;
+    content: counter(h1) ". ";
+  }
+}
+
+h2 {
+  font-size: calc(var(--responsiveUnit) * 1);
+  &::before {
+    counter-increment: h2;
+    content: counter(h2) ". ";
+  }
+}

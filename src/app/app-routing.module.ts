@@ -22,6 +22,7 @@ import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse
 import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
+import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'hover-light', component: HoverLightComponent, data: { type: 'interactive', description: 'Hover Light' } },
   { path: 'pulse', component: PulseComponent, data: { type: 'loader', description: 'Pulse Loader' } },
   { path: 'loading6', component: Loading6Component, data: { type: 'loader', description: 'Spinner' } },
+  { path: 'css-counter', component: CssCounterComponent, data: { type: 'random', description: 'CSS Counter' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

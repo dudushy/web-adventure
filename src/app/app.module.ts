@@ -26,6 +26,7 @@ import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
+import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
     GlowTextComponent,
     MouseTrailComponent,
     HoverLightComponent,
-    PulseComponent
+    PulseComponent,
+    Loading6Component
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,7 @@ import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
+import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'mouse-trail', component: MouseTrailComponent, data: { type: 'interactive', description: 'Mouse Trail' } },
   { path: 'hover-light', component: HoverLightComponent, data: { type: 'interactive', description: 'Hover Light' } },
   { path: 'pulse', component: PulseComponent, data: { type: 'loader', description: 'Pulse Loader' } },
+  { path: 'loading6', component: Loading6Component, data: { type: 'loader', description: 'Spinner' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

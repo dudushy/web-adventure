@@ -1,6 +1,9 @@
 @import "/src/styles.scss";
 
 :host {
+  --landscapeGradient: linear-gradient(140deg, purple, blue);
+  --portraitGradient: linear-gradient(140deg, #db792e, #fc51cc);
+
   position: relative;
 }
 
@@ -24,8 +27,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--landscapeGradient);
   @include fixedWidth(100%);
   @include fixedHeight(var(--headerHeight));
+  @include portrait {
+    background: var(--portraitGradient);
+  }
 
   h1 {
     margin: 0;
@@ -40,6 +47,8 @@ header {
 
 #main-content {
   @include fixedWidth(100%);
+  background: $medium;
+  background: linear-gradient(120deg, violet, yellow);
   // min-height: var(--defaultContentHeight);
 }
 
@@ -47,8 +56,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--landscapeGradient);;
   @include fixedWidth(100%);
   @include fixedHeight(var(--footerHeight));
+  @include portrait {
+    background: var(--portraitGradient);
+  }
 
   h2 {
     font-size: calc(var(--responsiveUnit) * 1);
@@ -56,11 +69,17 @@ footer {
 
     #heart {
       color: $danger;
+      @include portrait {
+        color: $success;
+      }
     }
 
     a {
       color: $tertiary;
       @include allVendors(transition, all 250ms ease-in-out);
+      @include portrait {
+        color: $secondary;
+      }
       &:hover {
         color: $medium;
       }

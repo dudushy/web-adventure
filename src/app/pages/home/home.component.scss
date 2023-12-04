@@ -38,7 +38,7 @@
     margin: 2%;
     border-radius: calc(var(--responsiveUnit) * 2);
     // background: $medium;
-    backdrop-filter: blur(calc(var(--responsiveUnit) * 0.5));
+    backdrop-filter: blur(calc(var(--responsiveUnit) * 1));
     // box-shadow:
     //   inset 20px 20px 60px #7c7e85,
     //   inset -20px -20px 60px #a8aab3;
@@ -53,18 +53,23 @@
     }
     &[type="form"] {
       border-color: $primary;
+      background: transparentize($color: $primary, $amount: 0.9);
     }
     &[type="loader"] {
       border-color: $secondary;
+      background: transparentize($color: $secondary, $amount: 0.9);
     }
     &[type="interactive"] {
       border-color: $tertiary;
+      background: transparentize($color: $tertiary, $amount: 0.9);
     }
     &[type="random"] {
       border-color: $danger;
+      background: transparentize($color: $danger, $amount: 0.9);
     }
     &[type="game"] {
       border-color: $success;
+      background: transparentize($color: $success, $amount: 0.9);
     }
 
     a {

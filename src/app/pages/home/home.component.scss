@@ -71,6 +71,10 @@
       border-color: $success;
       background: transparentize($color: $success, $amount: 0.9);
     }
+    &[type="clone"] {
+      border-color: $dark;
+      background: transparentize($color: $dark, $amount: 0.9);
+    }
 
     a {
       display: flex;

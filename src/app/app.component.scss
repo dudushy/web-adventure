@@ -48,7 +48,8 @@ header {
 #main-content {
   @include fixedWidth(100%);
   // background: $medium;
-  background: linear-gradient(120deg, violet, yellow);
+  // background: linear-gradient(120deg, violet, yellow);
+  background: linear-gradient(130deg, violet, pink);
   // min-height: var(--defaultContentHeight);
 }
 

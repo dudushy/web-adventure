@@ -16,13 +16,14 @@ import { SvgComponent } from './adventures/random/svg/svg.component';
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
 import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
-import { QxirComponent } from './adventures/random/qxir/qxir.component';
+import { QxirComponent } from './adventures/clones/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
+// import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,13 +41,14 @@ const routes: Routes = [
   { path: 'hover-pattern', component: HoverPatternComponent, data: { type: 'interactive', description: 'Hover this!' } },
   { path: 'rubiks-cube', component: RubiksCubeComponent, data: { type: 'interactive', description: 'Rubik\u0027s Cube' } },
   { path: 'lights-out', component: LightsOutComponent, data: { type: 'game', description: 'Lights Out' } },
-  { path: 'qxir', component: QxirComponent, data: { type: 'random', description: 'Qxir Text' } },
+  { path: 'qxir', component: QxirComponent, data: { type: 'clone', description: 'Qxir Text' } },
   { path: 'glow-text', component: GlowTextComponent, data: { type: 'interactive', description: 'Glow Text' } },
   { path: 'mouse-trail', component: MouseTrailComponent, data: { type: 'interactive', description: 'Mouse Trail' } },
   { path: 'hover-light', component: HoverLightComponent, data: { type: 'interactive', description: 'Hover Light' } },
   { path: 'pulse', component: PulseComponent, data: { type: 'loader', description: 'Pulse Loader' } },
   { path: 'loading6', component: Loading6Component, data: { type: 'loader', description: 'Spinner' } },
   { path: 'css-counter', component: CssCounterComponent, data: { type: 'random', description: 'CSS Counter' } },
+  // { path: 'rocket-league', component: RocketLeagueComponent, data: { type: 'clone', description: 'Rocket League UI Buttons' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

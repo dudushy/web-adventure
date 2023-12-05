@@ -21,13 +21,14 @@ import { SvgRendererComponent } from './components/svg-renderer/svg-renderer.com
 import { HoverPatternComponent } from './adventures/interactives/hover-pattern/hover-pattern.component';
 import { RubiksCubeComponent } from './adventures/interactives/rubiks-cube/rubiks-cube.component';
 import { LightsOutComponent } from './adventures/games/lights-out/lights-out.component';
-import { QxirComponent } from './adventures/random/qxir/qxir.component';
+import { QxirComponent } from './adventures/clones/qxir/qxir.component';
 import { GlowTextComponent } from './adventures/interactives/glow-text/glow-text.component';
 import { MouseTrailComponent } from './adventures/interactives/mouse-trail/mouse-trail.component';
 import { HoverLightComponent } from './adventures/interactives/hover-light/hover-light.component';
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
+// import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CssCounterComponent } from './adventures/random/css-counter/css-counter
     HoverLightComponent,
     PulseComponent,
     Loading6Component,
-    CssCounterComponent
+    CssCounterComponent,
+    // RocketLeagueComponent
   ],
   imports: [
     BrowserModule,

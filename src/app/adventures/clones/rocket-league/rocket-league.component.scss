@@ -1,0 +1,105 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  color: $dark;
+}
+
+:host {
+  --backgroundColor: rgb(41, 68, 118);
+  --buttonBorderColor: rgb(107, 155, 181);
+  --buttonTextColor: rgb(202, 213, 221);
+  --buttonBackgroundColor: rgb(30, 76, 110);
+  --buttonHighlightBorderColor: rgb(54, 85, 132);
+  --buttonHighlightTextColor: rgb(6, 100, 146);
+  --buttonHighlightBackgroundColor: rgb(195, 240, 255);
+  --buttonActiveBorderColor: rgb(162, 180, 194);
+  --buttonActiveTextColor: rgb(0, 95, 142);
+  --buttonActiveBackgroundColor: rgb(27, 73, 107);
+}
+
+#content {
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  background: var(--backgroundColor);
+}
+
+.customButtonRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .customButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin: calc(var(--responsiveUnit) * 0.5);
+    border: calc(var(--responsiveUnit) * 0.01) solid var(--buttonBorderColor);
+    border-radius: calc(var(--responsiveUnit) * 0.5);
+    padding: calc(var(--responsiveUnit) * 0.9);
+    padding-bottom: calc(var(--responsiveUnit) * 1.1);
+    padding-inline: calc(var(--responsiveUnit) * 4);
+    font-family: "Bourgeois-Light";
+    font-weight: bolder;
+    font-size: calc(var(--responsiveUnit) * 1.8);
+    letter-spacing: calc(var(--responsiveUnit) * 0.12);
+    text-transform: uppercase;
+    color: var(--buttonTextColor);
+    background: var(--buttonBackgroundColor);
+    cursor: pointer;
+    @include allVendors(clip-path, polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%));
+
+    &, * {
+      @include allVendors(transition, all 0.18s ease-in-out);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--buttonHighlightBackgroundColor);
+      @include allVendors(clip-path, polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%));
+    }
+
+    &.on {
+      border-color: var(--buttonHighlightBorderColor);
+      color: var(--buttonHighlightTextColor);
+      background: var(--buttonHighlightBackgroundColor);
+
+      &:active {
+        border-color: var(--buttonHighlightBorderColor);
+        color: var(--buttonHighlightTextColor);
+        background: var(--buttonHighlightBackgroundColor);
+      }
+    }
+
+    &:hover {
+      border-color: var(--buttonHighlightBorderColor);
+      color: var(--buttonHighlightTextColor);
+      background: var(--buttonHighlightBackgroundColor);
+    }
+
+    &:active {
+      border-color: var(--buttonActiveBorderColor);
+      color: var(--buttonActiveTextColor);
+      background: var(--buttonActiveBackgroundColor);
+    }
+  }
+}

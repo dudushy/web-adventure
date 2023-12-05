@@ -23,7 +23,7 @@ import { HoverLightComponent } from './adventures/interactives/hover-light/hover
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
-// import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
+import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'pulse', component: PulseComponent, data: { type: 'loader', description: 'Pulse Loader' } },
   { path: 'loading6', component: Loading6Component, data: { type: 'loader', description: 'Spinner' } },
   { path: 'css-counter', component: CssCounterComponent, data: { type: 'random', description: 'CSS Counter' } },
-  // { path: 'rocket-league', component: RocketLeagueComponent, data: { type: 'clone', description: 'Rocket League UI Buttons' } },
+  { path: 'rocket-league', component: RocketLeagueComponent, data: { type: 'clone', description: 'Rocket League UI Buttons' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

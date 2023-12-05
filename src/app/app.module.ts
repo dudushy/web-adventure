@@ -28,7 +28,7 @@ import { HoverLightComponent } from './adventures/interactives/hover-light/hover
 import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
-// import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
+import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,7 @@ import { CssCounterComponent } from './adventures/random/css-counter/css-counter
     PulseComponent,
     Loading6Component,
     CssCounterComponent,
-    // RocketLeagueComponent
+    RocketLeagueComponent
   ],
   imports: [
     BrowserModule,

@@ -2,19 +2,18 @@
 
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  // background: $medium;
   color: $dark;
 }
 
 #content {
-  height: 100%;
-  // height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+  min-height: var(--defaultContentHeight);
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $medium;
 }

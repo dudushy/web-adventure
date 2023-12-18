@@ -16,7 +16,12 @@ $white: #ffffff;
   --headerHeight: calc(var(--responsiveUnit) * 3);
   --footerHeight: calc(var(--responsiveUnit) * 4);
   --scrollbarWidth: calc(var(--responsiveUnit) * 0.5);
-  --defaultContentHeight: calc(100dvh - var(--headerHeight) - var(--footerHeight));
+  --defaultContentHeight: calc(var(--dynamicHeight) - var(--headerHeight) - var(--footerHeight));
+  --dynamicHeight: 100vh;
+
+  @supports (--css: variables) {
+    --dynamicHeight: 100dvh;
+  }
 }
 
 //* MIXIN [START]
@@ -136,7 +141,7 @@ html,
 body,
 app-root {
   display: block;
-  height: 100vh;
+  height: var(--dynamicHeight);
   width: 100vw;
   margin: 0;
   padding: 0;

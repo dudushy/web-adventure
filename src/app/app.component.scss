@@ -1,10 +1,12 @@
 @import "/src/styles.scss";
 
 :host {
-  --landscapeGradient: linear-gradient(140deg, purple, blue);
-  --portraitGradient: linear-gradient(140deg, #db792e, #fc51cc);
+  --landscapeGradient: linear-gradient(180deg, #e9f1fa, #00abe4);
+  --portraitGradient: linear-gradient(180deg, #00abe4, #e9f1fa);
+  --contentGradient: linear-gradient(90deg, #e9f1fa, #ffffff, #ffffff, #e9f1fa);
 
   position: relative;
+  color: $dark;
 }
 
 main {
@@ -13,8 +15,6 @@ main {
   @include fixedWidth(100%);
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // align-items: stretch;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -47,10 +47,7 @@ header {
 
 #main-content {
   @include fixedWidth(100%);
-  // background: $medium;
-  // background: linear-gradient(120deg, violet, yellow);
-  background: linear-gradient(130deg, violet, pink);
-  // min-height: var(--defaultContentHeight);
+  background: var(--contentGradient);
 }
 
 footer {
@@ -70,19 +67,13 @@ footer {
 
     #heart {
       color: $danger;
-      @include portrait {
-        color: $success;
-      }
     }
 
     a {
-      color: $secondary;
+      color: $danger;
       @include allVendors(transition, all 250ms ease-in-out);
-      @include portrait {
-        color: $tertiary;
-      }
       &:hover {
-        color: $medium;
+        filter: invert(1);
       }
     }
   }

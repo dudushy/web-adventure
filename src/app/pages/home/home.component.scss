@@ -14,7 +14,7 @@
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;
-  max-width: 1200px;
+  // max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
 }
 
@@ -32,23 +32,18 @@
     align-items: center;
     overflow: hidden;
     @include fixedHeight(calc(var(--responsiveUnit) * 10));
-    @include fixedWidth(calc(var(--responsiveUnit) * 10));
-    // aspect-ratio: 1;
-    margin: 2%;
+    @include fixedWidth(calc(var(--responsiveUnit) * 13));
+    margin: calc(var(--responsiveUnit) * 1);
     border-radius: calc(var(--responsiveUnit) * 2);
-    // background: $medium;
     backdrop-filter: blur(calc(var(--responsiveUnit) * 1));
-    // box-shadow:
-    //   inset 20px 20px 60px #7c7e85,
-    //   inset -20px -20px 60px #a8aab3;
     @include allVendors(transition, all 300ms ease-in-out);
-    border: calc(var(--responsiveUnit) * 0.2) solid $medium;
+    border: calc(var(--responsiveUnit) * 0.1) solid $medium;
     &:hover {
-      transform: scale(1.05);
+      transform: translateY(calc(var(--responsiveUnit) * -0.5));
       cursor: pointer;
     }
     &:active {
-      transform: scale(0.95);
+      transform: translateY(calc(var(--responsiveUnit) * -0.5)) scale(0.95);
     }
     &[type="form"] {
       border-color: $primary;

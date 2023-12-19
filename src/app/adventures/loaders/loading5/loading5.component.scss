@@ -10,7 +10,7 @@
   color: $dark;
 }
 
-#content {
+.pageContent {
   // height: 100%;
   // height: calc(100vh - var(--headerHeight) - var(--footerHeight));
   padding-block: 1%;
@@ -21,7 +21,7 @@
   background: $medium;
 }
 
-#content {
+.pageContent {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -9,7 +9,7 @@
   color: $dark;
 }
 
-#content {
+.pageContent {
   padding-block: 1%;
   padding-inline: 1%;
   width: 100%;
@@ -18,7 +18,7 @@
   background: $light;
 }
 
-#content {
+.pageContent {
   display: flex;
   justify-content: center;
   align-items: center;

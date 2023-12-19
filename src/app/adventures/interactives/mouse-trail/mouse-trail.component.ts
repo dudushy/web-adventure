@@ -41,7 +41,7 @@ export class MouseTrailComponent implements OnInit {
   defaultOrder() { return 0; }
 
   setupTrail() {
-    const content = document.getElementById('content');
+    const content = document.getElementsByClassName('pageContent')[0] as HTMLElement;
     console.log(`[${this.title}#ngOnInit] content`, content);
 
     const addTrail = event => {

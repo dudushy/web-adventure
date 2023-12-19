@@ -12,14 +12,14 @@
   overflow: hidden;
 }
 
-#content {
+.pageContent {
   // height: 100%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
   background: $light;
 }
 
-#content {
+.pageContent {
   display: flex;
   justify-content: center;
   align-items: center;

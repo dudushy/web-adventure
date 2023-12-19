@@ -39,7 +39,7 @@ export class RubiksCubeComponent implements OnInit {
   defaultOrder() { return 0; }
 
   setupCubeInteraction() {
-    const content = document.getElementById('content');
+    const content = document.getElementsByClassName('pageContent')[0] as HTMLElement;
     console.log(`[${this.title}#setupCubeInteraction] content`, content);
 
     const cube = document.getElementById('cube');

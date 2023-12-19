@@ -10,7 +10,7 @@
   color: $dark;
 }
 
-#content {
+.pageContent {
   // height: 100%;
   padding-block: 1%;
   padding-inline: 1%;
@@ -20,7 +20,7 @@
   background: $medium;
 }
 
-#content {
+.pageContent {
   display: flex;
   justify-content: center;
   align-items: center;

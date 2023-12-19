@@ -10,21 +10,21 @@
   color: $dark;
 }
 
-#content {
+.pageContent {
   // height: 100%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
   background: $light;
 }
 
-#content {
+.pageContent {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#content {
+.pageContent {
   counter-reset: h1;
 }
 

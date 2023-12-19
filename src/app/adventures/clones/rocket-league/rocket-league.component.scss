@@ -21,19 +21,19 @@
   --buttonActiveBackgroundColor: rgb(27, 73, 107);
 }
 
-#content {
+.pageContent {
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
   // background: $medium;
 }
 
-#content {
+.pageContent {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#content {
+.pageContent {
   background: var(--backgroundColor);
 }
 

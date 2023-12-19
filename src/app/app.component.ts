@@ -68,8 +68,8 @@ export class AppComponent {
       this.detectScrollbar();
     };
 
-    window.onbeforeunload = () => {
-      console.log(`[${this.title}#window.onbeforeunload]`);
+    window.onbeforeunload = (e) => {
+      console.log(`[${this.title}#window.onbeforeunload] e`, e);
 
       this.saveLastScrollPosition();
     };
@@ -105,6 +105,8 @@ export class AppComponent {
 
   defaultOrder() { return 0; }
 
+  openLink(url) { window.open(url, '_blank'); }
+
   toggleTheme(theme: any) {
     console.log(`[${this.title}#toggleTheme] theme`, theme);
 
@@ -136,17 +138,16 @@ export class AppComponent {
     console.log(`[${this.title}#detectScrollbar] hasScrollbar`, this.hasScrollbar);
   }
 
-  openLink(url) {
-    window.open(url, '_blank');
-  }
-
   saveLastScrollPosition() {
     console.log(`[${this.title}#saveLastScrollPosition]`);
 
     const appRoot = document.querySelector('app-root');
     console.log(`[${this.title}#saveLastScrollPosition] appRoot`, appRoot);
 
-    this.db.set('lastScrollPosition', appRoot.scrollTop);
+    const main = appRoot.firstChild as HTMLElement;
+    console.log(`[${this.title}#saveLastScrollPosition] main`, main);
+
+    this.db.set('lastScrollPosition', main.scrollTop);
     console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.get('lastScrollPosition'));
   }
 
@@ -156,11 +157,14 @@ export class AppComponent {
     const appRoot = document.querySelector('app-root');
     console.log(`[${this.title}#loadLastScrollPosition] appRoot`, appRoot);
 
+    const main = appRoot.firstChild as HTMLElement;
+    console.log(`[${this.title}#loadLastScrollPosition] main`, main);
+
     const lastScrollPosition = this.db.get('lastScrollPosition');
     console.log(`[${this.title}#loadLastScrollPosition] lastScrollPosition`, lastScrollPosition);
 
     if (lastScrollPosition) {
-      appRoot.scrollTop = lastScrollPosition;
+      main.scrollTop = lastScrollPosition;
     }
   }
 }

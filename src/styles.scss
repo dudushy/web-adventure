@@ -148,12 +148,12 @@ app-root {
   border: 0;
   overscroll-behavior: none;
   font-family: monospace;
-  color: $light;
-  background: $dark;
-  @include portrait {
-    color: $dark;
-    background: $light;
-  }
+  // color: $light;
+  // background: $dark;
+  // @include portrait {
+  //   color: $dark;
+  //   background: $light;
+  // }
 }
 
 * {

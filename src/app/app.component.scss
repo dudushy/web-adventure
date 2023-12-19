@@ -1,9 +1,13 @@
 @import "/src/styles.scss";
 
 :host {
-  --landscapeGradient: linear-gradient(180deg, #e9f1fa, #00abe4);
-  --portraitGradient: linear-gradient(180deg, #00abe4, #e9f1fa);
-  --contentGradient: linear-gradient(90deg, #e9f1fa, #ffffff, #ffffff, #e9f1fa);
+  // --headerGradient: linear-gradient(180deg, #ce9ffc 1%, #7367f0 99%);
+  --headerGradient: none;
+  // --contentGradient: linear-gradient(180deg, #7367f0 1%, #fdeff9, #7367f0 99%);
+  --contentGradient: none;
+  // --footerGradient: linear-gradient(0deg, #ce9ffc 1%, #7367f0 99%);
+  --footerGradient: none;
+  --mainGradient: linear-gradient(180deg, #9796f0, #fbc7d4);
 
   position: relative;
   color: $dark;
@@ -17,6 +21,18 @@ main {
   flex-direction: column;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  // background: var(--mainGradient);
+  &::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include square(calc(var(--responsiveUnit) * 100));
+    background: var(--mainGradient);
+    z-index: -1;
+    @include allVendors(animation, 50s spin linear infinite);
+  }
 }
 
 router-outlet {
@@ -27,19 +43,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--landscapeGradient);
+  background: var(--headerGradient);
   @include fixedWidth(100%);
   @include fixedHeight(var(--headerHeight));
-  @include portrait {
-    background: var(--portraitGradient);
-  }
 
   h1 {
     margin: 0;
     font-size: calc(var(--responsiveUnit) * 2);
     @include allVendors(transition, all 250ms ease-in-out);
     &:hover {
-      color: $medium;
+      color: $white;
       cursor: pointer;
     }
   }
@@ -54,12 +67,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--landscapeGradient);
+  background: var(--footerGradient);
   @include fixedWidth(100%);
   @include fixedHeight(var(--footerHeight));
-  @include portrait {
-    background: var(--portraitGradient);
-  }
 
   h2 {
     font-size: calc(var(--responsiveUnit) * 1);
@@ -73,8 +83,14 @@ footer {
       color: $danger;
       @include allVendors(transition, all 250ms ease-in-out);
       &:hover {
-        filter: invert(1);
+        color: $tertiary;
       }
     }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }

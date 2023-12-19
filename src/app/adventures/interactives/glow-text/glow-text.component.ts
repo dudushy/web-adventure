@@ -34,8 +34,6 @@ export class GlowTextComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   toggleGlowChar(event) {
     console.log(`[${this.title}#toggleGlowChar] event`, event);
 

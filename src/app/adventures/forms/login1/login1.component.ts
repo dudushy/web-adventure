@@ -33,6 +33,4 @@ export class Login1Component implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

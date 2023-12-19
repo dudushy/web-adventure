@@ -34,8 +34,6 @@ export class RocketLeagueComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   toggleButton(event) {
     console.log(`[${this.title}#toggleButton] event`, event);
 

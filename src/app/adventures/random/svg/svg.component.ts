@@ -33,6 +33,4 @@ export class SvgComponent implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

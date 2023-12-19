@@ -33,6 +33,4 @@ export class PulseComponent implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

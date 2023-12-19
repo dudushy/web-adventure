@@ -33,6 +33,4 @@ export class TestComponent implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

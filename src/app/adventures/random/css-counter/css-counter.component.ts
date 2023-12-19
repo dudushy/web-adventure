@@ -33,6 +33,4 @@ export class CssCounterComponent implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

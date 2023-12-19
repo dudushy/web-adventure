@@ -55,8 +55,6 @@ export class HoverPatternComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   updateLightPosition(event) {
     console.log(`[${this.title}#updateLightPosition] event`, event);
 

@@ -34,8 +34,6 @@ export class HoverGridComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   triggerFade(event) {
     return;
 

@@ -36,8 +36,6 @@ export class RubiksCubeComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   setupCubeInteraction() {
     const content = document.getElementsByClassName('pageContent')[0] as HTMLElement;
     console.log(`[${this.title}#setupCubeInteraction] content`, content);

@@ -33,6 +33,4 @@ export class Loading6Component implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

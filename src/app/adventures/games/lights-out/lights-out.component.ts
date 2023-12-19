@@ -145,8 +145,6 @@ export class LightsOutComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   toggleLights(event) {
     if (this.gameEnd) return;
 

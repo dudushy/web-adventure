@@ -33,6 +33,4 @@ export class QxirComponent implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

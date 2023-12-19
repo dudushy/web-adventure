@@ -33,6 +33,4 @@ export class CubeComponent implements OnInit {
 
     this.updateView();
   }
-
-  defaultOrder() { return 0; }
 }

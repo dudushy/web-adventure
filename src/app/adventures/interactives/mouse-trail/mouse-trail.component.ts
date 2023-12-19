@@ -38,8 +38,6 @@ export class MouseTrailComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0; }
-
   setupTrail() {
     const content = document.getElementsByClassName('pageContent')[0] as HTMLElement;
     console.log(`[${this.title}#ngOnInit] content`, content);

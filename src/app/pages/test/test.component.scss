@@ -17,3 +17,15 @@
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
 }
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+i {
+  font-size: calc(var(--responsiveUnit) * 2);
+  color: $danger;
+}

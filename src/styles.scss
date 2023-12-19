@@ -15,7 +15,7 @@ $white: #ffffff;
   --responsiveUnit: calc(1vmin + 1vmax);
   --headerHeight: calc(var(--responsiveUnit) * 3);
   --footerHeight: calc(var(--responsiveUnit) * 4);
-  --scrollbarWidth: calc(var(--responsiveUnit) * 0.5);
+  --scrollbarWidth: calc(var(--responsiveUnit) * 0.4);
   --defaultContentHeight: calc(var(--dynamicHeight) - var(--headerHeight) - var(--footerHeight));
   --dynamicHeight: 100vh;
 

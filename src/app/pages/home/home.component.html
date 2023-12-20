@@ -1,11 +1,27 @@
 <div id="{{title}}-content" class="pageContent">
   <div class="cards">
     <div class="card" *ngFor="let page of app.allPages | keyvalue : app.defaultOrder" (click)="app.redirectTo(page.value['path'], title)" [attr.type]="page.value['data']['type']">
-      <a>{{page.value['path']}}</a>
+      <div class="cardInfo">
+        <div class="cardTitle">
+          <p>{{page.value['path']}}</p>
+        </div>
 
-      <p>{{page.value['data']['description']}}</p>
+        <div class="cardDescription">
+          <p>{{page.value['data']['description']}}</p>
+        </div>
 
-      <span>#{{page.key}}</span>
+        <div class="cardType">
+          <p>{{page.value['data']['type']}}</p>
+        </div>
+
+        <div class="cardNo">
+          <p>#{{page.key}}</p>
+        </div>
+
+        <div *ngIf="page.value['data']['status'] == 'wip'" class="cardWarning" title="Work In Progress">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>

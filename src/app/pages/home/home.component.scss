@@ -19,12 +19,16 @@
 }
 
 .cards {
-  // height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
   .card {
+    --cardColor: #999999;
+    --cardColorSelected: #000000;
+    --cardText: #f4f5f8;
+    --cardTextSelected: #131313;
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -34,79 +38,172 @@
     @include fixedHeight(calc(var(--responsiveUnit) * 10));
     @include fixedWidth(calc(var(--responsiveUnit) * 13));
     margin: calc(var(--responsiveUnit) * 1);
-    border-radius: calc(var(--responsiveUnit) * 2);
-    backdrop-filter: blur(calc(var(--responsiveUnit) * 1));
-    @include allVendors(transition, all 300ms ease-in-out);
+    border-radius: calc(var(--responsiveUnit) * 1);
     border: calc(var(--responsiveUnit) * 0.1) solid $medium;
+    border-color: var(--cardColor);
+    background: var(--cardColorSelected);
+    color: var(--cardText);
+    @include allVendors(box-shadow, 0 0 calc(var(--responsiveUnit) * 1) calc(var(--responsiveUnit) * 0.2) $black);
+    @include allVendors(transition, all 300ms ease-in-out);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(40%, -40%);
+      height: 50%;
+      width: 50%;
+      z-index: 1;
+      border-radius: 50%;
+      background: var(--cardColor);
+      @include allVendors(transition, all 300ms ease-in-out);
+    }
+
     &:hover {
       transform: translateY(calc(var(--responsiveUnit) * -0.5));
+      @include allVendors(
+        box-shadow,
+        0 0 calc(var(--responsiveUnit) * 1) calc(var(--responsiveUnit) * 0.2) var(--cardColorSelected)
+      );
       cursor: pointer;
+      color: var(--cardTextSelected);
+
+      &::after {
+        transform: none;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+      }
+
+      .cardInfo {
+        .cardTitle,
+        .cardDescription,
+        .cardType {
+          color: var(--cardTextSelected);
+          @include allVendors(transition, all 300ms ease-in-out);
+        }
+      }
     }
+
     &:active {
       transform: translateY(calc(var(--responsiveUnit) * -0.5)) scale(0.95);
     }
+
+    .cardInfo {
+      z-index: 2;
+      height: 95%;
+      width: 95%;
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .cardTitle,
+      .cardDescription,
+      .cardType {
+        color: var(--cardText);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        p {
+          margin: 0;
+          padding: 0;
+          text-align: left;
+          margin-left: calc(var(--responsiveUnit) * 0.3);
+        }
+      }
+
+      .cardTitle {
+        // background: green;
+        width: 70%;
+        margin-top: 5%;
+        height: 30%;
+        font-size: calc(var(--responsiveUnit) * 1.5);
+        font-weight: bolder;
+      }
+
+      .cardDescription {
+        // background: blue;
+        height: 40%;
+        font-size: calc(var(--responsiveUnit) * 1);
+      }
+
+      .cardType {
+        // background: yellow;
+        width: 75%;
+        height: 25%;
+        font-size: calc(var(--responsiveUnit) * 0.8);
+      }
+
+      .cardNo {
+        // background: red;
+        color: var(--cardTextSelected);
+        position: absolute;
+        top: -10%;
+        right: 2%;
+        text-align: right;
+        font-size: calc(var(--responsiveUnit) * 1.2);
+      }
+
+      .cardWarning {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $black;
+        border-radius: 50%;
+        padding: calc(var(--responsiveUnit) * 0.5);
+        color: $warning;
+        position: absolute;
+        bottom: 2%;
+        right: 0%;
+        font-size: calc(var(--responsiveUnit) * 1.1);
+      }
+    }
+
     &[type="form"] {
-      border-color: $primary;
-      background: transparentize($color: $primary, $amount: 0.9);
+      --cardColor: #5cd67d;
+      --cardColorSelected: #99deab;
+      --cardText: #222428;
+      --cardTextSelected: #222428;
     }
+
     &[type="loader"] {
-      border-color: $secondary;
-      background: transparentize($color: $secondary, $amount: 0.9);
+      --cardColor: #83bbcc;
+      --cardColorSelected: #a3c4cf;
+      --cardText: #222428;
+      --cardTextSelected: #222428;
     }
+
     &[type="interactive"] {
-      border-color: $tertiary;
-      background: transparentize($color: $tertiary, $amount: 0.9);
+      --cardColor: #9179ba;
+      --cardColorSelected: #a797c2;
+      --cardText: #f4f5f8;
+      --cardTextSelected: #f4f5f8;
     }
+
     &[type="random"] {
-      border-color: $danger;
-      background: transparentize($color: $danger, $amount: 0.9);
+      --cardColor: #c67ecc;
+      --cardColorSelected: #d7abdb;
+      --cardText: #222428;
+      --cardTextSelected: #f4f5f8;
     }
+
     &[type="game"] {
-      border-color: $success;
-      background: transparentize($color: $success, $amount: 0.9);
+      --cardColor: #f2b66d;
+      --cardColorSelected: #f2cb9b;
+      --cardText: #222428;
+      --cardTextSelected: #222428;
     }
+
     &[type="clone"] {
-      border-color: $dark;
-      background: transparentize($color: $dark, $amount: 0.9);
-    }
-
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: $dark;
-      text-decoration: none;
-      font-size: calc(var(--responsiveUnit) * 1.2);
-      white-space: pre-wrap;
-      word-break: break-all;
-      overflow: hidden;
-      margin-top: 30%;
-      height: 40%;
-      width: 100%;
-      font-weight: bolder;
-    }
-
-    p {
-      margin: 0;
-      height: 40%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: calc(var(--responsiveUnit) * 1);
-    }
-
-    span {
-      background: $light;
-      border-radius: calc(var(--responsiveUnit) * 1);
-      padding: 4%;
-      position: absolute;
-      top: 10%;
-      right: 10%;
-      color: $dark;
-      font-size: calc(var(--responsiveUnit) * 1);
+      --cardColor: #202020;
+      --cardColorSelected: #090909;
+      --cardText: #f4f5f8;
+      --cardTextSelected: #f4f5f8;
     }
   }
 }

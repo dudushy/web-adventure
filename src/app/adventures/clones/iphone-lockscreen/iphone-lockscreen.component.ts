@@ -10,6 +10,9 @@ import { AppComponent } from 'src/app/app.component';
 export class IphoneLockscreenComponent implements OnInit {
   title = 'IphoneLockscreenComponent';
 
+  date = 'Thursday, December 21';
+  time = '10:27';
+
   constructor(
     private cdr: ChangeDetectorRef,
     public app: AppComponent

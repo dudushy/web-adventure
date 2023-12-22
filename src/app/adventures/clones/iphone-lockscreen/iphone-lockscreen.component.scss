@@ -2,30 +2,95 @@
 
 :host {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  min-height: var(--defaultContentHeight);
   width: 100%;
-  color: $dark;
 }
 
 .pageContent {
-  min-height: var(--defaultContentHeight);
-  padding-block: 1%;
-  padding-inline: 1%;
+  padding: 1%;
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $light;
 }
 
 .pageContent {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  max-width: 370px;
+  // max-height: 1280px;
+}
+
+.lockscreen {
+  position: relative;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+  // @include fixedHeight(100%);
+  height: 100%;
+  width: 100%;
+  background: green;
 
-i {
-  font-size: calc(var(--responsiveUnit) * 2);
-  color: $danger;
+  .dateAndClock {
+    position: absolute;
+    top: 8%;
+    // background: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .date,
+    .clock {
+      color: transparentize($color: white, $amount: 0.7);
+    }
+
+    .date {
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    .clock {
+      font-size: 6.5em;
+      font-weight: bolder;
+    }
+  }
+
+  .bottomButtons {
+    position: absolute;
+    bottom: 8%;
+    // background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 82%;
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1%;
+      border-radius: 50%;
+      @include square(3.7em);
+      background: transparentize($color: black, $amount: 0.7);
+
+      i {
+        font-size: 2em;
+        color: white;
+      }
+    }
+  }
+
+  .bottomBar {
+    position: absolute;
+    bottom: 2%;
+    background: white;
+    width: 45%;
+    height: 0.75%;
+    border-radius: 50px;
+  }
 }

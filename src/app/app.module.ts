@@ -29,6 +29,8 @@ import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
 import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
+import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen/iphone-lockscreen.component';
+import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-
     PulseComponent,
     Loading6Component,
     CssCounterComponent,
-    RocketLeagueComponent
+    RocketLeagueComponent,
+    IphoneLockscreenComponent,
+    RollADiceComponent
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,8 @@ import { PulseComponent } from './adventures/loaders/pulse/pulse.component';
 import { Loading6Component } from './adventures/loaders/loading6/loading6.component';
 import { CssCounterComponent } from './adventures/random/css-counter/css-counter.component';
 import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
+import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen/iphone-lockscreen.component';
+import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +51,8 @@ const routes: Routes = [
   { path: 'loading6', component: Loading6Component, data: { status: 'done', type: 'loader', description: 'Spinner' } },
   { path: 'css-counter', component: CssCounterComponent, data: { status: 'done', type: 'random', description: 'CSS Counter' } },
   { path: 'rocket-league', component: RocketLeagueComponent, data: { status: 'wip', type: 'clone', description: 'Rocket League UI Buttons' } },
+  { path: 'iphone-lockscreen', component: IphoneLockscreenComponent, data: { status: 'wip', type: 'clone', description: 'iPhone Lockscreen Copy' } },
+  { path: 'roll-a-dice', component: RollADiceComponent, data: { status: 'wip', type: 'interactive', description: 'Roll 1 or more dices' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

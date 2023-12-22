@@ -21,7 +21,6 @@ export class AppComponent {
   currentPage: any = null;
 
   theme = 'dark';
-  showMenu = false;
   hasScrollbar = false;
 
   constructor(
@@ -117,17 +116,6 @@ export class AppComponent {
     document.documentElement.style.setProperty('--theme', theme);
 
     this.updateView(this.title);
-  }
-
-  toggleMenu() {
-    console.log(`[${this.title}#toggleMenu] showMenu`, this.showMenu);
-
-    this.showMenu = !this.showMenu;
-
-    const menuDiv = document.getElementById('menuDiv');
-    console.log(`[${this.title}#toggleMenu] menuDiv`, menuDiv);
-
-    menuDiv.className = this.showMenu ? 'show' : 'hide';
   }
 
   detectScrollbar() {

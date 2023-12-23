@@ -21,32 +21,38 @@
   align-items: center;
   padding: 0;
   max-width: inherit;
-  // @include fixedHeight(100%);
-  // @include fixedWidth(100%);
-  // max-width: 370px;
-  // max-height: 1280px;
+  // height: 100%;
+
+  &,
+  * {
+    @include allVendors(user-select, none);
+  }
 }
 
-.lockscreen {
+#lockscreen {
   --lockscreenBackground: #83be6e;
-  --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.5);
-  --lockscreenRainbowColor1: #6bba47;
-  --lockscreenRainbowColor2: #feb92d;
-  --lockscreenRainbowColor3: #ff811d;
-  --lockscreenRainbowColor4: #fc393d;
-  --lockscreenRainbowColor5: #a93c97;
-  --lockscreenRainbowColor6: #019cdc;
 
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // @include fixedHeight(100%);
   height: 100%;
   width: 100%;
-  background: var(--lockscreenBackground);
   overflow: hidden;
+  background: var(--lockscreenBackground);
+
+  .lockscreen-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    @include allVendors(transition, 0.3s ease-in-out);
+  }
 
   .dateAndClock {
     position: absolute;
@@ -59,7 +65,7 @@
 
     .date,
     .clock {
-      color: transparentize($color: white, $amount: 0.4);
+      color: transparentize($color: $white, $amount: 0.4);
       text-align: center;
     }
 
@@ -75,6 +81,14 @@
   }
 
   .lockscreenRainbow {
+    --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.5);
+    --lockscreenRainbowColor1: #6bba47;
+    --lockscreenRainbowColor2: #feb92d;
+    --lockscreenRainbowColor3: #ff811d;
+    --lockscreenRainbowColor4: #fc393d;
+    --lockscreenRainbowColor5: #a93c97;
+    --lockscreenRainbowColor6: #019cdc;
+
     position: absolute;
     // top: 1.75%;
     // top: 30%;
@@ -133,19 +147,42 @@
       padding: calc(var(--responsiveUnit) * 1);
       border-radius: 50%;
       @include square(calc(var(--responsiveUnit) * 5));
-      background: transparentize($color: black, $amount: 0.8);
+      background: transparentize($color: $black, $amount: 0.8);
+
+      &,
+      * {
+        @include allVendors(transition, 200ms ease-in-out);
+      }
 
       i {
         font-size: calc(var(--responsiveUnit) * 2);
-        color: white;
+        color: $white;
+      }
+
+      &:active {
+        transform: scale(0.9);
+        background: transparentize($color: $white, $amount: 0.8);
+
+        i {
+          color: $medium;
+        }
       }
     }
+  }
+
+  #pullGestureTrigger {
+    position: absolute;
+    bottom: 0;
+    // background: red;
+    width: 100%;
+    // height: 10%;
+    height: 5%;
   }
 
   .bottomBar {
     position: absolute;
     bottom: 2%;
-    background: white;
+    background: $white;
     width: 40%;
     height: 0.75%;
     border-radius: calc(var(--responsiveUnit) * 1);

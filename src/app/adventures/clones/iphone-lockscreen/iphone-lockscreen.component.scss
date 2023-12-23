@@ -25,7 +25,6 @@
   // @include fixedWidth(100%);
   // max-width: 370px;
   // max-height: 1280px;
-  font-family: "Apple-San Francisco";
 }
 
 .lockscreen {
@@ -66,11 +65,12 @@
 
     .date {
       font-size: calc(var(--responsiveUnit) * 2);
+      font-family: "Apple-San Francisco";
     }
 
     .clock {
       font-size: calc(var(--responsiveUnit) * 8);
-      font-weight: bolder;
+      font-family: "Apple-San Francisco Bold";
     }
   }
 

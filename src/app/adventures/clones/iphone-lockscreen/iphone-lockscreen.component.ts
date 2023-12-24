@@ -24,6 +24,9 @@ export class IphoneLockscreenComponent implements OnInit {
     multiplier: 0.5
   };
 
+
+  fullscreen = false;
+
   constructor(
     private cdr: ChangeDetectorRef,
     public app: AppComponent
@@ -201,11 +204,13 @@ export class IphoneLockscreenComponent implements OnInit {
     });
 
     lockscreen.addEventListener('touchend', (event) => {
-      console.log(`[${this.title}#setupPullGesture#touchend] event`, event);
+      // console.log(`[${this.title}#setupPullGesture#touchend] event`, event);
 
-      event.preventDefault();
+      // event.preventDefault();
 
       if (!this.pullGestureConfig.isDragging) return;
+
+      console.log(`[${this.title}#setupPullGesture#touchend] event`, event);
 
       this.pullGestureConfig.isDragging = false;
 
@@ -220,5 +225,20 @@ export class IphoneLockscreenComponent implements OnInit {
 
       console.log(`[${this.title}#setupPullGesture#touchend] this.pullGestureConfig`, this.pullGestureConfig);
     });
+  }
+
+  toggleFullscreen() {
+    const lockscreen = document.getElementById('lockscreen') as HTMLElement;
+    console.log(`[${this.title}#toggleFullscreen] lockscreen`, lockscreen);
+
+    // lockscreen.requestFullscreen();
+
+    if (this.fullscreen) {
+      this.fullscreen = false;
+      document.exitFullscreen();
+    } else {
+      this.fullscreen = true;
+      lockscreen.requestFullscreen( { navigationUI: 'hide' } );
+    }
   }
 }

@@ -236,6 +236,39 @@
     }
   }
 
+  .toggleFullscreenButton {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--responsiveUnit) * 1.5);
+    border-radius: 50%;
+    @include square(calc(var(--responsiveUnit) * 3));
+    background: transparentize($color: $black, $amount: 0.8);
+
+    &,
+    * {
+      @include allVendors(transition, 200ms ease-in-out);
+    }
+
+    i {
+      font-size: calc(var(--responsiveUnit) * 1.5);
+      color: $white;
+    }
+
+    &:active {
+      transform: scale(0.9);
+      background: transparentize($color: $white, $amount: 0.8);
+
+      i {
+        color: $medium;
+      }
+    }
+  }
+
   #pullGestureTrigger {
     position: absolute;
     bottom: 0;

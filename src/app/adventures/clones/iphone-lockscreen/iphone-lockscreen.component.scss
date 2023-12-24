@@ -30,8 +30,6 @@
 }
 
 #lockscreen {
-  --lockscreenBackground: #83be6e;
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -40,10 +38,26 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: var(--lockscreenBackground);
+
+  .lockscreen-background {
+    --lockscreenBackground: #83be6e;
+
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background: var(--lockscreenBackground);
+  }
 
   .lockscreen-content {
-    position: relative;
+    // position: relative;
+    position: absolute;
+    top: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,119 +66,171 @@
     width: 100%;
     // overflow: hidden;
     @include allVendors(transition, 0.3s ease-in-out);
-  }
+    // background: transparentize($color: $white, $amount: 0.95);
+    // z-index: 1;
 
-  .dateAndClock {
-    position: absolute;
-    top: 8%;
-    // background: blue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .date,
-    .clock {
-      color: transparentize($color: $white, $amount: 0.4);
-      text-align: center;
+    &.below {
+      z-index: 1;
     }
 
-    .date {
-      font-size: calc(var(--responsiveUnit) * 2);
-      font-family: "Apple-San Francisco";
+    &.above {
+      z-index: 3;
+      @include allVendors(
+        box-shadow,
+        0 calc(var(--responsiveUnit) * -1) calc(var(--responsiveUnit) * 2) calc(var(--responsiveUnit) * 0.01) $dark
+      );
+      background: transparentize($color: $white, $amount: 0.925);
     }
 
-    .clock {
-      font-size: calc(var(--responsiveUnit) * 8);
-      font-family: "Apple-San Francisco Bold";
-    }
-  }
-
-  .lockscreenRainbow {
-    --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.5);
-    --lockscreenRainbowColor1: #6bba47;
-    --lockscreenRainbowColor2: #feb92d;
-    --lockscreenRainbowColor3: #ff811d;
-    --lockscreenRainbowColor4: #fc393d;
-    --lockscreenRainbowColor5: #a93c97;
-    --lockscreenRainbowColor6: #019cdc;
-
-    position: absolute;
-    // top: 1.75%;
-    // top: 30%;
-    top: calc(var(--responsiveUnit) * 17);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 200%;
-    // height: 100%;
-    overflow: hidden;
-    transform: rotate(-20deg);
-    // transform: rotate(-20deg) scale(2);
-
-    .lockscreenRainbowColor {
-      height: var(--lockscreenRainbowHeight);
-
-      &:nth-child(1) {
-        background: var(--lockscreenRainbowColor1);
-      }
-
-      &:nth-child(2) {
-        background: var(--lockscreenRainbowColor2);
-      }
-
-      &:nth-child(3) {
-        background: var(--lockscreenRainbowColor3);
-      }
-
-      &:nth-child(4) {
-        background: var(--lockscreenRainbowColor4);
-      }
-
-      &:nth-child(5) {
-        background: var(--lockscreenRainbowColor5);
-      }
-
-      &:nth-child(6) {
-        background: var(--lockscreenRainbowColor6);
-      }
-    }
-  }
-
-  .bottomButtons {
-    position: absolute;
-    bottom: 8%;
-    // background: red;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-
-    .button {
+    .dateAndClock {
+      position: absolute;
+      top: 8%;
+      // background: blue;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: calc(var(--responsiveUnit) * 1);
-      border-radius: 50%;
-      @include square(calc(var(--responsiveUnit) * 5));
-      background: transparentize($color: $black, $amount: 0.8);
+      justify-content: center;
+      // z-index: 1;
 
-      &,
-      * {
-        @include allVendors(transition, 200ms ease-in-out);
+      .date,
+      .clock {
+        color: transparentize($color: $white, $amount: 0.4);
+        text-align: center;
       }
 
-      i {
+      .date {
         font-size: calc(var(--responsiveUnit) * 2);
-        color: $white;
+        font-family: "Apple-San Francisco";
       }
 
-      &:active {
-        transform: scale(0.9);
-        background: transparentize($color: $white, $amount: 0.8);
+      .clock {
+        font-size: calc(var(--responsiveUnit) * 8);
+        font-family: "Apple-San Francisco Bold";
+      }
+    }
+
+    // .bottomButtons,
+    // .bottomBar {
+    //   z-index: 3;
+    // }
+
+    .bottomButtons {
+      position: absolute;
+      bottom: 8%;
+      // background: red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: calc(var(--responsiveUnit) * 1);
+        border-radius: 50%;
+        @include square(calc(var(--responsiveUnit) * 5));
+        background: transparentize($color: $black, $amount: 0.8);
+
+        &,
+        * {
+          @include allVendors(transition, 200ms ease-in-out);
+        }
 
         i {
-          color: $medium;
+          font-size: calc(var(--responsiveUnit) * 2);
+          color: $white;
+        }
+
+        &:active {
+          transform: scale(0.9);
+          background: transparentize($color: $white, $amount: 0.8);
+
+          i {
+            color: $medium;
+          }
+        }
+      }
+    }
+
+    .bottomBar {
+      position: absolute;
+      bottom: 2%;
+      background: $white;
+      width: 40%;
+      height: 0.75%;
+      border-radius: calc(var(--responsiveUnit) * 1);
+    }
+  }
+
+  .lockscreen-foreground {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    // z-index: 2;
+
+    .lockscreenRainbow {
+      --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.2);
+      // --lockscreenRainbowHeight: 6.5vh;
+      --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 18.8);
+      // --lockscreenRainbowTopOffset: 26vh;
+      --lockscreenRainbowRotation: -20deg;
+      --lockscreenRainbowColor1: #6bba47;
+      --lockscreenRainbowColor2: #feb92d;
+      --lockscreenRainbowColor3: #ff811d;
+      --lockscreenRainbowColor4: #fc393d;
+      --lockscreenRainbowColor5: #a93c97;
+      --lockscreenRainbowColor6: #019cdc;
+
+      @include landscape {
+        --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 1.5);
+        // --lockscreenRainbowHeight: 6.5vh;
+        --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 13);
+        // --lockscreenRainbowTopOffset: 26vh;
+        --lockscreenRainbowRotation: -8deg;
+      }
+
+      position: absolute;
+      top: var(--lockscreenRainbowTopOffset);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 200%;
+      // height: 100%;
+      overflow: hidden;
+      transform: rotate(var(--lockscreenRainbowRotation));
+      z-index: 2;
+
+      .lockscreenRainbowColor {
+        height: var(--lockscreenRainbowHeight);
+
+        &:nth-child(1) {
+          background: var(--lockscreenRainbowColor1);
+        }
+
+        &:nth-child(2) {
+          background: var(--lockscreenRainbowColor2);
+        }
+
+        &:nth-child(3) {
+          background: var(--lockscreenRainbowColor3);
+        }
+
+        &:nth-child(4) {
+          background: var(--lockscreenRainbowColor4);
+        }
+
+        &:nth-child(5) {
+          background: var(--lockscreenRainbowColor5);
+        }
+
+        &:nth-child(6) {
+          background: var(--lockscreenRainbowColor6);
         }
       }
     }
@@ -177,14 +243,6 @@
     width: 100%;
     // height: 10%;
     height: 5%;
-  }
-
-  .bottomBar {
-    position: absolute;
-    bottom: 2%;
-    background: $white;
-    width: 40%;
-    height: 0.75%;
-    border-radius: calc(var(--responsiveUnit) * 1);
+    z-index: 4;
   }
 }

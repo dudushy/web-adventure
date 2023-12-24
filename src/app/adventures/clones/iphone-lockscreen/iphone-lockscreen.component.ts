@@ -18,6 +18,7 @@ export class IphoneLockscreenComponent implements OnInit {
     currentY: 0,
     isDragging: false,
     translateY: 0,
+    // translateY: -200,
     // threshold: 100,
     threshold: -100,
     multiplier: 0.5
@@ -144,6 +145,17 @@ export class IphoneLockscreenComponent implements OnInit {
       }
 
       console.log(`[${this.title}#setupPullGesture#mouseup] this.pullGestureConfig`, this.pullGestureConfig);
+    });
+
+    lockscreen.addEventListener('mouseleave', () => {
+      console.log(`[${this.title}#setupPullGesture#mouseleave]`);
+
+      if (!this.pullGestureConfig.isDragging) return;
+
+      this.pullGestureConfig.isDragging = false;
+      this.pullGestureConfig.translateY = 0;
+
+      console.log(`[${this.title}#setupPullGesture#mouseleave] this.pullGestureConfig`, this.pullGestureConfig);
     });
 
     //? Mobile Version

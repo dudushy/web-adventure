@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'loading6', component: Loading6Component, data: { status: 'done', type: 'loader', description: 'Spinner' } },
   { path: 'css-counter', component: CssCounterComponent, data: { status: 'done', type: 'random', description: 'CSS Counter' } },
   { path: 'rocket-league', component: RocketLeagueComponent, data: { status: 'wip', type: 'clone', description: 'Rocket League UI Buttons' } },
-  { path: 'iphone-lockscreen', component: IphoneLockscreenComponent, data: { status: 'wip', type: 'clone', description: 'iPhone Lockscreen Copy' } },
+  { path: 'iphone-lockscreen', component: IphoneLockscreenComponent, data: { status: 'done', type: 'clone', description: 'iPhone Lockscreen Copy' } },
   { path: 'roll-a-dice', component: RollADiceComponent, data: { status: 'wip', type: 'interactive', description: 'Roll 1 or more dices' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },

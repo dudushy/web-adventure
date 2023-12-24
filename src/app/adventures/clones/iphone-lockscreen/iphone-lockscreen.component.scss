@@ -30,6 +30,36 @@
 }
 
 #lockscreen {
+  --lockscreenBackground: #83be6e;
+  --lockscreenRainbowColor1: #6bba47;
+  --lockscreenRainbowColor2: #feb92d;
+  --lockscreenRainbowColor3: #ff811d;
+  --lockscreenRainbowColor4: #fc393d;
+  --lockscreenRainbowColor5: #a93c97;
+  --lockscreenRainbowColor6: #019cdc;
+  --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.5);
+  // --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 17);
+  --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 17.8);
+  --lockscreenRainbowRotation: -20deg;
+
+  &.fullscreen {
+    --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 5.5);
+    --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 19);
+    --lockscreenRainbowRotation: -20deg;
+  }
+
+  @include landscape {
+    --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 1.5);
+    --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 13);
+    --lockscreenRainbowRotation: -8deg;
+
+    &.fullscreen {
+      --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 2);
+      --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 14);
+      --lockscreenRainbowRotation: -8deg;
+    }
+  }
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -40,8 +70,6 @@
   overflow: hidden;
 
   .lockscreen-background {
-    --lockscreenBackground: #83be6e;
-
     position: absolute;
     top: 0;
     display: flex;
@@ -175,26 +203,6 @@
     // z-index: 2;
 
     .lockscreenRainbow {
-      // --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.2);
-      --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.5);
-      // --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 18.8);
-      --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 17);
-      --lockscreenRainbowRotation: -20deg;
-      --lockscreenRainbowColor1: #6bba47;
-      --lockscreenRainbowColor2: #feb92d;
-      --lockscreenRainbowColor3: #ff811d;
-      --lockscreenRainbowColor4: #fc393d;
-      --lockscreenRainbowColor5: #a93c97;
-      --lockscreenRainbowColor6: #019cdc;
-
-      @include landscape {
-        --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 1.5);
-        // --lockscreenRainbowHeight: 6.5vh;
-        --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 13);
-        // --lockscreenRainbowTopOffset: 26vh;
-        --lockscreenRainbowRotation: -8deg;
-      }
-
       position: absolute;
       top: var(--lockscreenRainbowTopOffset);
       display: flex;

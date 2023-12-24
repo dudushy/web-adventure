@@ -231,14 +231,14 @@ export class IphoneLockscreenComponent implements OnInit {
     const lockscreen = document.getElementById('lockscreen') as HTMLElement;
     console.log(`[${this.title}#toggleFullscreen] lockscreen`, lockscreen);
 
-    // lockscreen.requestFullscreen();
-
-    if (this.fullscreen) {
-      this.fullscreen = false;
-      document.exitFullscreen();
-    } else {
+    if (!this.fullscreen) {
       this.fullscreen = true;
-      lockscreen.requestFullscreen( { navigationUI: 'hide' } );
+      lockscreen.classList.add('fullscreen');
+      lockscreen.requestFullscreen({ navigationUI: 'hide' });
+    } else {
+      this.fullscreen = false;
+      lockscreen.classList.remove('fullscreen');
+      document.exitFullscreen();
     }
   }
 }

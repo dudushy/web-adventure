@@ -44,6 +44,12 @@ export class IphoneLockscreenComponent implements OnInit {
     }, 1000 * 30);
 
     this.setupPullGesture();
+
+    document.addEventListener('fullscreenchange', () => {
+      console.log(`[${this.title}#ngOnInit] fullscreenchange`);
+
+      if (!document.fullscreenElement) this.exitFullscreenHandler();
+    });
   }
 
   updateView() {
@@ -250,5 +256,13 @@ export class IphoneLockscreenComponent implements OnInit {
       else if ((document as any).mozCancelFullScreen) (document as any).mozCancelFullScreen();
       else if ((document as any).msExitFullscreen) (document as any).msExitFullscreen();
     }
+  }
+
+  exitFullscreenHandler() {
+    const lockscreen = document.getElementById('lockscreen') as any;
+    console.log(`[${this.title}#toggleFullscreen] lockscreen`, lockscreen);
+
+    this.fullscreen = false;
+    lockscreen.classList.remove('fullscreen');
   }
 }

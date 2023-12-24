@@ -175,10 +175,10 @@
     // z-index: 2;
 
     .lockscreenRainbow {
-      --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.2);
-      // --lockscreenRainbowHeight: 6.5vh;
-      --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 18.8);
-      // --lockscreenRainbowTopOffset: 26vh;
+      // --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.2);
+      --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 4.5);
+      // --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 18.8);
+      --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 17);
       --lockscreenRainbowRotation: -20deg;
       --lockscreenRainbowColor1: #6bba47;
       --lockscreenRainbowColor2: #feb92d;

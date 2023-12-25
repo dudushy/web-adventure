@@ -23,6 +23,17 @@ export class RubiksCubeComponent implements OnInit {
     this.setupCubeInteraction();
   }
 
+  ngOnDestroy(): void {
+    console.log(`[${this.title}#ngOnDestroy]`);
+
+    window.removeEventListener('mousedown', () => {});
+    window.removeEventListener('mousemove', () => {});
+    window.removeEventListener('mouseup', () => {});
+    window.removeEventListener('touchstart', () => {});
+    window.removeEventListener('touchmove', () => {});
+    window.removeEventListener('touchend', () => {});
+  }
+
   updateView() {
     console.log(`[${this.title}#updateView]`);
 

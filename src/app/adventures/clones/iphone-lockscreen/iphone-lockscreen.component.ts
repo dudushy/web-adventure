@@ -52,6 +52,27 @@ export class IphoneLockscreenComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    console.log(`[${this.title}#ngOnDestroy]`);
+
+    document.removeEventListener('fullscreenchange', () => {});
+
+    const lockscreen = document.getElementById('lockscreen');
+    console.log(`[${this.title}#setupPullGesture] lockscreen`, lockscreen);
+
+    const triggerDiv = document.getElementById('pullGestureTrigger');
+    console.log(`[${this.title}#setupPullGesture] triggerDiv`, triggerDiv);
+
+    triggerDiv.removeEventListener('mousedown', () => {});
+    triggerDiv.removeEventListener('touchstart', () => {});
+
+    lockscreen.removeEventListener('mousemove', () => {});
+    lockscreen.removeEventListener('mouseup', () => {});
+    lockscreen.removeEventListener('mouseleave', () => {});
+    lockscreen.removeEventListener('touchmove', () => {});
+    lockscreen.removeEventListener('touchend', () => {});
+  }
+
   updateView() {
     console.log(`[${this.title}#updateView]`);
 

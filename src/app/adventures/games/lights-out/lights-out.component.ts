@@ -132,6 +132,10 @@ export class LightsOutComponent implements OnInit {
   //   console.log(`[${this.title}#ngAfterViewChecked]`);
   // }
 
+  ngOnDestroy(): void {
+    console.log(`[${this.title}#ngOnDestroy]`);
+  }
+
   updateView() {
     console.log(`[${this.title}#updateView]`);
 

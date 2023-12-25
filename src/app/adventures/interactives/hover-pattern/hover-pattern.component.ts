@@ -42,6 +42,10 @@ export class HoverPatternComponent implements OnInit {
     // this.toggleBackgroundSvg();
   }
 
+  ngOnDestroy(): void {
+    console.log(`[${this.title}#ngOnDestroy]`);
+  }
+
   updateView() {
     console.log(`[${this.title}#updateView]`);
 

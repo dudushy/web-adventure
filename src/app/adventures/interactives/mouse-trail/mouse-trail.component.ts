@@ -25,6 +25,15 @@ export class MouseTrailComponent implements OnInit {
     this.setupTrail();
   }
 
+  ngOnDestroy(): void {
+    console.log(`[${this.title}#ngOnDestroy]`);
+
+    const content = document.getElementsByClassName('pageContent')[0] as HTMLElement;
+    console.log(`[${this.title}#ngOnDestroy] content`, content);
+
+    content.removeEventListener('pointermove', () => {});
+  }
+
   updateView() {
     console.log(`[${this.title}#updateView]`);
 

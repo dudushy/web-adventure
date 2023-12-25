@@ -21,6 +21,10 @@ export class Loading1Component implements OnInit {
     console.log(`[${this.title}#ngOnInit]`);
   }
 
+  ngOnDestroy(): void {
+    console.log(`[${this.title}#ngOnDestroy]`);
+  }
+
   updateView() {
     console.log(`[${this.title}#updateView]`);
 

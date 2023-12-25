@@ -26,6 +26,10 @@
 #dicesConfig {
   --contentHeight: calc(var(--responsiveUnit) * 18);
 
+  @include portrait {
+    --contentHeight: calc(var(--responsiveUnit) * 16);
+  }
+
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -34,7 +38,8 @@
   // margin: 1%;
   // padding: 1%;
   top: calc(var(--contentHeight) * -1);
-  width: 100%;
+  // width: 100%;
+  width: 98%;
   background: $primary;
 
   &,
@@ -94,8 +99,11 @@
       width: 50%;
       background: $success;
       color: $light;
+      border: 0;
+      outline: 0;
       border-radius: calc(var(--responsiveUnit) * 4);
       font-size: calc(var(--responsiveUnit) * 1.5);
+      cursor: pointer;
     }
   }
 
@@ -111,6 +119,7 @@
     background: $light;
     padding: calc(var(--responsiveUnit) * 2.5);
     border-radius: calc(var(--responsiveUnit) * 4);
+    cursor: pointer;
 
     i {
       position: absolute;
@@ -125,8 +134,11 @@
     top: 0;
 
     .config-toggle {
+      background: $dark;
+
       i {
         transform: rotate(180deg);
+        color: $light;
       }
     }
   }

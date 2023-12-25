@@ -10,6 +10,7 @@ import { AppComponent } from 'src/app/app.component';
 export class IphoneLockscreenComponent implements OnInit {
   title = 'IphoneLockscreenComponent';
 
+  datetimeInterval = null;
   date = 'Thursday, December 21';
   time = '10:27';
 
@@ -39,7 +40,7 @@ export class IphoneLockscreenComponent implements OnInit {
 
     this.updateDateAndTime();
 
-    setInterval(() => {
+    this.datetimeInterval = setInterval(() => {
       this.updateDateAndTime();
     }, 1000 * 30);
 
@@ -55,6 +56,8 @@ export class IphoneLockscreenComponent implements OnInit {
   ngOnDestroy(): void {
     console.log(`[${this.title}#ngOnDestroy]`);
 
+    clearInterval(this.datetimeInterval);
+
     document.removeEventListener('fullscreenchange', () => {});
 
     const lockscreen = document.getElementById('lockscreen');
@@ -63,14 +66,14 @@ export class IphoneLockscreenComponent implements OnInit {
     const triggerDiv = document.getElementById('pullGestureTrigger');
     console.log(`[${this.title}#setupPullGesture] triggerDiv`, triggerDiv);
 
-    triggerDiv.removeEventListener('mousedown', () => {});
-    triggerDiv.removeEventListener('touchstart', () => {});
+    triggerDiv?.removeEventListener('mousedown', () => {});
+    triggerDiv?.removeEventListener('touchstart', () => {});
 
-    lockscreen.removeEventListener('mousemove', () => {});
-    lockscreen.removeEventListener('mouseup', () => {});
-    lockscreen.removeEventListener('mouseleave', () => {});
-    lockscreen.removeEventListener('touchmove', () => {});
-    lockscreen.removeEventListener('touchend', () => {});
+    lockscreen?.removeEventListener('mousemove', () => {});
+    lockscreen?.removeEventListener('mouseup', () => {});
+    lockscreen?.removeEventListener('mouseleave', () => {});
+    lockscreen?.removeEventListener('touchmove', () => {});
+    lockscreen?.removeEventListener('touchend', () => {});
   }
 
   updateView() {

@@ -26,12 +26,12 @@ export class RubiksCubeComponent implements OnInit {
   ngOnDestroy(): void {
     console.log(`[${this.title}#ngOnDestroy]`);
 
-    window.removeEventListener('mousedown', () => {});
-    window.removeEventListener('mousemove', () => {});
-    window.removeEventListener('mouseup', () => {});
-    window.removeEventListener('touchstart', () => {});
-    window.removeEventListener('touchmove', () => {});
-    window.removeEventListener('touchend', () => {});
+    window?.removeEventListener('mousedown', () => {});
+    window?.removeEventListener('mousemove', () => {});
+    window?.removeEventListener('mouseup', () => {});
+    window?.removeEventListener('touchstart', () => {});
+    window?.removeEventListener('touchmove', () => {});
+    window?.removeEventListener('touchend', () => {});
   }
 
   updateView() {

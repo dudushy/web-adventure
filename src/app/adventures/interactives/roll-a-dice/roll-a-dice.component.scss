@@ -16,12 +16,137 @@
 }
 
 .pageContent {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-i {
-  font-size: calc(var(--responsiveUnit) * 2);
-  color: $danger;
+#dicesConfig {
+  --contentHeight: calc(var(--responsiveUnit) * 18);
+
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin: 1%;
+  // padding: 1%;
+  top: calc(var(--contentHeight) * -1);
+  width: 100%;
+  background: $primary;
+
+  &,
+  * {
+    @include allVendors(transition, all 0.5s ease-in-out);
+  }
+
+  .config-content {
+    height: var(--contentHeight);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // margin: 1%;
+    // padding: 1%;
+    width: 100%;
+    background: $dark;
+    color: $light;
+    z-index: 2;
+
+    h1 {
+      font-size: calc(var(--responsiveUnit) * 2);
+    }
+
+    .customInput {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1%;
+      padding: 1%;
+      width: 100%;
+      background: $dark;
+      color: $light;
+      border-radius: calc(var(--responsiveUnit) * 4);
+
+      label {
+        margin-right: calc(var(--responsiveUnit) * 2);
+        font-size: calc(var(--responsiveUnit) * 1);
+      }
+
+      input {
+        // width: 100%;
+        background: $success;
+        color: $light;
+        outline: 0;
+        border: none;
+        border-radius: calc(var(--responsiveUnit) * 2);
+        padding: calc(var(--responsiveUnit) * 0.5);
+        font-size: calc(var(--responsiveUnit) * 1);
+        text-align: center;
+      }
+    }
+
+    button {
+      margin: 1%;
+      padding: 1%;
+      width: 50%;
+      background: $success;
+      color: $light;
+      border-radius: calc(var(--responsiveUnit) * 4);
+      font-size: calc(var(--responsiveUnit) * 1.5);
+    }
+  }
+
+  .config-toggle {
+    position: absolute;
+    // bottom: -10%;
+    bottom: calc(var(--responsiveUnit) * -2.25);
+    // display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background: $light;
+    padding: calc(var(--responsiveUnit) * 2.5);
+    border-radius: calc(var(--responsiveUnit) * 4);
+
+    i {
+      position: absolute;
+      // bottom: calc(var(--responsiveUnit) * -0.5);
+      bottom: 0;
+      font-size: calc(var(--responsiveUnit) * 2);
+      color: $dark;
+    }
+  }
+
+  &.shown {
+    top: 0;
+
+    .config-toggle {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.diceRoller {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin: 1%;
+  // padding: 1%;
+  height: 100%;
+  width: 100%;
+  background: $success;
+
+  .dice {
+    width: 100%;
+    height: 100%;
+    background: $danger;
+  }
 }

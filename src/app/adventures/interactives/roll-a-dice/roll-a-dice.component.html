@@ -1,4 +1,27 @@
 <div id="{{title}}-content" class="pageContent">
-  <i class="bi bi-exclamation-octagon-fill"></i>
-  <i class="bi bi-exclamation-triangle-fill"></i>
+  <div id="dicesConfig">
+    <div class="config-content">
+      <h1>Dices Config</h1>
+
+      <div class="customInput">
+        <label for="sides">Sides</label>
+        <input type="number" id="sides" [(ngModel)]="dicesConfig.sides" />
+      </div>
+
+      <div class="customInput">
+        <label for="dices">Dices</label>
+        <input type="number" id="dices" [(ngModel)]="dicesConfig.dices" />
+      </div>
+
+      <button>Apply</button>
+    </div>
+
+    <div class="config-toggle" (click)="toggleConfig()">
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </div>
+
+  <div class="diceRoller">
+    <div class="dice" *ngFor="let dice of [].constructor(dicesConfig.dices)"></div>
+  </div>
 </div>

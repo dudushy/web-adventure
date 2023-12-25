@@ -10,6 +10,11 @@ import { AppComponent } from 'src/app/app.component';
 export class RollADiceComponent implements OnInit {
   title = 'RollADiceComponent';
 
+  dicesConfig = {
+    sides: 6,
+    dices: 1,
+  };
+
   constructor(
     private cdr: ChangeDetectorRef,
     public app: AppComponent
@@ -36,5 +41,12 @@ export class RollADiceComponent implements OnInit {
     await this.app.redirectTo(url, this.title);
 
     this.updateView();
+  }
+
+  toggleConfig() {
+    const dicesConfig = document.getElementById('dicesConfig');
+    console.log(`[${this.title}#toggleConfig] dicesConfig`, dicesConfig);
+
+    dicesConfig?.classList.toggle('shown');
   }
 }

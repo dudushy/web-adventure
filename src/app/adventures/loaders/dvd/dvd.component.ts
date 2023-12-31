@@ -17,10 +17,14 @@ export class DvdComponent implements OnInit {
     logoHeight: 0,
     logoTop: 0,
     logoLeft: 0,
+    logoHue: '0deg',
     speedX: 1,
     speedY: 1,
     intervalId: null,
-    intervalTime: 1,
+    intervalTime: 1000,
+    intervalTimeBase: 20,
+    intervalTimeMultiplier: 1,
+    intervalTimeConstant: 0.1,
   };
 
   constructor(
@@ -33,20 +37,17 @@ export class DvdComponent implements OnInit {
   ngOnInit(): void {
     console.log(`[${this.title}#ngOnInit]`);
 
-    this.updateSizes();
-    window.addEventListener('resize', () => {
-      this.updateSizes();
-    });
+    this.setupConfig();
 
-    this.dvdConfig.intervalId = setInterval(() => {
-      this.moveLogo();
-    }, this.dvdConfig.intervalTime);
+    window.addEventListener('resize', () => {
+      this.setupConfig();
+    });
   }
 
   ngOnDestroy(): void {
     console.log(`[${this.title}#ngOnDestroy]`);
 
-    window.removeEventListener('resize', () => {});
+    window.removeEventListener('resize', () => { });
 
     clearInterval(this.dvdConfig.intervalId);
   }
@@ -64,43 +65,64 @@ export class DvdComponent implements OnInit {
     this.updateView();
   }
 
-  updateSizes() {
-    console.log(`[${this.title}#updateSizes]`);
+  setupConfig() {
+    console.log(`[${this.title}#setupConfig]`);
 
     this.dvdConfig.logoTop = 0;
     this.dvdConfig.logoLeft = 0;
 
     const content = document.getElementsByClassName('pageContent')[0] as HTMLDivElement;
-    console.log(`[${this.title}#updateSizes] content`, content);
-    console.log(`[${this.title}#updateSizes] content.clientWidth`, content?.clientWidth);
-    console.log(`[${this.title}#updateSizes] content.clientHeight`, content?.clientHeight);
+    console.log(`[${this.title}#setupConfig] content`, content);
+    console.log(`[${this.title}#setupConfig] content.clientWidth`, content?.clientWidth);
+    console.log(`[${this.title}#setupConfig] content.clientHeight`, content?.clientHeight);
 
     this.dvdConfig.containerWidth = content?.clientWidth;
     this.dvdConfig.containerHeight = content?.clientHeight;
 
+    const maxSize = Math.max(this.dvdConfig.containerWidth, this.dvdConfig.containerHeight);
+    console.log(`[${this.title}#setupConfig] maxSize`, maxSize);
+
+    const minSize = Math.min(this.dvdConfig.containerWidth, this.dvdConfig.containerHeight);
+    console.log(`[${this.title}#setupConfig] minSize`, minSize);
+
+    this.dvdConfig.intervalTimeMultiplier = Math.round(maxSize / minSize) * this.dvdConfig.intervalTimeConstant;
+    this.dvdConfig.intervalTime = this.dvdConfig.intervalTimeBase * this.dvdConfig.intervalTimeMultiplier;
+
     const logo = document.getElementById('logo') as HTMLImageElement;
-    console.log(`[${this.title}#updateSizes] logo`, logo);
-    console.log(`[${this.title}#updateSizes] logo.clientWidth`, logo?.clientWidth);
-    console.log(`[${this.title}#updateSizes] logo.clientHeight`, logo?.clientHeight);
+    console.log(`[${this.title}#setupConfig] logo`, logo);
+    console.log(`[${this.title}#setupConfig] logo.clientWidth`, logo?.clientWidth);
+    console.log(`[${this.title}#setupConfig] logo.clientHeight`, logo?.clientHeight);
 
     this.dvdConfig.logoWidth = logo?.clientWidth;
     this.dvdConfig.logoHeight = logo?.clientHeight;
 
-    console.log(`[${this.title}#updateSizes] this.dvdConfig`, this.dvdConfig);
+    console.log(`[${this.title}#setupConfig] this.dvdConfig`, this.dvdConfig);
+
+    if (this.dvdConfig.intervalId) clearInterval(this.dvdConfig.intervalId);
+
+    this.dvdConfig.intervalId = setInterval(() => {
+      this.moveLogo();
+    }, this.dvdConfig.intervalTime);
   }
 
   moveLogo() {
     console.log(`[${this.title}#moveLogo]`);
+
+    const randomHue = Math.floor(Math.random() * 360);
 
     this.dvdConfig.logoLeft += this.dvdConfig.speedX;
     this.dvdConfig.logoTop += this.dvdConfig.speedY;
 
     if (this.dvdConfig.logoLeft + this.dvdConfig.logoWidth > this.dvdConfig.containerWidth || this.dvdConfig.logoLeft < 0) {
       this.dvdConfig.speedX *= -1;
+
+      this.dvdConfig.logoHue = `${randomHue}deg`;
     }
 
     if (this.dvdConfig.logoTop + this.dvdConfig.logoHeight > this.dvdConfig.containerHeight || this.dvdConfig.logoTop < 0) {
       this.dvdConfig.speedY *= -1;
+
+      this.dvdConfig.logoHue = `${randomHue}deg`;
     }
   }
 }

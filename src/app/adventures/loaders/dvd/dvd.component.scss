@@ -40,9 +40,14 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  background: $white;
+  // background: $white;
+  background-image: url("../../../../assets/imgs/SVGs/logo-dvd.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: calc(var(--responsiveUnit) * 10);
   height: calc(var(--responsiveUnit) * 4.4);
+  filter: hue-rotate(var(--logoHue));
   // height: auto;
   // height: 100%;
 

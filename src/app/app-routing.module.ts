@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: 'rocket-league', component: RocketLeagueComponent, data: { status: 'wip', type: 'clone', description: 'Rocket League UI Buttons' } },
   { path: 'iphone-lockscreen', component: IphoneLockscreenComponent, data: { status: 'done', type: 'clone', description: 'iPhone Lockscreen Copy' } },
   { path: 'roll-a-dice', component: RollADiceComponent, data: { status: 'wip', type: 'interactive', description: 'Roll 1 or more dices' } },
-  { path: 'dvd', component: DvdComponent, data: { status: 'wip', type: 'loader', description: 'DVD Screensaver' } },
+  { path: 'dvd', component: DvdComponent, data: { status: 'done', type: 'loader', description: 'DVD Screensaver' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

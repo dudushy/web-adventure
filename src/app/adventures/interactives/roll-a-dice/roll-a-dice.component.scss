@@ -35,10 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin: 1%;
-  // padding: 1%;
   top: calc(var(--contentHeight) * -1);
-  // width: 100%;
   width: 98%;
   background: $primary;
 
@@ -53,8 +50,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // margin: 1%;
-    // padding: 1%;
     width: 100%;
     background: $dark;
     color: $light;
@@ -81,7 +76,6 @@
       }
 
       input {
-        // width: 100%;
         background: $success;
         color: $light;
         outline: 0;
@@ -109,9 +103,7 @@
 
   .config-toggle {
     position: absolute;
-    // bottom: -10%;
     bottom: calc(var(--responsiveUnit) * -2.25);
-    // display: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,7 +115,6 @@
 
     i {
       position: absolute;
-      // bottom: calc(var(--responsiveUnit) * -0.5);
       bottom: 0;
       font-size: calc(var(--responsiveUnit) * 2);
       color: $dark;
@@ -145,20 +136,32 @@
 }
 
 .diceRoller {
+  // --gridWidth: calc(var(--responsiveUnit) * 20);
+  --gridWidth: 100%;
+  // --gridHeight: calc(var(--responsiveUnit) * 20);
+  --gridHeight: 100%;
+  --dicesPerRow: 1;
+  --diceGap: calc(var(--responsiveUnit) * 0.2);
+  --diceWidth: calc(var(--gridWidth) / var(--dicesPerRow) - var(--diceGap) * 2);
+  --diceHeight: calc(var(--gridHeight) / var(--dicesTotalQuantity) - var(--diceGap) * 2);
+
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // margin: 1%;
-  // padding: 1%;
-  height: 100%;
-  width: 100%;
+  flex-wrap: wrap; //? something is up with this
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: var(--gridWidth);
+  height: var(--gridHeight);
   background: $success;
 
   .dice {
-    width: 100%;
-    height: 100%;
+    width: var(--diceWidth);
+    // height: calc(100% - var(--diceGap) * 2);
+    height: var(--diceHeight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: var(--diceGap);
     background: $danger;
   }
 }

@@ -5,15 +5,15 @@
 
       <div class="customInput">
         <label for="sides">Sides</label>
-        <input type="number" id="sides" [(ngModel)]="dicesConfig.sides" />
+        <input type="number" id="sides" value="{{dicesConfig.sides}}">
       </div>
 
       <div class="customInput">
         <label for="dices">Dices</label>
-        <input type="number" id="dices" [(ngModel)]="dicesConfig.dices" />
+        <input type="number" id="dices" value="{{dicesConfig.dices}}">
       </div>
 
-      <button>Apply</button>
+      <button (click)="updateDiceConfig()">Apply</button>
     </div>
 
     <div class="config-toggle" (click)="toggleConfig()">
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="diceRoller">
+  <div class="diceRoller" [style.--dicesPerRow]="dicesConfig.dicesPerRow" [style.--dicesTotalQuantity]="dicesConfig.dices">
     <div class="dice" *ngFor="let dice of [].constructor(dicesConfig.dices)"></div>
   </div>
 </div>

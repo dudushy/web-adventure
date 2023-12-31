@@ -13,6 +13,7 @@ export class RollADiceComponent implements OnInit {
   dicesConfig = {
     sides: 6,
     dices: 1,
+    dicesPerRow: 1
   };
 
   constructor(
@@ -48,5 +49,21 @@ export class RollADiceComponent implements OnInit {
     console.log(`[${this.title}#toggleConfig] dicesConfig`, dicesConfig);
 
     dicesConfig?.classList.toggle('shown');
+  }
+
+  updateDiceConfig() {
+    const sides = document.getElementById('sides') as HTMLInputElement;
+    console.log(`[${this.title}#updateDiceConfig] sides`, sides);
+
+    const dices = document.getElementById('dices') as HTMLInputElement;
+    console.log(`[${this.title}#updateDiceConfig] dices`, dices);
+
+    this.dicesConfig.sides = sides.valueAsNumber;
+    this.dicesConfig.dices = dices.valueAsNumber;
+    this.dicesConfig.dicesPerRow = Math.ceil(this.dicesConfig.dices / 2);
+
+    console.log(`[${this.title}#updateDiceConfig] this.dicesConfig`, this.dicesConfig);
+
+    this.toggleConfig();
   }
 }

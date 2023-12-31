@@ -113,6 +113,10 @@
     border-radius: calc(var(--responsiveUnit) * 4);
     cursor: pointer;
 
+    &, * {
+      @include allVendors(user-select, none);
+    }
+
     i {
       position: absolute;
       bottom: 0;

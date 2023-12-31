@@ -31,6 +31,7 @@ import { CssCounterComponent } from './adventures/random/css-counter/css-counter
 import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-league.component';
 import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen/iphone-lockscreen.component';
 import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
+import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a
     CssCounterComponent,
     RocketLeagueComponent,
     IphoneLockscreenComponent,
-    RollADiceComponent
+    RollADiceComponent,
+    DvdComponent
   ],
   imports: [
     BrowserModule,

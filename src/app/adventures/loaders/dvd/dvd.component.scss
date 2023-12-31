@@ -1,0 +1,52 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  // background: $medium;
+  color: $dark;
+}
+
+.pageContent {
+  padding: 1%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $black;
+}
+
+.pageContent {
+  position: relative;
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparentize($color: $success, $amount: 0.2);
+  width: calc(var(--responsiveUnit) * 10);
+  height: auto;
+  // height: 100%;
+  z-index: 2;
+
+  // @include portrait {
+  //   width: calc(var(--responsiveUnit) * 10);
+  // }
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $white;
+  width: calc(var(--responsiveUnit) * 10);
+  height: calc(var(--responsiveUnit) * 4.4);
+  // height: auto;
+  // height: 100%;
+
+  // @include portrait {
+  //   width: calc(var(--responsiveUnit) * 10);
+  // }
+}

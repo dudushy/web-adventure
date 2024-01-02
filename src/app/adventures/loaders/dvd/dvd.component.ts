@@ -18,13 +18,14 @@ export class DvdComponent implements OnInit {
     logoTop: 0,
     logoLeft: 0,
     logoHue: '0deg',
+    starAnimationDuration: 1,
     speedX: 1,
     speedY: 1,
     intervalId: null,
-    intervalTime: 1000,
-    intervalTimeBase: 20,
-    intervalTimeMultiplier: 1,
-    intervalTimeConstant: 0.1,
+    intervalTime: 10,
+    intervalTimeBase: 1,
+    intervalTimeMultiplier: 0.0001,
+    intervalTimeDivider: 4,
   };
 
   constructor(
@@ -79,16 +80,19 @@ export class DvdComponent implements OnInit {
     this.dvdConfig.containerWidth = content?.clientWidth;
     this.dvdConfig.containerHeight = content?.clientHeight;
 
-    const maxSize = Math.max(this.dvdConfig.containerWidth, this.dvdConfig.containerHeight);
-    console.log(`[${this.title}#setupConfig] maxSize`, maxSize);
+    //TODO: Calculate intervalTime based on resolution
+    // const totalPixels = this.dvdConfig.containerWidth * this.dvdConfig.containerHeight;
+    // console.log(`[${this.title}#setupConfig] totalPixels`, totalPixels);
 
-    const minSize = Math.min(this.dvdConfig.containerWidth, this.dvdConfig.containerHeight);
-    console.log(`[${this.title}#setupConfig] minSize`, minSize);
+    // const dividedTotalPixels = totalPixels / this.dvdConfig.intervalTimeDivider;
+    // console.log(`[${this.title}#setupConfig] dividedTotalPixels`, dividedTotalPixels);
 
-    this.dvdConfig.intervalTimeMultiplier = Math.round(maxSize / minSize) * this.dvdConfig.intervalTimeConstant;
-    this.dvdConfig.intervalTime = this.dvdConfig.intervalTimeBase * this.dvdConfig.intervalTimeMultiplier;
+    // this.dvdConfig.intervalTime = parseFloat(
+    //   (this.dvdConfig.intervalTimeBase + dividedTotalPixels * this.dvdConfig.intervalTimeMultiplier)
+    //     .toFixed(2)
+    // );
 
-    const logo = document.getElementById('logo') as HTMLImageElement;
+    const logo = document.getElementById('logo') as HTMLDivElement;
     console.log(`[${this.title}#setupConfig] logo`, logo);
     console.log(`[${this.title}#setupConfig] logo.clientWidth`, logo?.clientWidth);
     console.log(`[${this.title}#setupConfig] logo.clientHeight`, logo?.clientHeight);
@@ -113,6 +117,13 @@ export class DvdComponent implements OnInit {
     this.dvdConfig.logoLeft += this.dvdConfig.speedX;
     this.dvdConfig.logoTop += this.dvdConfig.speedY;
 
+    const isTouchingBorderX = this.dvdConfig.logoLeft + this.dvdConfig.logoWidth >= this.dvdConfig.containerWidth || this.dvdConfig.logoLeft <= 0;
+    const isTouchingBorderY = this.dvdConfig.logoTop + this.dvdConfig.logoHeight >= this.dvdConfig.containerHeight || this.dvdConfig.logoTop <= 0;
+
+    const isTouchingCorner = isTouchingBorderX && isTouchingBorderY;
+
+    if (isTouchingCorner) this.triggerAnimation();
+
     if (this.dvdConfig.logoLeft + this.dvdConfig.logoWidth > this.dvdConfig.containerWidth || this.dvdConfig.logoLeft < 0) {
       this.dvdConfig.speedX *= -1;
 
@@ -124,5 +135,17 @@ export class DvdComponent implements OnInit {
 
       this.dvdConfig.logoHue = `${randomHue}deg`;
     }
+  }
+
+  triggerAnimation() {
+    console.log(`[${this.title}#triggerAnimation]`);
+
+    const logo = document.getElementById('logo') as HTMLDivElement;
+    console.log(`[${this.title}#triggerAnimation] logo`, logo);
+
+    logo.classList.add('corner');
+    setTimeout(() => {
+      logo.classList.remove('corner');
+    }, this.dvdConfig.starAnimationDuration * 1000);
   }
 }

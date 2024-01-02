@@ -20,6 +20,7 @@ export class DvdComponent implements OnInit {
     logoLeft: 0,
     logoHue: '0deg',
 
+    starAnimationTrigger: false,
     starAnimationDuration: 1,
 
     speedX: 1,
@@ -132,14 +133,11 @@ export class DvdComponent implements OnInit {
     const logo = document.getElementById('logo') as HTMLDivElement;
     console.log(`[${this.title}#triggerAnimation] logo`, logo);
 
-    if (logo?.classList.contains('corner')) {
-      logo?.classList.remove('corner');
-      void logo?.offsetWidth;
-    }
+    if (this.dvdConfig.starAnimationTrigger) return;
 
-    logo?.classList.add('corner');
+    this.dvdConfig.starAnimationTrigger = true;
     setTimeout(() => {
-      logo?.classList.remove('corner');
+      this.dvdConfig.starAnimationTrigger = false;
     }, this.dvdConfig.starAnimationDuration * 1000);
   }
 }

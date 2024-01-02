@@ -74,6 +74,7 @@ img {
 
       position: absolute;
       color: transparent;
+      font-size: calc(var(--responsiveUnit) * 0);
     }
 
     &,

@@ -13,19 +13,20 @@ export class DvdComponent implements OnInit {
   dvdConfig = {
     containerWidth: 0,
     containerHeight: 0,
+
     logoWidth: 0,
     logoHeight: 0,
     logoTop: 0,
     logoLeft: 0,
     logoHue: '0deg',
+
     starAnimationDuration: 1,
+
     speedX: 1,
     speedY: 1,
+
     intervalId: null,
     intervalTime: 10,
-    intervalTimeBase: 1,
-    intervalTimeMultiplier: 0.0001,
-    intervalTimeDivider: 4,
   };
 
   constructor(
@@ -79,18 +80,6 @@ export class DvdComponent implements OnInit {
 
     this.dvdConfig.containerWidth = content?.clientWidth;
     this.dvdConfig.containerHeight = content?.clientHeight;
-
-    //TODO: Calculate intervalTime based on resolution
-    // const totalPixels = this.dvdConfig.containerWidth * this.dvdConfig.containerHeight;
-    // console.log(`[${this.title}#setupConfig] totalPixels`, totalPixels);
-
-    // const dividedTotalPixels = totalPixels / this.dvdConfig.intervalTimeDivider;
-    // console.log(`[${this.title}#setupConfig] dividedTotalPixels`, dividedTotalPixels);
-
-    // this.dvdConfig.intervalTime = parseFloat(
-    //   (this.dvdConfig.intervalTimeBase + dividedTotalPixels * this.dvdConfig.intervalTimeMultiplier)
-    //     .toFixed(2)
-    // );
 
     const logo = document.getElementById('logo') as HTMLDivElement;
     console.log(`[${this.title}#setupConfig] logo`, logo);

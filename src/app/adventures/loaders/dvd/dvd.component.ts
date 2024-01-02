@@ -132,9 +132,14 @@ export class DvdComponent implements OnInit {
     const logo = document.getElementById('logo') as HTMLDivElement;
     console.log(`[${this.title}#triggerAnimation] logo`, logo);
 
-    logo.classList.add('corner');
+    if (logo?.classList.contains('corner')) {
+      logo?.classList.remove('corner');
+      void logo?.offsetWidth;
+    }
+
+    logo?.classList.add('corner');
     setTimeout(() => {
-      logo.classList.remove('corner');
+      logo?.classList.remove('corner');
     }, this.dvdConfig.starAnimationDuration * 1000);
   }
 }

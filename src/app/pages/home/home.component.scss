@@ -45,6 +45,11 @@
     @include allVendors(box-shadow, 0 0 calc(var(--responsiveUnit) * 1) calc(var(--responsiveUnit) * 0.2) $black);
     @include allVendors(transition, all 300ms ease-in-out);
 
+    &,
+    * {
+      @include allVendors(user-select, none);
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -77,10 +82,17 @@
 
       .cardInfo {
         .cardTitle,
-        .cardDescription,
-        .cardType {
+        .cardDescription {
           color: var(--cardTextSelected);
           @include allVendors(transition, all 300ms ease-in-out);
+        }
+
+        .cardType {
+          p {
+            background: var(--cardColorSelected);
+            color: var(--cardText);
+            @include allVendors(transition, all 300ms ease-in-out);
+          }
         }
       }
     }
@@ -136,6 +148,13 @@
         width: 75%;
         height: 25%;
         font-size: calc(var(--responsiveUnit) * 0.8);
+
+        p {
+          background: var(--cardColor);
+          color: var(--cardTextSelected);
+          padding: calc(var(--responsiveUnit) * 0.2);
+          border-radius: calc(var(--responsiveUnit) * 0.5);
+        }
       }
 
       .cardNo {

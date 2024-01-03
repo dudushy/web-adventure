@@ -50,6 +50,7 @@ header {
   h1 {
     margin: 0;
     font-size: calc(var(--responsiveUnit) * 2);
+    font-family: sans-serif;
     @include allVendors(transition, all 250ms ease-in-out);
     &:hover {
       color: $white;
@@ -74,6 +75,7 @@ footer {
   h2 {
     font-size: calc(var(--responsiveUnit) * 1);
     text-align: center;
+    font-family: sans-serif;
 
     #heart {
       color: $danger;
@@ -81,6 +83,7 @@ footer {
 
     a {
       color: $danger;
+      font-family: monospace;
       @include allVendors(transition, all 250ms ease-in-out);
       &:hover {
         color: $tertiary;

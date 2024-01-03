@@ -29,6 +29,7 @@ import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
 import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man.component';
+import { SocialIconsComponent } from './adventures/interactives/social-icons/social-icons.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'dvd', component: DvdComponent, data: { status: 'done', type: 'loader', description: 'DVD Screensaver' } },
   { path: 'sliding-menu', component: SlidingMenuComponent, data: { status: 'done', type: 'interactive', description: 'Sliding Menu from instagram reel' } },
   { path: 'quiet-man', component: QuietManComponent, data: { status: 'done', type: 'interactive', description: 'Quiet Man from instagram reel' } },
+  { path: 'social-icons', component: SocialIconsComponent, data: { status: 'done', type: 'interactive', description: 'Social Icons Hover Effect from instagram reel' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

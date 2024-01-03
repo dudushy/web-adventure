@@ -1,0 +1,92 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+}
+
+.pageContent {
+  padding: 1%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $dark;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include portrait {
+    flex-direction: column;
+  }
+}
+
+.socialIcon {
+  --animationDuration: 0.3s;
+  --iconSize: calc(var(--responsiveUnit) * 2);
+  --tooltipFlagSize: calc(var(--responsiveUnit) * 0.8);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $white;
+  color: $black;
+  @include square(var(--iconSize));
+  border-radius: 50%;
+  padding: calc(var(--responsiveUnit) * 1.5);
+  margin: calc(var(--responsiveUnit) * 1);
+
+  &,
+  * {
+    @include allVendors(user-select, none);
+    @include allVendors(transition, all var(--animationDuration) ease-in-out);
+  }
+
+  i {
+    font-size: calc(var(--responsiveUnit) * 1.2);
+  }
+
+  .socialIcon-tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    position: absolute;
+    background: var(--iconColor);
+    padding: calc(var(--responsiveUnit) * 0.4);
+    border-radius: calc(var(--responsiveUnit) * 0.4);
+    color: $white;
+    font-size: calc(var(--responsiveUnit) * 0.8);
+    font-family: "Comfortaa";
+    font-weight: bold;
+    opacity: 0;
+
+    &::before {
+      content: "";
+      @include square(var(--tooltipFlagSize));
+      position: absolute;
+      background: var(--iconColor);
+      top: calc(var(--responsiveUnit) * 1.25);
+      transform: rotate(0.5turn);
+      @include allVendors(clip-path, polygon(50% 0%, 0% 100%, 100% 100%));
+    }
+  }
+
+  &:hover {
+    background: var(--iconColor);
+
+    i {
+      color: $white;
+      @include allVendors(transition, all calc(var(--animationDuration) / 2) ease-in-out);
+    }
+
+    .socialIcon-tooltip {
+      top: calc(var(--responsiveUnit) * -2.6);
+      opacity: 1;
+    }
+  }
+}

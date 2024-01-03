@@ -34,6 +34,7 @@ import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
 import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man.component';
+import { SocialIconsComponent } from './adventures/interactives/social-icons/social-icons.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man
     RollADiceComponent,
     DvdComponent,
     SlidingMenuComponent,
-    QuietManComponent
+    QuietManComponent,
+    SocialIconsComponent
   ],
   imports: [
     BrowserModule,

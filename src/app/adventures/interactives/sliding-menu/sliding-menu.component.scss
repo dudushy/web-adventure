@@ -46,6 +46,10 @@
   &:hover {
     padding-right: calc(var(--responsiveUnit) * 1);
 
+    @include portrait {
+      padding-right: calc(var(--responsiveUnit) * 2);
+    }
+
     .menuItem {
       cursor: pointer;
 
@@ -57,6 +61,11 @@
         margin-left: calc(var(--responsiveUnit) * 0.5);
         padding-right: calc(var(--responsiveUnit) * 1);
         width: inherit;
+
+        @include portrait {
+          margin-left: calc(var(--responsiveUnit) * 1);
+          padding-right: calc(var(--responsiveUnit) * 2);
+        }
       }
     }
   }
@@ -71,8 +80,16 @@
     border-top-right-radius: calc(var(--responsiveUnit) * 1);
     border-bottom-right-radius: calc(var(--responsiveUnit) * 1);
 
+    @include portrait {
+      padding-inline: calc(var(--responsiveUnit) * 1);
+    }
+
     &:not(:last-child) {
       margin-bottom: calc(var(--responsiveUnit) * 0.6);
+
+      @include portrait {
+        margin-bottom: calc(var(--responsiveUnit) * 1.2);
+      }
     }
 
     .menuItem-icon,
@@ -87,8 +104,16 @@
       background: var(--background);
       border-radius: 50%;
 
+      @include portrait {
+        padding: calc(var(--responsiveUnit) * 1);
+      }
+
       i {
         font-size: calc(var(--responsiveUnit) * 0.8);
+
+        @include portrait {
+          font-size: calc(var(--responsiveUnit) * 1.6);
+        }
       }
     }
 
@@ -99,6 +124,10 @@
       width: 0;
       font-size: calc(var(--responsiveUnit) * 0.8);
       font-family: sans-serif;
+
+      @include portrait {
+        font-size: calc(var(--responsiveUnit) * 1.6);
+      }
     }
   }
 }

@@ -1,0 +1,104 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+}
+
+.pageContent {
+  padding: 1%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $light;
+}
+
+.pageContent {
+  --linearPrimary: #133956;
+  --linearSecondary: #050505;
+  --background: #0a0a0a;
+  --text: #dfdfdf;
+
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(to bottom, var(--linearPrimary), var(--linearSecondary));
+  color: var(--text);
+}
+
+.slidingMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  background: transparentize($color: $white, $amount: 0.8);
+  @include allVendors(backdrop-filter, calc(var(--responsiveUnit) * 2));
+
+  &,
+  * {
+    @include allVendors(transition, all 0.2s ease-in-out);
+    @include allVendors(user-select, none);
+  }
+
+  &:hover {
+    padding-right: calc(var(--responsiveUnit) * 1);
+
+    .menuItem {
+      cursor: pointer;
+
+      &:hover {
+        background: var(--background);
+      }
+
+      .menuItem-text {
+        margin-left: calc(var(--responsiveUnit) * 0.5);
+        padding-right: calc(var(--responsiveUnit) * 1);
+        width: inherit;
+      }
+    }
+  }
+
+  .menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 100%;
+    padding-inline: calc(var(--responsiveUnit) * 0.5);
+    border-top-right-radius: calc(var(--responsiveUnit) * 1);
+    border-bottom-right-radius: calc(var(--responsiveUnit) * 1);
+
+    &:not(:last-child) {
+      margin-bottom: calc(var(--responsiveUnit) * 0.6);
+    }
+
+    .menuItem-icon,
+    .menuItem-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menuItem-icon {
+      padding: calc(var(--responsiveUnit) * 0.5);
+      background: var(--background);
+      border-radius: 50%;
+
+      i {
+        font-size: calc(var(--responsiveUnit) * 0.8);
+      }
+    }
+
+    .menuItem-text {
+      overflow: hidden;
+      justify-content: flex-start;
+      height: 100%;
+      width: 0;
+      font-size: calc(var(--responsiveUnit) * 0.8);
+      font-family: sans-serif;
+    }
+  }
+}

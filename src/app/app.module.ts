@@ -32,6 +32,7 @@ import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-
 import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen/iphone-lockscreen.component';
 import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
+import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
     RocketLeagueComponent,
     IphoneLockscreenComponent,
     RollADiceComponent,
-    DvdComponent
+    DvdComponent,
+    SlidingMenuComponent
   ],
   imports: [
     BrowserModule,

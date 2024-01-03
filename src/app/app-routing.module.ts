@@ -27,6 +27,7 @@ import { RocketLeagueComponent } from './adventures/clones/rocket-league/rocket-
 import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen/iphone-lockscreen.component';
 import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
+import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,6 +56,7 @@ const routes: Routes = [
   { path: 'iphone-lockscreen', component: IphoneLockscreenComponent, data: { status: 'done', type: 'clone', description: 'iPhone Lockscreen Copy' } },
   { path: 'roll-a-dice', component: RollADiceComponent, data: { status: 'wip', type: 'interactive', description: 'Roll 1 or more dices' } },
   { path: 'dvd', component: DvdComponent, data: { status: 'done', type: 'loader', description: 'DVD Screensaver' } },
+  { path: 'sliding-menu', component: SlidingMenuComponent, data: { status: 'done', type: 'loader', description: 'Sliding Menu from instagram reel' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

@@ -1,0 +1,195 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+}
+
+.pageContent {
+  padding: 1%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $black;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.man {
+  --manSize: 20;
+  --manHeight: calc(var(--responsiveUnit) * var(--manSize));
+  --manWidth: calc(var(--responsiveUnit) * (var(--manSize) / 4 * 3));
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100%;
+  height: var(--manHeight);
+  // width: 100%;
+  width: var(--manWidth);
+  // overflow: hidden;
+
+  .face {
+    --faceSize: calc(var(--manSize) * 0.8);
+    --faceHeight: calc(var(--responsiveUnit) * var(--faceSize));
+    --faceWidth: calc(var(--responsiveUnit) * (var(--faceSize) / 4 * 3));
+    --faceBorder: calc(var(--responsiveUnit) * 0.2);
+    --facePolygon: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--faceHeight));
+    width: calc(var(--faceWidth));
+    @include allVendors(clip-path, var(--facePolygon));
+    background: $white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: var(--faceBorder);
+      left: var(--faceBorder);
+      height: calc(var(--faceHeight) - (var(--faceBorder) * 2));
+      width: calc(var(--faceWidth) - (var(--faceBorder) * 2));
+      @include allVendors(clip-path, var(--facePolygon));
+      background: $black;
+    }
+
+    .eye-middle {
+      top: calc(var(--responsiveUnit) * 2);
+    }
+
+    .eye-left {
+      top: calc(var(--responsiveUnit) * 5);
+      left: calc(var(--responsiveUnit) * 1);
+    }
+
+    .eye-right {
+      top: calc(var(--responsiveUnit) * 5);
+      right: calc(var(--responsiveUnit) * 1);
+    }
+
+    .mouth {
+      bottom: calc(var(--responsiveUnit) * 1.5);
+      // left: calc(var(--responsiveUnit) * 2);
+    }
+  }
+
+  .ear {
+    --earSize: calc(var(--manSize) * 0.2);
+    --earHeight: calc(var(--responsiveUnit) * var(--earSize));
+    --earWidth: calc(var(--responsiveUnit) * (var(--earSize) / 4 * 3));
+    --earBorder: calc(var(--responsiveUnit) * 0.2);
+    --earOffset: calc(var(--responsiveUnit) * 11.6);
+    --earPolygon: polygon(25% 0%, 75% 0%, 100% 25%, 50% 100%, 0% 25%);
+
+    position: absolute;
+    height: calc(var(--earHeight));
+    width: calc(var(--earWidth));
+    @include allVendors(clip-path, var(--earPolygon));
+    background: $white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: var(--earBorder);
+      left: var(--earBorder);
+      height: calc(var(--earHeight) - (var(--earBorder) * 2));
+      width: calc(var(--earWidth) - (var(--earBorder) * 2));
+      @include allVendors(clip-path, var(--earPolygon));
+      background: $black;
+    }
+
+    &.right {
+      right: var(--earOffset);
+    }
+
+    &.left {
+      left: var(--earOffset);
+    }
+  }
+
+  .neck {
+    --neckSize: calc(var(--manSize) * 0.2);
+    --neckHeight: calc(var(--responsiveUnit) * var(--neckSize));
+    --neckWidth: calc(var(--responsiveUnit) * (var(--neckSize) * 2.5));
+    --neckBorder: calc(var(--responsiveUnit) * 0.2);
+    --neckOffset: calc(var(--responsiveUnit) * 16.5);
+    --neckPolygon: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+
+    position: absolute;
+    top: calc(var(--neckOffset));
+    height: calc(var(--neckHeight));
+    width: calc(var(--neckWidth));
+    @include allVendors(clip-path, var(--neckPolygon));
+    background: $white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: var(--neckBorder);
+      left: var(--neckBorder);
+      height: calc(var(--neckHeight) - (var(--neckBorder) * 2));
+      width: calc(var(--neckWidth) - (var(--neckBorder) * 2));
+      @include allVendors(clip-path, var(--neckPolygon));
+      background: $black;
+    }
+  }
+}
+
+.customSwitch {
+  --animationDuration: 0.4s;
+  --switchSize: calc(var(--responsiveUnit) * 4);
+  --leverSize: calc(var(--switchSize) * 0.45);
+
+  z-index: inherit;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background: lighten($color: $medium, $amount: 5%);
+  height: calc(var(--switchSize) / 2);
+  width: var(--switchSize);
+  border-radius: calc(var(--responsiveUnit) * 1);
+  margin: calc(var(--responsiveUnit) * 0.5);
+  cursor: pointer;
+
+  &,
+  * {
+    @include allVendors(transition, all var(--animationDuration) ease-in-out);
+  }
+
+  &.active {
+    background: var(--activeBackground);
+
+    &.glow {
+      box-shadow: 0 0 calc(var(--responsiveUnit) * 3) calc(var(--responsiveUnit) * 0.1) var(--activeBackground);
+    }
+
+    .lever {
+      transform: translateX(var(--leverSize));
+    }
+  }
+
+  .lever {
+    position: absolute;
+    // left: 0;
+    left: calc(var(--leverSize) * 0.1);
+    @include square(var(--leverSize));
+    background: $light;
+    border-radius: 50%;
+    box-shadow: calc(var(--responsiveUnit) * 0) calc(var(--responsiveUnit) * 0) calc(var(--responsiveUnit) * 0.2)
+      calc(var(--responsiveUnit) * 0.01) $dark;
+  }
+}
+
+// @keyframes slideRight {
+
+// }

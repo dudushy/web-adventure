@@ -28,6 +28,7 @@ import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen
 import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
+import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'roll-a-dice', component: RollADiceComponent, data: { status: 'wip', type: 'interactive', description: 'Roll 1 or more dices' } },
   { path: 'dvd', component: DvdComponent, data: { status: 'done', type: 'loader', description: 'DVD Screensaver' } },
   { path: 'sliding-menu', component: SlidingMenuComponent, data: { status: 'done', type: 'interactive', description: 'Sliding Menu from instagram reel' } },
+  { path: 'quiet-man', component: QuietManComponent, data: { status: 'done', type: 'interactive', description: 'Quiet Man from instagram reel' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

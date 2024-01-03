@@ -33,6 +33,7 @@ import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen
 import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
+import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sli
     IphoneLockscreenComponent,
     RollADiceComponent,
     DvdComponent,
-    SlidingMenuComponent
+    SlidingMenuComponent,
+    QuietManComponent
   ],
   imports: [
     BrowserModule,

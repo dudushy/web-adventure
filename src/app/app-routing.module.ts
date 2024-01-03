@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: 'iphone-lockscreen', component: IphoneLockscreenComponent, data: { status: 'done', type: 'clone', description: 'iPhone Lockscreen Copy' } },
   { path: 'roll-a-dice', component: RollADiceComponent, data: { status: 'wip', type: 'interactive', description: 'Roll 1 or more dices' } },
   { path: 'dvd', component: DvdComponent, data: { status: 'done', type: 'loader', description: 'DVD Screensaver' } },
-  { path: 'sliding-menu', component: SlidingMenuComponent, data: { status: 'done', type: 'loader', description: 'Sliding Menu from instagram reel' } },
+  { path: 'sliding-menu', component: SlidingMenuComponent, data: { status: 'done', type: 'interactive', description: 'Sliding Menu from instagram reel' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

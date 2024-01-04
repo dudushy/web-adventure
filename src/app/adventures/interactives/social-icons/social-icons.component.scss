@@ -25,19 +25,19 @@
 }
 
 .socialIcon {
-  --animationDuration: 0.3s;
+  --animationDuration: 0.2s;
   --iconSize: calc(var(--responsiveUnit) * 2);
   --tooltipFlagSize: calc(var(--responsiveUnit) * 0.8);
+
+  @include portrait {
+    --iconSize: calc(var(--responsiveUnit) * 4);
+    --tooltipFlagSize: calc(var(--responsiveUnit) * 1);
+  }
 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $white;
-  color: $black;
-  @include square(var(--iconSize));
-  border-radius: 50%;
-  padding: calc(var(--responsiveUnit) * 1.5);
   margin: calc(var(--responsiveUnit) * 1);
 
   &,
@@ -46,8 +46,28 @@
     @include allVendors(transition, all var(--animationDuration) ease-in-out);
   }
 
-  i {
-    font-size: calc(var(--responsiveUnit) * 1.2);
+  .socialIcon-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $white;
+    color: $black;
+    @include square(var(--iconSize));
+    border-radius: 50%;
+    padding: calc(var(--responsiveUnit) * 1.5);
+    z-index: 1;
+
+    @include portrait {
+      padding: calc(var(--responsiveUnit) * 3);
+    }
+
+    i {
+      font-size: calc(var(--responsiveUnit) * 1.2);
+
+      @include portrait {
+        font-size: calc(var(--responsiveUnit) * 2.4);
+      }
+    }
   }
 
   .socialIcon-tooltip {
@@ -56,7 +76,7 @@
     align-items: center;
     top: 0;
     position: absolute;
-    background: var(--iconColor);
+    background: $white;
     padding: calc(var(--responsiveUnit) * 0.4);
     border-radius: calc(var(--responsiveUnit) * 0.4);
     color: $white;
@@ -64,6 +84,10 @@
     font-family: "Comfortaa";
     font-weight: bold;
     opacity: 0;
+
+    @include portrait {
+      font-size: calc(var(--responsiveUnit) * 1.6);
+    }
 
     &::before {
       content: "";
@@ -73,20 +97,33 @@
       top: calc(var(--responsiveUnit) * 1.25);
       transform: rotate(0.5turn);
       @include allVendors(clip-path, polygon(50% 0%, 0% 100%, 100% 100%));
+
+      @include portrait {
+        top: calc(var(--responsiveUnit) * 2.5);
+      }
     }
   }
 
   &:hover {
-    background: var(--iconColor);
+    z-index: 2;
 
-    i {
+    .socialIcon-icon {
+      background: var(--iconColor);
       color: $white;
-      @include allVendors(transition, all calc(var(--animationDuration) / 2) ease-in-out);
+
+      i {
+        @include allVendors(transition, all calc(var(--animationDuration) / 4) ease-in-out);
+      }
     }
 
     .socialIcon-tooltip {
       top: calc(var(--responsiveUnit) * -2.6);
+      background: var(--iconColor);
       opacity: 1;
+
+      @include portrait {
+        top: calc(var(--responsiveUnit) * -4.3);
+      }
     }
   }
 }

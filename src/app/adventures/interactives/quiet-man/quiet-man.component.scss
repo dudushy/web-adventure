@@ -35,9 +35,21 @@
   .face {
     --faceSize: calc(var(--manSize) * 0.8);
     --faceHeight: calc(var(--responsiveUnit) * var(--faceSize));
-    --faceWidth: calc(var(--responsiveUnit) * (var(--faceSize) * 0.75));
+    --faceWidth: calc(var(--responsiveUnit) * (var(--faceSize) * 0.9));
     --faceBorder: calc(var(--responsiveUnit) * 0.2);
-    --facePolygon: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+    --facePolygon: polygon(
+      49% 3%,
+      67% 9%,
+      77% 20%,
+      80% 34%,
+      73% 79%,
+      59% 95%,
+      39% 95%,
+      26% 80%,
+      19% 34%,
+      21% 20%,
+      31% 9%
+    );
 
     z-index: 1;
     position: relative;
@@ -61,33 +73,35 @@
     }
 
     .eye-middle {
-      top: calc(var(--responsiveUnit) * 2);
+      top: calc(var(--responsiveUnit) * 3);
     }
 
     .eye-left {
-      top: calc(var(--responsiveUnit) * 5);
-      left: calc(var(--responsiveUnit) * 1);
+      top: calc(var(--responsiveUnit) * 6);
+      left: calc(var(--responsiveUnit) * 3.5);
     }
 
     .eye-right {
-      top: calc(var(--responsiveUnit) * 5);
-      right: calc(var(--responsiveUnit) * 1);
+      top: calc(var(--responsiveUnit) * 6);
+      right: calc(var(--responsiveUnit) * 3.5);
     }
 
     .mouth {
-      bottom: calc(var(--responsiveUnit) * 1.5);
+      bottom: calc(var(--responsiveUnit) * 3);
     }
   }
 
   .ear {
-    --earSize: calc(var(--manSize) * 0.2);
+    --earSize: calc(var(--manSize) * 0.15);
     --earHeight: calc(var(--responsiveUnit) * var(--earSize));
-    --earWidth: calc(var(--responsiveUnit) * (var(--earSize) * 0.75));
-    --earBorder: calc(var(--responsiveUnit) * 0.2);
-    --earOffset: calc(var(--responsiveUnit) * 11.6);
-    --earPolygon: polygon(25% 0%, 75% 0%, 100% 25%, 50% 100%, 0% 25%);
+    --earWidth: calc(var(--responsiveUnit) * (var(--earSize) * 0.9));
+    --earBorder: calc(var(--responsiveUnit) * 0.15);
+    --earOffset: calc(var(--responsiveUnit) * 9.8);
+    --earRotation: 38deg;
+    --earPolygon: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 
     position: absolute;
+    bottom: calc(var(--earOffset) * 0.95);
     height: calc(var(--earHeight));
     width: calc(var(--earWidth));
     @include allVendors(clip-path, var(--earPolygon));
@@ -105,21 +119,23 @@
     }
 
     &.right {
+      transform: rotate(var(--earRotation));
       right: var(--earOffset);
     }
 
     &.left {
+      transform: rotate(calc(var(--earRotation) * -1));
       left: var(--earOffset);
     }
   }
 
   .neck {
-    --neckSize: calc(var(--manSize) * 0.2);
+    --neckSize: calc(var(--manSize) * 0.25);
     --neckHeight: calc(var(--responsiveUnit) * var(--neckSize));
-    --neckWidth: calc(var(--responsiveUnit) * (var(--neckSize) * 2.5));
-    --neckBorder: calc(var(--responsiveUnit) * 0.2);
-    --neckOffset: calc(var(--responsiveUnit) * 16.5);
-    --neckPolygon: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+    --neckWidth: calc(var(--responsiveUnit) * (var(--neckSize) * 1.6));
+    --neckBorder: calc(var(--responsiveUnit) * 0.1);
+    --neckOffset: calc(var(--responsiveUnit) * 14);
+    --neckPolygon: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
 
     position: absolute;
     top: calc(var(--neckOffset));
@@ -133,7 +149,7 @@
       position: absolute;
       top: var(--neckBorder);
       left: var(--neckBorder);
-      height: calc(var(--neckHeight) - (var(--neckBorder) * 2));
+      height: calc(var(--neckHeight));
       width: calc(var(--neckWidth) - (var(--neckBorder) * 2));
       @include allVendors(clip-path, var(--neckPolygon));
       background: $black;
@@ -143,7 +159,7 @@
 
 .customSwitch {
   --animationDuration: 0.4s;
-  --switchSize: calc(var(--responsiveUnit) * 4);
+  --switchSize: calc(var(--responsiveUnit) * 2.8);
   --leverSize: calc(var(--switchSize) * 0.45);
 
   z-index: inherit;

@@ -43,63 +43,82 @@
   align-items: center;
 
   .customButton {
+    --buttonHeight: calc(var(--responsiveUnit) * 4);
+    --buttonSkew: -20deg;
+
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    // margin: calc(var(--responsiveUnit) * 0.5);
-    border: calc(var(--responsiveUnit) * 0.01) solid var(--buttonBorderColor);
-    border-radius: calc(var(--responsiveUnit) * 0.5);
-    padding: calc(var(--responsiveUnit) * 0.9);
-    padding-bottom: calc(var(--responsiveUnit) * 1.1);
-    padding-inline: calc(var(--responsiveUnit) * 4);
+    border: calc(var(--responsiveUnit) * 0.15) solid var(--buttonBorderColor);
+    border-radius: calc(var(--responsiveUnit) * 0.3);
+    height: var(--buttonHeight);
+    padding-inline: calc(var(--responsiveUnit) * 0.8);
+    padding-bottom: calc(var(--buttonHeight) * 0.1);
+    margin-inline: calc(var(--responsiveUnit) * 0.2);
+    overflow: hidden;
+    color: transparent;
+    background: var(--buttonBackgroundColor);
     font-family: "Bourgeois-Light";
     font-weight: bolder;
     font-size: calc(var(--responsiveUnit) * 1.8);
-    letter-spacing: calc(var(--responsiveUnit) * 0.12);
+    letter-spacing: calc(var(--responsiveUnit) * 0.1);
     text-transform: uppercase;
-    color: var(--buttonTextColor);
-    background: var(--buttonBackgroundColor);
     cursor: pointer;
-    @include allVendors(clip-path, polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%));
+    @include allVendors(transform, skew(var(--buttonSkew)));
 
-    &, * {
+    &,
+    * {
       @include allVendors(transition, all 0.18s ease-in-out);
     }
 
     &::before {
-      content: "";
+      content: attr(data-text);
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: var(--buttonHighlightBackgroundColor);
-      @include allVendors(clip-path, polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%));
-    }
-
-    &.on {
-      border-color: var(--buttonHighlightBorderColor);
-      color: var(--buttonHighlightTextColor);
-      background: var(--buttonHighlightBackgroundColor);
-
-      &:active {
-        border-color: var(--buttonHighlightBorderColor);
-        color: var(--buttonHighlightTextColor);
-        background: var(--buttonHighlightBackgroundColor);
-      }
+      z-index: 1;
+      color: var(--buttonTextColor);
+      @include allVendors(transform, skew(calc(var(--buttonSkew) * -1)));
+      // width: 100%;
+      // height: 100%;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
     }
 
     &:hover {
       border-color: var(--buttonHighlightBorderColor);
-      color: var(--buttonHighlightTextColor);
       background: var(--buttonHighlightBackgroundColor);
+
+      &::before {
+        color: var(--buttonHighlightTextColor);
+      }
     }
 
     &:active {
       border-color: var(--buttonActiveBorderColor);
-      color: var(--buttonActiveTextColor);
       background: var(--buttonActiveBackgroundColor);
+
+      &::before {
+        color: var(--buttonActiveTextColor);
+      }
+    }
+
+    &.on {
+      border-color: var(--buttonHighlightBorderColor);
+      background: var(--buttonHighlightBackgroundColor);
+
+      &::before {
+        color: var(--buttonHighlightTextColor);
+      }
+
+      &:active {
+        border-color: var(--buttonHighlightBorderColor);
+        background: var(--buttonHighlightBackgroundColor);
+
+        &::before {
+          color: var(--buttonHighlightTextColor);
+        }
+      }
     }
   }
 }

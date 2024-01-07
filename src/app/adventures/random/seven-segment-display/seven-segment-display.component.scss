@@ -44,7 +44,7 @@
   // overflow: visible;
 
   @include portrait {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(0.8);
   }
 
   &,

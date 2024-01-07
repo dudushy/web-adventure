@@ -62,7 +62,7 @@ const routes: Routes = [
   { path: 'sliding-menu', component: SlidingMenuComponent, data: { status: 'done', type: 'interactive', description: 'Sliding Menu from instagram reel' } },
   { path: 'quiet-man', component: QuietManComponent, data: { status: 'done', type: 'interactive', description: 'Quiet Man from instagram reel' } },
   { path: 'social-icons', component: SocialIconsComponent, data: { status: 'done', type: 'interactive', description: 'Social Icons Hover Effect from instagram reel' } },
-  { path: 'seven-segment-display', component: SevenSegmentDisplayComponent, data: { status: 'wip', type: 'random', description: '7-Segment Display' } },
+  { path: 'seven-segment-display', component: SevenSegmentDisplayComponent, data: { status: 'done', type: 'random', description: '7-Segment Display' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

@@ -21,8 +21,8 @@
 }
 
 .clock {
-  --activeColor: #ff0000;
-  --inactiveColor: #535357;
+  --activeColor: #3ba126;
+  --inactiveColor: #1d1d1f;
   --animationDuration: 0.5s;
   --digitWidth: calc(var(--responsiveUnit) * 8);
   --segmentPolygon: polygon(50% 0%, 75% 20%, 75% 80%, 50% 100%, 25% 80%, 25% 20%);
@@ -38,7 +38,8 @@
   width: calc(var(--responsiveUnit) * 50);
   height: calc(var(--responsiveUnit) * 15);
   margin: calc(var(--responsiveUnit) * 0.5);
-  background: darken($medium, 40%);
+  // background: darken($medium, 40%);
+  background: $black;
   border-radius: calc(var(--responsiveUnit) * 0.5);
   // overflow: visible;
 

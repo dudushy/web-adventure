@@ -130,18 +130,28 @@
 
       .cardTitle {
         // background: green;
+        align-items: flex-start;
         width: 70%;
         margin-top: 5%;
         height: 30%;
-        font-size: calc(var(--responsiveUnit) * 1.5);
+        font-size: calc(var(--responsiveUnit) * 1.3);
         font-weight: bolder;
+
+        @include portrait {
+          font-size: calc(var(--responsiveUnit) * 1.3);
+        }
       }
 
       .cardDescription {
         // background: blue;
+        align-items: flex-end;
         height: 40%;
-        font-size: calc(var(--responsiveUnit) * 1);
+        font-size: calc(var(--responsiveUnit) * 0.9);
         font-family: sans-serif;
+
+        @include portrait {
+          font-size: calc(var(--responsiveUnit) * 1);
+        }
       }
 
       .cardType {
@@ -149,6 +159,10 @@
         width: 75%;
         height: 25%;
         font-size: calc(var(--responsiveUnit) * 0.8);
+
+        @include portrait {
+          font-size: calc(var(--responsiveUnit) * 0.9);
+        }
 
         p {
           background: var(--cardColor);

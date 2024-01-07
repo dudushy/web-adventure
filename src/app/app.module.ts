@@ -35,6 +35,7 @@ import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
 import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man.component';
 import { SocialIconsComponent } from './adventures/interactives/social-icons/social-icons.component';
+import { SevenSegmentDisplayComponent } from './adventures/random/seven-segment-display/seven-segment-display.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { SocialIconsComponent } from './adventures/interactives/social-icons/soc
     DvdComponent,
     SlidingMenuComponent,
     QuietManComponent,
-    SocialIconsComponent
+    SocialIconsComponent,
+    SevenSegmentDisplayComponent
   ],
   imports: [
     BrowserModule,

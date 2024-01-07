@@ -1,0 +1,186 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  color: $dark;
+}
+
+.pageContent {
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: linear-gradient(145deg, $black, $dark, $black);
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  --activeColor: #ff0000;
+  --inactiveColor: #535357;
+  --animationDuration: 0.5s;
+  --digitWidth: calc(var(--responsiveUnit) * 8);
+  --segmentPolygon: polygon(50% 0%, 75% 20%, 75% 80%, 50% 100%, 25% 80%, 25% 20%);
+  --segmentSize: calc(var(--responsiveUnit) * 5);
+  --separatorWidth: calc(var(--responsiveUnit) * 3);
+  --separatorSize: calc(var(--responsiveUnit) * 1.5);
+  --separatorOffset: calc(var(--responsiveUnit) * 4);
+  --periodsWidth: calc(var(--responsiveUnit) * 6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--responsiveUnit) * 50);
+  height: calc(var(--responsiveUnit) * 15);
+  margin: calc(var(--responsiveUnit) * 0.5);
+  background: darken($medium, 40%);
+  border-radius: calc(var(--responsiveUnit) * 0.5);
+  // overflow: visible;
+
+  @include portrait {
+    transform: rotate(90deg);
+  }
+
+  &,
+  * {
+    @include allVendors(transition, all var(--animationDuration) ease-in-out);
+    @include allVendors(user-select, none);
+  }
+
+  .digit {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: red;
+    width: var(--digitWidth);
+    height: 100%;
+    margin-inline: calc(var(--responsiveUnit) * 0.5);
+
+    .segment {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background: yellow;
+      background: var(--inactiveColor);
+      // color: $light;
+      color: transparent;
+      width: calc(var(--segmentSize) * 0.4);
+      height: calc(var(--segmentSize));
+      @include allVendors(clip-path, var(--segmentPolygon));
+
+      &.active {
+        background: var(--activeColor);
+        // box-shadow: 0 0 calc(var(--responsiveUnit) * 0.5) calc(var(--responsiveUnit) * 0.5) var(--activeColor);
+      }
+
+      &.top {
+        top: -5%;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+      }
+
+      &.top-left {
+        top: 14%;
+        left: 5%;
+      }
+
+      &.top-right {
+        top: 14%;
+        right: 5%;
+      }
+
+      &.middle {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      &.bottom-left {
+        bottom: 14%;
+        left: 5%;
+      }
+
+      &.bottom-right {
+        bottom: 14%;
+        right: 5%;
+      }
+
+      &.bottom {
+        bottom: -5%;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+      }
+    }
+  }
+
+  .separator {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: blue;
+    width: var(--separatorWidth);
+    height: 100%;
+    margin-inline: calc(var(--responsiveUnit) * 0.5);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      // background: yellow;
+      @include allVendors(animation, blink calc(var(--animationDuration) * 3) infinite);
+      width: calc(var(--separatorSize));
+      height: calc(var(--separatorSize) * 1.5);
+      @include allVendors(clip-path, var(--segmentPolygon));
+    }
+
+    &::before {
+      top: var(--separatorOffset);
+    }
+
+    &::after {
+      bottom: var(--separatorOffset);
+    }
+  }
+
+  .periods {
+    display: flex;
+    // justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    // background: green;
+    width: var(--periodsWidth);
+    height: 80%;
+    margin-inline: calc(var(--responsiveUnit) * 0.5);
+    text-transform: uppercase;
+    font-size: calc(var(--responsiveUnit) * 2);
+    font-weight: bold;
+    color: var(--inactiveColor);
+
+    .period {
+      &.active {
+        color: var(--activeColor);
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    background: var(--inactiveColor);
+  }
+  50% {
+    background: var(--activeColor);
+  }
+  100% {
+    background: var(--inactiveColor);
+  }
+}

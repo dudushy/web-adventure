@@ -1,0 +1,35 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  color: $dark;
+}
+
+.pageContent {
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $dark;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  border: none;
+  background: none;
+  text-align: center;
+  outline: none;
+  color: $light;
+  background: $black;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  width: calc(var(--responsiveUnit) * 20);
+  height: calc(var(--responsiveUnit) * 2);
+  border-radius: calc(var(--responsiveUnit) * 0.5);
+}

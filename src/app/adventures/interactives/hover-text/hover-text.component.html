@@ -1,0 +1,9 @@
+<div id="{{title}}-content" class="pageContent">
+  <input id="textInput" value="{{text}}" (input)="updateText($event)">
+
+  <div class="text-wrapper">
+    <div class="letter" *ngFor="let char of textArray | keyvalue : app.defaultOrder" id="{{char.key}}">
+      {{char.value}}
+    </div>
+  </div>
+</div>

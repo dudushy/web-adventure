@@ -53,6 +53,7 @@ export class AppComponent {
       console.log(`[${this.title}#window.onresize]`);
 
       this.detectScrollbar();
+      this.getZoomLevel();
     };
 
     window.onload = () => {
@@ -65,6 +66,7 @@ export class AppComponent {
       this.loadLastScrollPosition();
 
       this.detectScrollbar();
+      this.getZoomLevel();
     };
 
     window.onbeforeunload = (e) => {
@@ -124,6 +126,19 @@ export class AppComponent {
 
     this.hasScrollbar = appRoot.scrollHeight > appRoot.clientHeight;
     console.log(`[${this.title}#detectScrollbar] hasScrollbar`, this.hasScrollbar);
+  }
+
+  getZoomLevel() {
+    console.log(`[${this.title}#getZoomLevel] window.visualViewport`, window.visualViewport);
+    console.log(`[${this.title}#getZoomLevel] window.visualViewport.scale`, window.visualViewport.scale);
+
+    const isDeviceMode = window.visualViewport && window.visualViewport.scale !== 1;
+    console.log(`[${this.title}#getZoomLevel] isDeviceMode`, isDeviceMode);
+
+    const zoomLevel = window.devicePixelRatio || 1;
+    console.log(`[${this.title}#getZoomLevel] zoomLevel`, zoomLevel);
+
+    document.documentElement.style.setProperty('--zoomLevel', `${isDeviceMode ? zoomLevel : 1}`);
   }
 
   saveLastScrollPosition() {

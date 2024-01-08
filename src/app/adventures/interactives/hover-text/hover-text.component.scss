@@ -33,3 +33,33 @@ input {
   height: calc(var(--responsiveUnit) * 2);
   border-radius: calc(var(--responsiveUnit) * 0.5);
 }
+
+.text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(var(--responsiveUnit) * 4);
+  border-radius: calc(var(--responsiveUnit) * 0.5);
+  background: $light;
+  margin-top: calc(var(--responsiveUnit) * 0.5);
+  padding-inline: calc(var(--responsiveUnit) * 0.5);
+  font-size: calc(var(--responsiveUnit) * 1);
+
+  &, * {
+    @include allVendors(transition, all 0.2s ease-in-out);
+    @include allVendors(user-select, none);
+  }
+
+  .letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-inline: calc(var(--responsiveUnit) * 0.5);
+    color: $dark;
+
+    &:hover {
+      @include allVendors(transform, scaleY(5));
+    }
+  }
+}

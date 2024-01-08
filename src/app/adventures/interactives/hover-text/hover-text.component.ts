@@ -49,8 +49,10 @@ export class HoverTextComponent implements OnInit {
     console.log(`[${this.title}#updateText] event.target.value`, event.target.value);
 
     // this.text = event.target.value;
+    const text = event?.target?.value;
+    console.log(`[${this.title}#updateText] text`, text);
 
-    this.textArray = this.text.split('');
+    this.textArray = text.split('');
     console.log(`[${this.title}#updateText] this.textArray`, this.textArray);
   }
 }

@@ -28,7 +28,7 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    @include square(calc(var(--responsiveUnit) * 100));
+    @include square(calc(var(--responsiveUnit) * 200));
     background: var(--mainGradient);
     z-index: -1;
     @include allVendors(animation, 50s spin linear infinite);

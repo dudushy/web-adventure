@@ -19,7 +19,7 @@ main {
   @include fixedWidth(100%);
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  // overflow-x: hidden; //!TESTING
   scroll-behavior: smooth;
   // background: var(--mainGradient);
   &::before {

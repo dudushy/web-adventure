@@ -138,7 +138,10 @@ export class AppComponent {
     const zoomLevel = window.devicePixelRatio || 1;
     console.log(`[${this.title}#getZoomLevel] zoomLevel`, zoomLevel);
 
-    document.documentElement.style.setProperty('--zoomLevel', `${isDeviceMode ? zoomLevel : 1}`);
+    const zoomRatio = isDeviceMode ? 1 : zoomLevel;
+    console.log(`[${this.title}#getZoomLevel] zoomRatio`, zoomRatio);
+
+    document.documentElement.style.setProperty('--zoomRatio', `${zoomRatio}`);
   }
 
   saveLastScrollPosition() {

@@ -12,8 +12,8 @@ $black: #000000;
 $white: #ffffff;
 
 :root {
-  --zoomLevel: 1;
-  --responsiveUnit: calc(1vmin + 1vmax * var(--zoomLevel));
+  --zoomRatio: 1;
+  --responsiveUnit: calc(1vmin + 1vmax * var(--zoomRatio));
   --headerHeight: calc(var(--responsiveUnit) * 4);
   --footerHeight: calc(var(--responsiveUnit) * 5);
   --scrollbarWidth: calc(var(--responsiveUnit) * 0.4);

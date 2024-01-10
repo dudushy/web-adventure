@@ -16,7 +16,7 @@
 
 .pageContent {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
 }
@@ -35,31 +35,65 @@ input {
 }
 
 .text-wrapper {
+  --animationSetup: all 0.5s ease-out;
+  --textWrapperWidthBase: calc(var(--responsiveUnit) * 5);
+  --textWrapperPadding: calc(var(--responsiveUnit) * 0.5);
+  --textWrapperWidth: calc(var(--textWrapperWidthBase) * var(--textLength) + var(--textWrapperPadding) * 2);
+
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(var(--responsiveUnit) * 4);
+  height: calc(var(--responsiveUnit) * 10);
+  width: var(--textWrapperWidth);
   border-radius: calc(var(--responsiveUnit) * 0.5);
   background: $light;
   margin-top: calc(var(--responsiveUnit) * 0.5);
-  padding-inline: calc(var(--responsiveUnit) * 0.5);
-  font-size: calc(var(--responsiveUnit) * 1);
+  font-size: calc(var(--responsiveUnit) * 5);
+  text-transform: uppercase;
+  overflow: hidden;
 
-  &, * {
-    @include allVendors(transition, all 0.2s ease-in-out);
+  &,
+  * {
+    @include allVendors(transition, var(--animationSetup));
     @include allVendors(user-select, none);
   }
 
   .letter {
+    --letterScaleX: 1.9;
+    --letterScaleY: 2.5;
+    --letterWidth: calc(var(--textWrapperWidthBase));
+    --letterOffset: calc(var(--letterWidth) * var(--letterIndex) + var(--textWrapperPadding));
+
+    content: "";
+    // background: red;
+    position: absolute;
+    left: var(--letterOffset);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-inline: calc(var(--responsiveUnit) * 0.5);
+    width: var(--letterWidth);
     color: $dark;
+    z-index: 1;
+
+    &::before {
+      content: attr(data-letter);
+      position: absolute;
+      // inset: 0;
+      // right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--letterWidth);
+      @include allVendors(transition, var(--animationSetup));
+      @include allVendors(transform, scaleX(var(--letterScaleX)));
+    }
 
     &:hover {
-      @include allVendors(transform, scaleY(5));
+      &::before {
+        @include allVendors(transform, translateY(0%) scaleX(var(--letterScaleX)) scaleY(var(--letterScaleY)));
+      }
     }
   }
 }

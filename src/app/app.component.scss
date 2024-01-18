@@ -63,6 +63,7 @@ header {
 
 #main-content {
   @include fixedWidth(100%);
+  min-height: unset;
   background: var(--contentGradient);
 }
 

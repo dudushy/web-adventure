@@ -88,16 +88,10 @@ export class AppComponent {
     await this.router.navigateByUrl(`/${url}`);
 
     this.updateUrl(url);
-
-    // this.updateView(this.title);
   }
 
   updateUrl(url: any) {
     console.log(`[${this.title}#updateUrl] url`, url);
-
-    // if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);
-
-    // document.title = this.PROJECT_NAME;
 
     this.currentPage = url;
     this.db.set('last_page', url);

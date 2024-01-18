@@ -46,7 +46,7 @@ export class AppComponent {
 
     console.log(`[${this.title}#constructor] allPages`, this.allPages);
 
-    this.theme = this.db.get('theme') || 'dark';
+    this.theme = this.db.getLocal('theme') || 'dark';
     this.toggleTheme(this.theme);
 
     window.onresize = () => {
@@ -94,8 +94,8 @@ export class AppComponent {
     console.log(`[${this.title}#updateUrl] url`, url);
 
     this.currentPage = url;
-    this.db.set('last_page', url);
-    console.log(`[${this.title}#redirectTo] last_page`, this.db.get('last_page'));
+    this.db.setLocal('last_page', url);
+    console.log(`[${this.title}#redirectTo] last_page`, this.db.getLocal('last_page'));
 
     const appRoot = document.querySelector('app-root');
     console.log(`[${this.title}#redirectTo] appRoot`, appRoot);
@@ -111,7 +111,7 @@ export class AppComponent {
     console.log(`[${this.title}#toggleTheme] theme`, theme);
 
     this.theme = theme;
-    this.db.set('theme', theme);
+    this.db.setLocal('theme', theme);
 
     document.documentElement.setAttribute('theme', theme);
     document.documentElement.style.setProperty('--theme', theme);
@@ -155,8 +155,10 @@ export class AppComponent {
     const url = this.router.url.replace('/', '');
     console.log(`[${this.title}#saveLastScrollPosition] url`, url);
 
-    this.db.set(`lastScrollPosition-${url}`, main.scrollTop);
-    console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.get(`lastScrollPosition-${url}`));
+    // this.db.setLocal(`lastScrollPosition-${url}`, main.scrollTop);
+    // console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.getLocal(`lastScrollPosition-${url}`));
+    this.db.setSession(`lastScrollPosition-${url}`, main.scrollTop);
+    console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.getSession(`lastScrollPosition-${url}`));
   }
 
   loadLastScrollPosition() {
@@ -171,7 +173,8 @@ export class AppComponent {
     const url = this.router.url.replace('/', '');
     console.log(`[${this.title}#saveLastScrollPosition] url`, url);
 
-    const lastScrollPosition = this.db.get(`lastScrollPosition-${url}`);
+    // const lastScrollPosition = this.db.getLocal(`lastScrollPosition-${url}`);
+    const lastScrollPosition = this.db.getSession(`lastScrollPosition-${url}`);
     console.log(`[${this.title}#loadLastScrollPosition] lastScrollPosition`, lastScrollPosition);
 
     if (lastScrollPosition) {

@@ -34,6 +34,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    text-decoration: none;
     @include fixedHeight(calc(var(--responsiveUnit) * 10));
     @include fixedWidth(calc(var(--responsiveUnit) * 13));
     margin: calc(var(--responsiveUnit) * 1);

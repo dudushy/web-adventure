@@ -1,6 +1,6 @@
 <div id="{{title}}-content" class="pageContent">
   <div class="cards">
-    <div class="card" *ngFor="let page of app.allPages | keyvalue : app.defaultOrder" (click)="app.redirectTo(page.value['path'], title)" [attr.type]="page.value['data']['type']">
+    <a class="card" *ngFor="let page of app.allPages | keyvalue : app.defaultOrder" [attr.type]="page.value['data']['type']" href="{{page.value['path']}}">
       <div class="cardInfo">
         <div class="cardTitle">
           <p>{{page.value['path']}}</p>
@@ -22,6 +22,6 @@
           <i class="bi bi-exclamation-triangle-fill"></i>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>

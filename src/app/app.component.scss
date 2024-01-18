@@ -47,14 +47,16 @@ header {
   @include fixedWidth(100%);
   @include fixedHeight(var(--headerHeight));
 
-  h1 {
+  a {
     margin: 0;
     font-size: calc(var(--responsiveUnit) * 2);
     font-family: sans-serif;
+    font-weight: bolder;
+    color: $dark;
+    text-decoration: none;
     @include allVendors(transition, all 250ms ease-in-out);
     &:hover {
       color: $white;
-      cursor: pointer;
     }
   }
 }

@@ -61,7 +61,8 @@ export class AppComponent {
 
       const url = this.router.url.replace('/', '');
       console.log(`[${this.title}#window.onload] url`, url);
-      if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);
+
+      this.updateUrl(url);
 
       this.loadLastScrollPosition();
 
@@ -82,26 +83,30 @@ export class AppComponent {
   }
 
   async redirectTo(url: any, from: any) {
-    console.log(`[${this.title}#redirectTo] ${from} | url`, [url]);
+    console.log(`[${this.title}#redirectTo] ${from} | url`, url);
 
     await this.router.navigateByUrl(`/${url}`);
 
-    if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);
+    this.updateUrl(url);
 
-    document.title = this.PROJECT_NAME;
+    // this.updateView(this.title);
+  }
+
+  updateUrl(url: any) {
+    console.log(`[${this.title}#updateUrl] url`, url);
+
+    // if (url == '') window.history.pushState({}, '', `/${this.PROJECT_DIR}/`);
+
+    // document.title = this.PROJECT_NAME;
 
     this.currentPage = url;
     this.db.set('last_page', url);
-    console.log(`[${this.title}#redirectTo] last_page`, [this.db.get('last_page')]);
-
-    this.detectScrollbar();
+    console.log(`[${this.title}#redirectTo] last_page`, this.db.get('last_page'));
 
     const appRoot = document.querySelector('app-root');
     console.log(`[${this.title}#redirectTo] appRoot`, appRoot);
 
     appRoot.scrollTop = 0;
-
-    this.updateView(this.title);
   }
 
   defaultOrder() { return 0; }

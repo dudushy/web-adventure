@@ -190,11 +190,18 @@
         background: $black;
         border-radius: 50%;
         padding: calc(var(--responsiveUnit) * 0.5);
-        color: $warning;
         position: absolute;
         bottom: 2%;
         right: 0%;
         font-size: calc(var(--responsiveUnit) * 1.1);
+
+        &[warningType="wip"] {
+          color: $warning;
+        }
+
+        &[warningType="rework"] {
+          color: $success;
+        }
       }
     }
 

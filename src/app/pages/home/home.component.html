@@ -18,8 +18,12 @@
           <p>#{{page.key}}</p>
         </div>
 
-        <div *ngIf="page.value['data']['status'] == 'wip'" class="cardWarning" title="Work In Progress">
+        <div *ngIf="page.value['data']['status'] == 'wip'" class="cardWarning" [attr.warningType]="page.value['data']['status']" title="Work In Progress">
           <i class="bi bi-exclamation-triangle-fill"></i>
+        </div>
+
+        <div *ngIf="page.value['data']['status'] == 'rework'" class="cardWarning" [attr.warningType]="page.value['data']['status']" title="Rework Needed">
+          <i class="bi bi-wrench"></i>
         </div>
       </div>
     </a>

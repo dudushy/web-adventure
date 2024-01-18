@@ -54,7 +54,7 @@
 
       .eye {
         @include fixedHeight(calc(var(--responsiveUnit) * 3));
-        aspect-ratio: 1;
+        @include fixedWidth(calc(var(--responsiveUnit) * 3));
         border-radius: 50%;
         background: $dark;
         margin-inline: 15%;

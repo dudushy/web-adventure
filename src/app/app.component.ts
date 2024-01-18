@@ -158,8 +158,11 @@ export class AppComponent {
     const main = appRoot.firstChild as HTMLElement;
     console.log(`[${this.title}#saveLastScrollPosition] main`, main);
 
-    this.db.set('lastScrollPosition', main.scrollTop);
-    console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.get('lastScrollPosition'));
+    const url = this.router.url.replace('/', '');
+    console.log(`[${this.title}#saveLastScrollPosition] url`, url);
+
+    this.db.set(`lastScrollPosition-${url}`, main.scrollTop);
+    console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.get(`lastScrollPosition-${url}`));
   }
 
   loadLastScrollPosition() {
@@ -171,7 +174,10 @@ export class AppComponent {
     const main = appRoot.firstChild as HTMLElement;
     console.log(`[${this.title}#loadLastScrollPosition] main`, main);
 
-    const lastScrollPosition = this.db.get('lastScrollPosition');
+    const url = this.router.url.replace('/', '');
+    console.log(`[${this.title}#saveLastScrollPosition] url`, url);
+
+    const lastScrollPosition = this.db.get(`lastScrollPosition-${url}`);
     console.log(`[${this.title}#loadLastScrollPosition] lastScrollPosition`, lastScrollPosition);
 
     if (lastScrollPosition) {

@@ -128,6 +128,8 @@ export class AppComponent {
   }
 
   getZoomLevel() {
+    return; //!OUT OF ORDER
+
     console.log(`[${this.title}#getZoomLevel] window.visualViewport`, window.visualViewport);
     console.log(`[${this.title}#getZoomLevel] window.visualViewport.scale`, window.visualViewport.scale);
 

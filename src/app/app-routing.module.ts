@@ -32,6 +32,7 @@ import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man
 import { SocialIconsComponent } from './adventures/interactives/social-icons/social-icons.component';
 import { SevenSegmentDisplayComponent } from './adventures/random/seven-segment-display/seven-segment-display.component';
 import { HoverTextComponent } from './adventures/interactives/hover-text/hover-text.component';
+import { HoverText2Component } from './adventures/interactives/hover-text2/hover-text2.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: 'social-icons', component: SocialIconsComponent, data: { status: 'done', type: 'interactive', description: 'Social Icons Hover Effect from instagram reel' } },
   { path: 'seven-segment-display', component: SevenSegmentDisplayComponent, data: { status: 'done', type: 'random', description: '7-Segment Display' } },
   { path: 'hover-text', component: HoverTextComponent, data: { status: 'wip', type: 'interactive', description: 'Hover Text Stretch' } },
+  { path: 'hover-text2', component: HoverText2Component, data: { status: 'done', type: 'interactive', description: 'Hover Text Shuffle' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

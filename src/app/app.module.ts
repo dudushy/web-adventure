@@ -37,6 +37,7 @@ import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man
 import { SocialIconsComponent } from './adventures/interactives/social-icons/social-icons.component';
 import { SevenSegmentDisplayComponent } from './adventures/random/seven-segment-display/seven-segment-display.component';
 import { HoverTextComponent } from './adventures/interactives/hover-text/hover-text.component';
+import { HoverText2Component } from './adventures/interactives/hover-text2/hover-text2.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { HoverTextComponent } from './adventures/interactives/hover-text/hover-t
     QuietManComponent,
     SocialIconsComponent,
     SevenSegmentDisplayComponent,
-    HoverTextComponent
+    HoverTextComponent,
+    HoverText2Component
   ],
   imports: [
     BrowserModule,

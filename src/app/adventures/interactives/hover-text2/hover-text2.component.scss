@@ -49,6 +49,8 @@ h1 {
   padding-block: calc(var(--responsiveUnit) * 0.5);
   margin-top: calc(var(--responsiveUnit) * 0.5);
   font-size: calc(var(--responsiveUnit) * 5);
+  // height: calc(var(--responsiveUnit) * 5);
+  max-width: calc(var(--responsiveUnit) * 62);
   // text-transform: uppercase;
   font-family: 'Space Mono', monospace;
   @include allVendors(transition, var(--animationParams));

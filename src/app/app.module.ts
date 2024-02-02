@@ -33,11 +33,12 @@ import { IphoneLockscreenComponent } from './adventures/clones/iphone-lockscreen
 import { RollADiceComponent } from './adventures/interactives/roll-a-dice/roll-a-dice.component';
 import { DvdComponent } from './adventures/loaders/dvd/dvd.component';
 import { SlidingMenuComponent } from './adventures/interactives/sliding-menu/sliding-menu.component';
-import { QuietManComponent } from './adventures/interactives/quiet-man/quiet-man.component';
+import { QuietManComponent } from './adventures/clones/quiet-man/quiet-man.component';
 import { SocialIconsComponent } from './adventures/interactives/social-icons/social-icons.component';
 import { SevenSegmentDisplayComponent } from './adventures/random/seven-segment-display/seven-segment-display.component';
 import { HoverTextComponent } from './adventures/interactives/hover-text/hover-text.component';
 import { HoverText2Component } from './adventures/interactives/hover-text2/hover-text2.component';
+import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-icons.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { HoverText2Component } from './adventures/interactives/hover-text2/hover
     SocialIconsComponent,
     SevenSegmentDisplayComponent,
     HoverTextComponent,
-    HoverText2Component
+    HoverText2Component,
+    FooterIconsComponent
   ],
   imports: [
     BrowserModule,

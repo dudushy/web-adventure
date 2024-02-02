@@ -1,0 +1,86 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  // height: 100%;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  // background: $medium;
+  color: $dark;
+}
+
+.pageContent {
+  // height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $light;
+}
+
+.pageContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: calc(var(--responsiveUnit) * 2);
+}
+
+p {
+  font-size: calc(var(--responsiveUnit) * 1.5);
+  margin-inline: calc(var(--responsiveUnit) * 1.5);
+}
+
+span {
+  font-size: calc(var(--responsiveUnit) * 1.2);
+
+  b {
+    color: $primary;
+  }
+}
+
+.customFooter {
+  --footerBackground: rgb(60, 110, 113);
+  --footerIconColor: rgb(217, 217, 217);
+  --footerFontSize: calc(var(--responsiveUnit) * 2);
+
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background: var(--footerBackground);
+  color: var(--footerIconColor);
+  font-size: var(--footerFontSize);
+  padding-block: calc(var(--responsiveUnit) * 0.75);
+
+  .customFooter-icon {
+    display: grid;
+    place-items: center;
+    padding-inline: calc(var(--responsiveUnit) * 1);
+    cursor: pointer;
+  }
+}
+
+.customFooter-selectedIcon {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  bottom: calc(var(--responsiveUnit) * 2.5);
+  background: var(--footerBackground);
+  color: var(--footerIconColor);
+  font-size: var(--footerFontSize);
+  padding: calc(var(--responsiveUnit) * 0.5);
+  border-radius: 50%;
+  // @include allVendors(mask-image, radial-gradient(ellipse at center, transparent 50%, black 60%));
+}

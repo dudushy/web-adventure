@@ -14,33 +14,13 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam similique voluptatum beatae maxime, officia consectetur aperiam fuga sequi quas, vel veniam hic unde autem accusamus veritatis culpa magni ad dolore?
   </p>
 
-  <div class="customFooter" [style.--footerIconIndex]="iconIndex">
+  <div class="customFooter" [style.--footerIconArrayLength]="iconArray.length" [style.--footerIconSelectedIndex]="iconIndex" [style.--footerIconMiddleIndex]="middleIconIndex" [style.--footerSelectedIconOffsetMultiplier]="footerSelectedIconOffsetMultiplier">
     <div class="customFooter-selectedIcon">
-      <i *ngIf="iconIndex == 0" class="bi bi-trophy"></i>
-      <i *ngIf="iconIndex == 1" class="bi bi-check-square-fill"></i>
-      <i *ngIf="iconIndex == 2" class="bi bi-house-door-fill"></i>
-      <i *ngIf="iconIndex == 3" class="bi bi-book-half"></i>
-      <i *ngIf="iconIndex == 4" class="bi bi-info-circle"></i>
+      <i *ngFor="let icon of iconArray | keyvalue : app.defaultOrder" class="bi bi-{{icon.value}}" [attr.showMe]="icon.key == '' + iconIndex"></i>
     </div>
 
-    <div class="customFooter-icon" (click)="updateIconIndex(0)">
-      <i class="bi bi-trophy"></i>
-    </div>
-
-    <div class="customFooter-icon" (click)="updateIconIndex(1)">
-      <i class="bi bi-check-square-fill"></i>
-    </div>
-
-    <div class="customFooter-icon" (click)="updateIconIndex(2)">
-      <i class="bi bi-house-door-fill"></i>
-    </div>
-
-    <div class="customFooter-icon" (click)="updateIconIndex(3)">
-      <i class="bi bi-book-half"></i>
-    </div>
-
-    <div class="customFooter-icon" (click)="updateIconIndex(4)">
-      <i class="bi bi-info-circle"></i>
+    <div class="customFooter-icon" *ngFor="let icon of iconArray | keyvalue : app.defaultOrder" [style.--footerIconIndex]="icon.key" (click)="updateIconIndex(icon.key)">
+      <i class="bi bi-{{icon.value}}" [attr.hideMe]="icon.key == '' + iconIndex"></i>
     </div>
   </div>
 </div>

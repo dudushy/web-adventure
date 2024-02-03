@@ -10,7 +10,16 @@ import { AppComponent } from 'src/app/app.component';
 export class FooterIconsComponent implements OnInit {
   title = 'FooterIconsComponent';
 
-  iconIndex = 2;
+  iconArray = [
+    'trophy',
+    'check-square-fill',
+    'house-door-fill',
+    'book-half',
+    'info-circle'
+  ];
+  iconIndex = Math.floor(this.iconArray.length / 2);
+  middleIconIndex = Math.floor(this.iconArray.length / 2);
+  footerSelectedIconOffsetMultiplier = 0;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -21,6 +30,9 @@ export class FooterIconsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(`[${this.title}#ngOnInit]`);
+
+    console.log(`[${this.title}#ngOnInit] this.iconArray`, this.iconArray);
+    console.log(`[${this.title}#ngOnInit] this.iconIndex`, this.iconIndex);
   }
 
   ngOnDestroy(): void {
@@ -40,9 +52,10 @@ export class FooterIconsComponent implements OnInit {
     this.updateView();
   }
 
-  updateIconIndex(index: number) {
+  updateIconIndex(index: string) {
     console.log(`[${this.title}#updateIconIndex] index`, index);
 
-    this.iconIndex = index;
+    this.iconIndex = Number(index);
+    this.footerSelectedIconOffsetMultiplier = this.iconIndex - this.middleIconIndex;
   }
 }

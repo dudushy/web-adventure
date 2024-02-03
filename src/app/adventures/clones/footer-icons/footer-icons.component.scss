@@ -53,19 +53,26 @@ span {
   --footerHeight: calc(var(--responsiveUnit) * 4);
   --footerBackground: #3c6e71;
   --footerIconColor: #d9d9d9;
+  --footerIconLeftInitialOffset: 10%;
+  --footerIconLeftOffset: calc(100% / var(--footerIconArrayLength));
+  --footerSelectedIconLeftOffset: calc(
+    var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerIconSelectedIndex)
+  );
+  // --footerSelectedIconLeftOffset: calc(
+  //   var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerSelectedIconOffsetMultiplier)
+  // );
   --footerFontSize: calc(var(--responsiveUnit) * 2);
   --maskHeight: calc(var(--responsiveUnit) * 3.25);
-  --maskWidth: calc(var(--responsiveUnit) * 20);
-  --maskTopOffset: calc(var(--responsiveUnit) * 0);
-  --maskOffsetMultiplier: 6;
-  --maskLeftOffset: calc(var(--responsiveUnit) * 2 * var(--maskOffsetMultiplier) * var(--footerIconIndex));
+  --maskWidth: calc(var(--responsiveUnit) * 15);
+  --maskLeftOffset: calc(
+    var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerIconSelectedIndex)
+  );
 
   position: sticky;
-  // bottom: 0;
   bottom: calc(var(--footerHeight) * -0.1);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   height: var(--footerHeight);
   background: transparent;
@@ -92,7 +99,7 @@ span {
       url("assets/imgs/SVGs/footer-icons/curve-shape_h10.svg")
     );
     @include allVendors(mask-size, 100% 100%, var(--maskWidth) var(--maskHeight));
-    @include allVendors(mask-position, top left, var(--maskLeftOffset) var(--maskTopOffset));
+    @include allVendors(mask-position, top left, var(--maskLeftOffset) 0);
     @include allVendors(mask-repeat, no-repeat);
     @include allVendors(mask-composite, exclude);
     @include allVendors(mask-composite, xor);
@@ -106,7 +113,7 @@ span {
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(var(--maskLeftOffset), var(--maskTopOffset));
+    transform: translate(var(--maskLeftOffset), 0);
     background-position: top left;
     background-size: 100% 100%;
     z-index: 1;
@@ -114,21 +121,39 @@ span {
   }
 
   .customFooter-icon {
-    display: grid;
-    place-items: center;
+    position: absolute;
+    left: calc(var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerIconIndex));
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-inline: calc(var(--responsiveUnit) * 1);
     cursor: pointer;
+
+    i[hideMe="true"] {
+      // display: none;
+      opacity: 0;
+    }
   }
 }
 
 .customFooter-selectedIcon {
   position: absolute;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   bottom: calc(var(--responsiveUnit) * 2.5);
   background: var(--footerBackground);
   color: var(--footerIconColor);
   font-size: var(--footerFontSize);
-  padding: calc(var(--responsiveUnit) * 0.5);
+  padding: calc(var(--responsiveUnit) * 2);
   border-radius: 50%;
+  @include square(calc(var(--responsiveUnit) * 3));
+  left: var(--footerSelectedIconLeftOffset);
+
+  i[showMe="false"] {
+    display: none;
+    opacity: 0;
+  }
 }

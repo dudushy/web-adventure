@@ -49,20 +49,69 @@ span {
 }
 
 .customFooter {
-  --footerBackground: rgb(60, 110, 113);
-  --footerIconColor: rgb(217, 217, 217);
+  --transitionArgs: all 0.3s ease-in-out;
+  --footerHeight: calc(var(--responsiveUnit) * 4);
+  --footerBackground: #3c6e71;
+  --footerIconColor: #d9d9d9;
   --footerFontSize: calc(var(--responsiveUnit) * 2);
+  --maskHeight: calc(var(--responsiveUnit) * 3.25);
+  --maskWidth: calc(var(--responsiveUnit) * 20);
+  --maskTopOffset: calc(var(--responsiveUnit) * 0);
+  --maskOffsetMultiplier: 6;
+  --maskLeftOffset: calc(var(--responsiveUnit) * 2 * var(--maskOffsetMultiplier) * var(--footerIconIndex));
 
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  // bottom: 0;
+  bottom: calc(var(--footerHeight) * -0.1);
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  background: var(--footerBackground);
+  height: var(--footerHeight);
+  background: transparent;
   color: var(--footerIconColor);
   font-size: var(--footerFontSize);
   padding-block: calc(var(--responsiveUnit) * 0.75);
+
+  &,
+  &::before,
+  &::after,
+  * {
+    @include allVendors(transition, var(--transitionArgs));
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--footerBackground);
+    z-index: -1;
+    @include allVendors(
+      mask-image,
+      linear-gradient(black, black),
+      url("assets/imgs/SVGs/footer-icons/curve-shape_h10.svg")
+    );
+    @include allVendors(mask-size, 100% 100%, var(--maskWidth) var(--maskHeight));
+    @include allVendors(mask-position, top left, var(--maskLeftOffset) var(--maskTopOffset));
+    @include allVendors(mask-repeat, no-repeat);
+    @include allVendors(mask-composite, exclude);
+    @include allVendors(mask-composite, xor);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: var(--maskWidth);
+    height: var(--maskHeight);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(var(--maskLeftOffset), var(--maskTopOffset));
+    background-position: top left;
+    background-size: 100% 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
 
   .customFooter-icon {
     display: grid;
@@ -82,5 +131,4 @@ span {
   font-size: var(--footerFontSize);
   padding: calc(var(--responsiveUnit) * 0.5);
   border-radius: 50%;
-  // @include allVendors(mask-image, radial-gradient(ellipse at center, transparent 50%, black 60%));
 }

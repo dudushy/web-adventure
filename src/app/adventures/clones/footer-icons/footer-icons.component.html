@@ -14,9 +14,13 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam similique voluptatum beatae maxime, officia consectetur aperiam fuga sequi quas, vel veniam hic unde autem accusamus veritatis culpa magni ad dolore?
   </p>
 
-  <div class="customFooter">
+  <div class="customFooter" [style.--footerIconIndex]="iconIndex">
     <div class="customFooter-selectedIcon">
-      <i class="bi bi-trophy"></i>
+      <i *ngIf="iconIndex == 0" class="bi bi-trophy"></i>
+      <i *ngIf="iconIndex == 1" class="bi bi-check-square-fill"></i>
+      <i *ngIf="iconIndex == 2" class="bi bi-house-door-fill"></i>
+      <i *ngIf="iconIndex == 3" class="bi bi-book-half"></i>
+      <i *ngIf="iconIndex == 4" class="bi bi-info-circle"></i>
     </div>
 
     <div class="customFooter-icon" (click)="updateIconIndex(0)">

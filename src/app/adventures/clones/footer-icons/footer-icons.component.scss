@@ -59,6 +59,10 @@ span {
   --maskWidth: var(--footerIconWidth);
   --maskLeftOffset: calc(var(--maskWidth) * var(--footerIconSelectedIndex) * 1.25);
 
+  @include portrait {
+    --footerFontSize: calc(var(--responsiveUnit) * 1.5);
+  }
+
   position: sticky;
   // bottom: calc(var(--footerHeight) * -0.1);
   bottom: 0;
@@ -149,6 +153,7 @@ span {
       }
 
       .icon-bottomPart {
+        // display: none;
         opacity: 0;
         pointer-events: none;
       }

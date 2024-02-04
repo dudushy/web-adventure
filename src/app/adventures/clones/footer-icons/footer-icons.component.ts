@@ -17,8 +17,8 @@ export class FooterIconsComponent implements OnInit {
     'book-half',
     'info-circle'
   ];
-  iconIndex = Math.floor(this.iconArray.length / 2);
   middleIconIndex = Math.floor(this.iconArray.length / 2);
+  iconIndex = this.middleIconIndex;
   footerSelectedIconOffsetMultiplier = 0;
 
   constructor(

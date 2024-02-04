@@ -53,23 +53,15 @@ span {
   --footerHeight: calc(var(--responsiveUnit) * 4);
   --footerBackground: #3c6e71;
   --footerIconColor: #d9d9d9;
-  --footerIconLeftInitialOffset: 10%;
-  --footerIconLeftOffset: calc(100% / var(--footerIconArrayLength));
-  --footerSelectedIconLeftOffset: calc(
-    var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerIconSelectedIndex)
-  );
-  // --footerSelectedIconLeftOffset: calc(
-  //   var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerSelectedIconOffsetMultiplier)
-  // );
+  --footerIconWidth: calc(100% / var(--footerIconArrayLength));
   --footerFontSize: calc(var(--responsiveUnit) * 2);
   --maskHeight: calc(var(--responsiveUnit) * 3.25);
   --maskWidth: calc(var(--responsiveUnit) * 15);
-  --maskLeftOffset: calc(
-    var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerIconSelectedIndex)
-  );
+  --maskLeftOffset: calc(0% + var(--footerIconWidth) * var(--footerIconSelectedIndex));
 
   position: sticky;
-  bottom: calc(var(--footerHeight) * -0.1);
+  // bottom: calc(var(--footerHeight) * -0.1);
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,39 +113,50 @@ span {
   }
 
   .customFooter-icon {
-    position: absolute;
-    left: calc(var(--footerIconLeftInitialOffset) + var(--footerIconLeftOffset) * var(--footerIconIndex));
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    width: var(--footerIconWidth);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-inline: calc(var(--responsiveUnit) * 1);
-    cursor: pointer;
+    // overflow: hidden;
 
-    i[hideMe="true"] {
-      // display: none;
-      opacity: 0;
+    .icon-topPart {
+      // background: red;
+      background: transparent;
+      position: absolute;
+      @include square(calc(var(--responsiveUnit) * 3));
+      border-radius: 50%;
+      padding: calc(var(--responsiveUnit) * 1.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 0;
+      // bottom: calc(var(--responsiveUnit) * -5);
+      z-index: -1;
+      pointer-events: none;
     }
-  }
-}
 
-.customFooter-selectedIcon {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: calc(var(--responsiveUnit) * 2.5);
-  background: var(--footerBackground);
-  color: var(--footerIconColor);
-  font-size: var(--footerFontSize);
-  padding: calc(var(--responsiveUnit) * 2);
-  border-radius: 50%;
-  @include square(calc(var(--responsiveUnit) * 3));
-  left: var(--footerSelectedIconLeftOffset);
+    .icon-bottomPart {
+      // background: blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // padding: calc(var(--responsiveUnit) * 1);
+      padding-block: calc(var(--responsiveUnit) * 0.5);
+      padding-inline: calc(var(--responsiveUnit) * 1);
+      cursor: pointer;
+    }
 
-  i[showMe="false"] {
-    display: none;
-    opacity: 0;
+    &.floatUp {
+      .icon-topPart {
+        bottom: calc(var(--responsiveUnit) * 1.5);
+        background: var(--footerBackground);
+      }
+
+      .icon-bottomPart {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
   }
 }

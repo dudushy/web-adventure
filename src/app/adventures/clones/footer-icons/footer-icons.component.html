@@ -14,13 +14,15 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam similique voluptatum beatae maxime, officia consectetur aperiam fuga sequi quas, vel veniam hic unde autem accusamus veritatis culpa magni ad dolore?
   </p>
 
-  <div class="customFooter" [style.--footerIconArrayLength]="iconArray.length" [style.--footerIconSelectedIndex]="iconIndex" [style.--footerIconMiddleIndex]="middleIconIndex" [style.--footerSelectedIconOffsetMultiplier]="footerSelectedIconOffsetMultiplier">
-    <div class="customFooter-selectedIcon">
-      <i *ngFor="let icon of iconArray | keyvalue : app.defaultOrder" class="bi bi-{{icon.value}}" [attr.showMe]="icon.key == '' + iconIndex"></i>
-    </div>
+  <div class="customFooter" [style.--footerIconArrayLength]="iconArray.length" [style.--footerIconSelectedIndex]="iconIndex">
+    <div class="customFooter-icon" *ngFor="let icon of iconArray | keyvalue : app.defaultOrder" [style.--footerIconIndex]="icon.key" [class.floatUp]="icon.key == '' + iconIndex">
+      <div class="icon-topPart">
+        <i class="bi bi-{{icon.value}}"></i>
+      </div>
 
-    <div class="customFooter-icon" *ngFor="let icon of iconArray | keyvalue : app.defaultOrder" [style.--footerIconIndex]="icon.key" (click)="updateIconIndex(icon.key)">
-      <i class="bi bi-{{icon.value}}" [attr.hideMe]="icon.key == '' + iconIndex"></i>
+      <div class="icon-bottomPart" (click)="updateIconIndex(icon.key)">
+        <i class="bi bi-{{icon.value}}"></i>
+      </div>
     </div>
   </div>
 </div>

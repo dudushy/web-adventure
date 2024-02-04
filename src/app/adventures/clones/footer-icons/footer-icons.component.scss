@@ -56,8 +56,8 @@ span {
   --footerIconWidth: calc(100% / var(--footerIconArrayLength));
   --footerFontSize: calc(var(--responsiveUnit) * 2);
   --maskHeight: calc(var(--responsiveUnit) * 3.25);
-  --maskWidth: calc(var(--responsiveUnit) * 15);
-  --maskLeftOffset: calc(0% + var(--footerIconWidth) * var(--footerIconSelectedIndex));
+  --maskWidth: var(--footerIconWidth);
+  --maskLeftOffset: calc(var(--maskWidth) * var(--footerIconSelectedIndex) * 1.25);
 
   position: sticky;
   // bottom: calc(var(--footerHeight) * -0.1);
@@ -118,10 +118,8 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    // overflow: hidden;
 
     .icon-topPart {
-      // background: red;
       background: transparent;
       position: absolute;
       @include square(calc(var(--responsiveUnit) * 3));
@@ -131,17 +129,14 @@ span {
       align-items: center;
       justify-content: center;
       bottom: 0;
-      // bottom: calc(var(--responsiveUnit) * -5);
       z-index: -1;
       pointer-events: none;
     }
 
     .icon-bottomPart {
-      // background: blue;
       display: flex;
       align-items: center;
       justify-content: center;
-      // padding: calc(var(--responsiveUnit) * 1);
       padding-block: calc(var(--responsiveUnit) * 0.5);
       padding-inline: calc(var(--responsiveUnit) * 1);
       cursor: pointer;

@@ -34,6 +34,7 @@ import { SevenSegmentDisplayComponent } from './adventures/random/seven-segment-
 import { HoverTextComponent } from './adventures/interactives/hover-text/hover-text.component';
 import { HoverText2Component } from './adventures/interactives/hover-text2/hover-text2.component';
 import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-icons.component';
+import { SodaComponent } from './adventures/forms/soda/soda.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -69,6 +70,7 @@ const routes: Routes = [
   { path: 'hover-text', component: HoverTextComponent, data: { status: 'wip', type: 'interactive', description: 'Hover Text Stretch' } },
   { path: 'hover-text2', component: HoverText2Component, data: { status: 'done', type: 'interactive', description: 'Hover Text Shuffle' } },
   { path: 'footer-icons', component: FooterIconsComponent, data: { status: 'wip', type: 'clone', description: 'Footer with Icons' } },
+  { path: 'soda', component: SodaComponent, data: { status: 'wip', type: 'form', description: 'Fill to fill' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

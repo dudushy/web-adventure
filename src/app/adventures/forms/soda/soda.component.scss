@@ -1,0 +1,79 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  color: $dark;
+}
+
+.pageContent {
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $dark;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sodaForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: calc(var(--responsiveUnit) * 2);
+  background: $light;
+  overflow: hidden;
+  border-radius: calc(var(--responsiveUnit) * 1);
+
+  h1 {
+    font-size: calc(var(--responsiveUnit) * 1.5);
+    font-family: sans-serif;
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: calc(var(--responsiveUnit) * 2);
+
+    input {
+      border: 0;
+      outline: 0;
+      width: 100%;
+      text-align: center;
+      padding: calc(var(--responsiveUnit) * 0.5);
+      padding-block: calc(var(--responsiveUnit) * 0.75);
+      font-size: calc(var(--responsiveUnit) * 1.2);
+      border: calc(var(--responsiveUnit) * 0.1) solid $dark;
+      border-radius: calc(var(--responsiveUnit) * 1);
+      color: $white;
+
+      &:not(:last-child) {
+        margin-bottom: calc(var(--responsiveUnit) * 1.5);
+      }
+
+      &::placeholder {
+        color: $light;
+      }
+
+      &[type="text"] {
+        background: $primary;
+      }
+
+      &[type="password"] {
+        background: $primary;
+      }
+
+      &[type="submit"] {
+        background: $primary;
+        color: $white;
+      }
+    }
+  }
+}

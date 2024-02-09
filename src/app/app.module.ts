@@ -39,6 +39,7 @@ import { SevenSegmentDisplayComponent } from './adventures/random/seven-segment-
 import { HoverTextComponent } from './adventures/interactives/hover-text/hover-text.component';
 import { HoverText2Component } from './adventures/interactives/hover-text2/hover-text2.component';
 import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-icons.component';
+import { SodaComponent } from './adventures/forms/soda/soda.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-ic
     SevenSegmentDisplayComponent,
     HoverTextComponent,
     HoverText2Component,
-    FooterIconsComponent
+    FooterIconsComponent,
+    SodaComponent
   ],
   imports: [
     BrowserModule,

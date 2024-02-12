@@ -28,9 +28,6 @@
   --sodaBackground: #ffffff;
   --sodaBeforeInitialHeight: 15%;
   --sodaBeforeHeight: 15%;
-  // --sodaBeforeHeight: 50%;
-  // --sodaBeforeHeight: 80%;
-  // --sodaBeforeHeight: 100%;
 
   position: relative;
   display: flex;
@@ -74,13 +71,23 @@
     left: 0;
     width: 100%;
     height: var(--sodaBeforeHeight);
-    // background: blue;
     z-index: 2;
 
     #wave {
+      // display: none;
       position: absolute;
-      // position: sticky;
       top: -1%;
+      left: 0;
+      height: calc(var(--responsiveUnit) * 2);
+      // width: 100%;
+      width: 200%;
+      animation: flow 28s infinite alternate linear;
+    }
+
+    #wave2 {
+      display: none;
+      position: absolute;
+      top: -80%;
       left: 0;
       height: calc(var(--responsiveUnit) * 2);
       width: 100%;
@@ -88,12 +95,10 @@
 
     .bubble {
       position: absolute;
-      // position: sticky;
       top: var(--bubbleTopOffset);
       left: var(--bubbleLeftOffset);
       background: var(--sodaBackground);
       opacity: 0.5;
-      // background: red;
       @include square(calc(var(--responsiveUnit) * var(--bubbleSize)));
       border-radius: 50%;
     }
@@ -211,5 +216,14 @@
         font-weight: bolder;
       }
     }
+  }
+}
+
+@keyframes flow {
+  0% {
+    transform: rotate(180deg) translateX(0);
+  }
+  100% {
+    transform: rotate(180deg) translateX(50%);
   }
 }

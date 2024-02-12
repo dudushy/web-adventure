@@ -8,7 +8,7 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./soda.component.scss']
 })
 export class SodaComponent implements OnInit {
-  title = 'QxirComponent';
+  title = 'SodaComponent';
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -36,5 +36,66 @@ export class SodaComponent implements OnInit {
     await this.app.redirectTo(url, this.title);
 
     this.updateView();
+  }
+
+  updateSodaFillHeight(submit = false) {
+    console.log(`[${this.title}#updateSodaFillHeight]`);
+
+    const sodaFormUsername = 'admin';
+    console.log(`[${this.title}#updateSodaFillHeight] sodaFormUsername`, sodaFormUsername);
+
+    const sodaFormPassword = '123';
+    console.log(`[${this.title}#updateSodaFillHeight] sodaFormPassword`, sodaFormPassword);
+
+    const sodaForm = document.querySelector('.sodaForm') as HTMLDivElement;
+    console.log(`[${this.title}#updateSodaFillHeight] sodaForm`, sodaForm);
+
+    const sodaInputUsername = document.getElementById('soda-username') as HTMLInputElement;
+    console.log(`[${this.title}#checkFormData] sodaInputUsername`, sodaInputUsername);
+
+    const sodaInputPassword = document.getElementById('soda-password') as HTMLInputElement;
+    console.log(`[${this.title}#checkFormData] sodaInputPassword`, sodaInputPassword);
+
+    const sodaSubmit = document.getElementById('soda-submit') as HTMLInputElement;
+    console.log(`[${this.title}#checkFormData] sodaSubmit`, sodaSubmit);
+
+    const minimumSodaFillHeight = 0.15;
+    // const minimumSodaFillHeight = sodaForm.style.getPropertyValue('--sodaBeforeHeight') || 0.1;
+    console.log(`[${this.title}#updateSodaFillHeight] minimumSodaFillHeight`, minimumSodaFillHeight);
+
+    const maximumSodaFillHeight = 1;
+    console.log(`[${this.title}#updateSodaFillHeight] maximumSodaFillHeight`, maximumSodaFillHeight);
+
+    const sodaInputs = document.querySelectorAll('.soda-input');
+    console.log(`[${this.title}#updateSodaFillHeight] sodaInputs`, sodaInputs);
+
+    const sodaFillHeightStep = (maximumSodaFillHeight - minimumSodaFillHeight) / sodaInputs.length;
+    console.log(`[${this.title}#updateSodaFillHeight] sodaFillHeightStep`, sodaFillHeightStep);
+
+    let sodaFillHeight = minimumSodaFillHeight;
+    console.log(`[${this.title}#updateSodaFillHeight] (BEFORE) sodaFillHeight`, sodaFillHeight);
+
+    sodaInputs.forEach((sodaInput: any) => {
+      console.log(`[${this.title}#updateSodaFillHeight] sodaInput`, sodaInput);
+
+      if (sodaInput.type === 'submit') return;
+
+      if (sodaInput.value.length > 0) sodaFillHeight += sodaFillHeightStep;
+    });
+
+    if (submit) {
+      if (sodaInputUsername.value === sodaFormUsername && sodaInputPassword.value === sodaFormPassword) {
+        sodaFillHeight = maximumSodaFillHeight;
+      } else {
+        sodaFillHeight = minimumSodaFillHeight;
+      }
+    }
+
+    console.log(`[${this.title}#updateSodaFillHeight] (AFTER) sodaFillHeight`, sodaFillHeight);
+
+    const sanitizedSodaFillHeight = `${sodaFillHeight * 100}%`;
+    console.log(`[${this.title}#updateSodaFillHeight] sanitizedSodaFillHeight`, sanitizedSodaFillHeight);
+
+    sodaForm.style.setProperty('--sodaBeforeHeight', sanitizedSodaFillHeight);
   }
 }

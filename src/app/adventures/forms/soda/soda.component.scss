@@ -21,37 +21,166 @@
 }
 
 .sodaForm {
+  --sodaColorPrimary: #f7941e;
+  --sodaColorSecondary: #2d3092;
+  --sodaColorTertiary: #70bf44;
+  --sodaColorQuaternary: #609644;
+  --sodaBackground: #ffffff;
+  --sodaBeforeHeight: 15%;
+
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: calc(var(--responsiveUnit) * 16);
   width: 80%;
   padding: calc(var(--responsiveUnit) * 2);
-  background: $light;
+  background: var(--sodaBackground);
   overflow: hidden;
   border-radius: calc(var(--responsiveUnit) * 1);
+  @include portrait {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--responsiveUnit) * 32);
+  }
 
-  h1 {
-    font-size: calc(var(--responsiveUnit) * 1.5);
-    font-family: sans-serif;
+  &,
+  &::before {
+    transition: all 0.5s ease-in-out;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--sodaBeforeHeight);
+    background: var(--sodaColorPrimary);
+    z-index: 1;
+  }
+
+  .soda-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--sodaBeforeHeight);
+    // background: blue;
+    z-index: 2;
+
+    svg {
+      position: absolute;
+      top: -1%;
+      left: 0;
+      height: calc(var(--responsiveUnit) * 2);
+      width: 100%;
+    }
+
+    .bubble {
+      position: absolute;
+      top: var(--bubbleTopOffset);
+      left: var(--bubbleLeftOffset);
+      background: var(--sodaBackground);
+      opacity: 0.5;
+      // background: red;
+      @include square(calc(var(--responsiveUnit) * var(--bubbleSize)));
+      border-radius: 50%;
+    }
+  }
+
+  .header-wrapper,
+  .input-wrapper {
+    position: relative;
+    z-index: 3;
+  }
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    @include portrait {
+      height: 30%;
+      width: 100%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: 100%;
+      border-radius: calc(var(--responsiveUnit) * 1);
+      background: $white;
+      z-index: -1;
+      @include portrait {
+        width: 50%;
+        height: 115%;
+      }
+    }
+
+    h1 {
+      font-size: calc(var(--responsiveUnit) * 1.2);
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      margin-bottom: calc(var(--responsiveUnit) * 1);
+      color: var(--sodaColorQuaternary);
+    }
+
+    img {
+      filter: invert(50%) sepia(69%) saturate(343%) hue-rotate(55deg) brightness(91%) contrast(87%);
+      @include square(60%);
+      @include portrait {
+        @include square(70%);
+      }
+    }
+
+    svg-renderer {
+      fill: var(--sodaColorQuaternary);
+      stroke: var(--sodaColorQuaternary);
+      color: var(--sodaColorQuaternary);
+
+      @include fixedSquare(60%);
+      @include portrait {
+        @include fixedSquare(70%);
+      }
+    }
   }
 
   .input-wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-bottom: calc(var(--responsiveUnit) * 2);
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    @include portrait {
+      width: 100%;
+      height: 70%;
+    }
 
     input {
+      // all: none;
       border: 0;
       outline: 0;
       width: 100%;
       text-align: center;
+      // font-weight: bold;
       padding: calc(var(--responsiveUnit) * 0.5);
       padding-block: calc(var(--responsiveUnit) * 0.75);
-      font-size: calc(var(--responsiveUnit) * 1.2);
-      border: calc(var(--responsiveUnit) * 0.1) solid $dark;
-      border-radius: calc(var(--responsiveUnit) * 1);
+      font-size: calc(var(--responsiveUnit) * 1);
+      border: calc(var(--responsiveUnit) * 0.2) solid $white;
+      border-radius: calc(var(--responsiveUnit) * 0.5);
       color: $white;
 
       &:not(:last-child) {
@@ -59,20 +188,20 @@
       }
 
       &::placeholder {
-        color: $light;
+        color: $black;
       }
 
-      &[type="text"] {
-        background: $primary;
-      }
-
+      &[type="text"],
       &[type="password"] {
-        background: $primary;
+        background: var(--sodaColorTertiary);
+        color: $dark;
       }
 
       &[type="submit"] {
-        background: $primary;
+        background: var(--sodaColorSecondary);
         color: $white;
+        cursor: pointer;
+        font-weight: bolder;
       }
     }
   }

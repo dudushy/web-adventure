@@ -26,7 +26,11 @@
   --sodaColorTertiary: #70bf44;
   --sodaColorQuaternary: #609644;
   --sodaBackground: #ffffff;
+  --sodaBeforeInitialHeight: 15%;
   --sodaBeforeHeight: 15%;
+  // --sodaBeforeHeight: 50%;
+  // --sodaBeforeHeight: 80%;
+  // --sodaBeforeHeight: 100%;
 
   position: relative;
   display: flex;
@@ -48,7 +52,8 @@
   }
 
   &,
-  &::before {
+  &::before,
+  .soda-mask {
     transition: all 0.5s ease-in-out;
   }
 
@@ -72,8 +77,9 @@
     // background: blue;
     z-index: 2;
 
-    svg {
+    #wave {
       position: absolute;
+      // position: sticky;
       top: -1%;
       left: 0;
       height: calc(var(--responsiveUnit) * 2);
@@ -82,6 +88,7 @@
 
     .bubble {
       position: absolute;
+      // position: sticky;
       top: var(--bubbleTopOffset);
       left: var(--bubbleLeftOffset);
       background: var(--sodaBackground);

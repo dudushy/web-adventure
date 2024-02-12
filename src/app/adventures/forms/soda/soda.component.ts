@@ -39,7 +39,7 @@ export class SodaComponent implements OnInit {
   }
 
   updateSodaFillHeight(submit = false) {
-    console.log(`[${this.title}#updateSodaFillHeight]`);
+    console.log(`[${this.title}#updateSodaFillHeight] submit`, submit);
 
     const sodaFormUsername = 'admin';
     console.log(`[${this.title}#updateSodaFillHeight] sodaFormUsername`, sodaFormUsername);
@@ -59,17 +59,23 @@ export class SodaComponent implements OnInit {
     const sodaSubmit = document.getElementById('soda-submit') as HTMLInputElement;
     console.log(`[${this.title}#checkFormData] sodaSubmit`, sodaSubmit);
 
-    const minimumSodaFillHeight = 0.15;
-    // const minimumSodaFillHeight = sodaForm.style.getPropertyValue('--sodaBeforeHeight') || 0.1;
+    const rawMinimumSodaFillHeight = getComputedStyle(sodaForm).getPropertyValue('--sodaBeforeInitialHeight');
+    console.log(`[${this.title}#updateSodaFillHeight] rawMinimumSodaFillHeight`, rawMinimumSodaFillHeight);
+
+    const minimumSodaFillHeight = parseFloat(rawMinimumSodaFillHeight.replace('%', '')) / 100;
     console.log(`[${this.title}#updateSodaFillHeight] minimumSodaFillHeight`, minimumSodaFillHeight);
 
-    const maximumSodaFillHeight = 1;
+    const maximumSodaFillHeight = 1.2;
     console.log(`[${this.title}#updateSodaFillHeight] maximumSodaFillHeight`, maximumSodaFillHeight);
 
     const sodaInputs = document.querySelectorAll('.soda-input');
     console.log(`[${this.title}#updateSodaFillHeight] sodaInputs`, sodaInputs);
 
-    const sodaFillHeightStep = (maximumSodaFillHeight - minimumSodaFillHeight) / sodaInputs.length;
+    const sodaFillHeightStep = parseFloat(
+      (
+        (maximumSodaFillHeight - minimumSodaFillHeight) / sodaInputs.length
+      ).toFixed(2)
+    );
     console.log(`[${this.title}#updateSodaFillHeight] sodaFillHeightStep`, sodaFillHeightStep);
 
     let sodaFillHeight = minimumSodaFillHeight;
@@ -87,6 +93,9 @@ export class SodaComponent implements OnInit {
       if (sodaInputUsername.value === sodaFormUsername && sodaInputPassword.value === sodaFormPassword) {
         sodaFillHeight = maximumSodaFillHeight;
       } else {
+        sodaInputUsername.value = '';
+        sodaInputPassword.value = '';
+
         sodaFillHeight = minimumSodaFillHeight;
       }
     }

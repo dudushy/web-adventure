@@ -38,9 +38,14 @@ $white: #ffffff;
   max-width: $width;
 }
 
-@mixin square($size) {
+@mixin fixedSquare($size) {
   @include fixedWidth($size);
   @include fixedHeight($size);
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
 }
 
 @mixin allVendors($property, $args...) {

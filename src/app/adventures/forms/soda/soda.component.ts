@@ -94,6 +94,10 @@ export class SodaComponent implements OnInit {
         sodaFillHeight = maximumSodaFillHeight;
 
         sodaForm.classList.add('success');
+
+        setTimeout(() => {
+          sodaForm.classList.remove('success');
+        }, 500);
       } else {
         sodaInputUsername.value = '';
         sodaInputPassword.value = '';

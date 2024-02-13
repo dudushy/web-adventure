@@ -92,11 +92,19 @@ export class SodaComponent implements OnInit {
     if (submit) {
       if (sodaInputUsername.value === sodaFormUsername && sodaInputPassword.value === sodaFormPassword) {
         sodaFillHeight = maximumSodaFillHeight;
+
+        sodaForm.classList.add('success');
       } else {
         sodaInputUsername.value = '';
         sodaInputPassword.value = '';
 
         sodaFillHeight = minimumSodaFillHeight;
+
+        sodaForm.classList.add('error');
+
+        setTimeout(() => {
+          sodaForm.classList.remove('error');
+        }, 500);
       }
     }
 

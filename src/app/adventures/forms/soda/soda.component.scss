@@ -26,10 +26,8 @@
   --sodaColorTertiary: #70bf44;
   --sodaColorQuaternary: #609644;
   --sodaBackground: #ffffff;
-  // --sodaBeforeInitialHeight: 15%;
-  // --sodaBeforeHeight: 15%;
-  --sodaBeforeInitialHeight: 35%;
-  --sodaBeforeHeight: 35%;
+  --sodaBeforeInitialHeight: 15%;
+  --sodaBeforeHeight: 15%;
 
   position: relative;
   display: flex;
@@ -73,6 +71,13 @@
 
   &.error {
     --sodaColorPrimary: #ff0000;
+
+    .input-wrapper {
+      input[type="text"],
+      input[type="password"] {
+        animation: shake-bottom 0.5s ease-in-out;
+      }
+    }
   }
 
   .soda-mask {
@@ -90,7 +95,7 @@
     .waves {
       position: relative;
       width: 100%;
-      height: 10%;
+      height: calc(var(--responsiveUnit) * 0.5);
 
       .wave {
         position: absolute;
@@ -100,10 +105,13 @@
         // border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         // border-radius: 32% 68% 54% 46% / 26% 78% 22% 74%;
         // border-radius: 83% 17% 79% 21% / 42% 83% 17% 58%;
-        border-radius: 62% 38% 37% 63% / 54% 32% 68% 46%;
+        // border-radius: 62% 38% 37% 63% / 54% 32% 68% 46%;
+        // border-radius: 61% 39% 47% 53% / 43% 44% 56% 57%;
+        // border-radius: 60% 40% 50% 50% / 50% 50% 50% 50%;
+        border-radius: 60% 40% 60% 40% / 50% 50% 50% 50%;
         background: var(--sodaBackground);
         // background: blue;
-        animation: spin 6s infinite linear;
+        animation: spin 4s infinite linear;
         animation-delay: var(--waveDelay);
         @include portrait {
           top: calc(var(--waveTopOffset) * 0.5);
@@ -119,6 +127,8 @@
       opacity: 0.5;
       @include square(calc(var(--responsiveUnit) * var(--bubbleSize)));
       border-radius: 50%;
+      animation: float 3s infinite ease-in-out;
+      animation-delay: var(--bubbleDelay);
     }
   }
 
@@ -231,5 +241,44 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10%, 15%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes shake-bottom {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(2deg);
   }
 }

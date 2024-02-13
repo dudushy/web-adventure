@@ -26,8 +26,10 @@
   --sodaColorTertiary: #70bf44;
   --sodaColorQuaternary: #609644;
   --sodaBackground: #ffffff;
-  --sodaBeforeInitialHeight: 15%;
-  --sodaBeforeHeight: 15%;
+  // --sodaBeforeInitialHeight: 15%;
+  // --sodaBeforeHeight: 15%;
+  --sodaBeforeInitialHeight: 50%;
+  --sodaBeforeHeight: 50%;
 
   position: relative;
   display: flex;
@@ -72,25 +74,46 @@
     width: 100%;
     height: var(--sodaBeforeHeight);
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-    #wave {
-      // display: none;
-      position: absolute;
-      top: -1%;
-      left: 0;
-      height: calc(var(--responsiveUnit) * 2);
-      // width: 100%;
-      width: 200%;
-      animation: flow 28s infinite alternate linear;
-    }
+    .liquid {
+      --ballWidth: calc(var(--responsiveUnit) * 20);
+      --ballHeight: calc(var(--responsiveUnit) * 15);
+      --ballDivider: 0.95;
+      --ballTopOffset: calc(var(--ballWidth) * -0.75);
 
-    #wave2 {
-      display: none;
-      position: absolute;
-      top: -80%;
-      left: 0;
-      height: calc(var(--responsiveUnit) * 2);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
+      height: 10%;
+      // overflow: hidden;
+
+      &:nth-child(1) {
+        left: -50%;
+      }
+      &:nth-child(2) {
+        left: 0%;
+      }
+      &:nth-child(3) {
+        left: 50%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: var(--ballTopOffset);
+        height: var(--ballHeight);
+        width: var(--ballWidth);
+        border-radius: calc(var(--ballWidth) * var(--ballDivider));
+        background: var(--sodaBackground);
+        // background: blue;
+        animation: spin 6s infinite linear;
+      }
     }
 
     .bubble {
@@ -106,6 +129,7 @@
 
   .header-wrapper,
   .input-wrapper {
+    opacity: 0.2;
     position: relative;
     z-index: 3;
   }
@@ -157,17 +181,6 @@
         @include square(70%);
       }
     }
-
-    svg-renderer {
-      fill: var(--sodaColorQuaternary);
-      stroke: var(--sodaColorQuaternary);
-      color: var(--sodaColorQuaternary);
-
-      @include fixedSquare(60%);
-      @include portrait {
-        @include fixedSquare(70%);
-      }
-    }
   }
 
   .input-wrapper {
@@ -182,12 +195,10 @@
     }
 
     input {
-      // all: none;
       border: 0;
       outline: 0;
       width: 100%;
       text-align: center;
-      // font-weight: bold;
       padding: calc(var(--responsiveUnit) * 0.5);
       padding-block: calc(var(--responsiveUnit) * 0.75);
       font-size: calc(var(--responsiveUnit) * 1);
@@ -219,11 +230,11 @@
   }
 }
 
-@keyframes flow {
+@keyframes spin {
   0% {
-    transform: rotate(180deg) translateX(0);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(180deg) translateX(50%);
+    transform: rotate(360deg);
   }
 }

@@ -40,6 +40,7 @@ import { HoverTextComponent } from './adventures/interactives/hover-text/hover-t
 import { HoverText2Component } from './adventures/interactives/hover-text2/hover-text2.component';
 import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-icons.component';
 import { SodaComponent } from './adventures/forms/soda/soda.component';
+import { HoverButtonsComponent } from './adventures/interactives/hover-buttons/hover-buttons.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { SodaComponent } from './adventures/forms/soda/soda.component';
     HoverTextComponent,
     HoverText2Component,
     FooterIconsComponent,
-    SodaComponent
+    SodaComponent,
+    HoverButtonsComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ $white: #ffffff;
   --defaultContentHeight: calc(var(--dynamicHeight) - var(--headerHeight) - var(--footerHeight));
   --dynamicHeight: 100vh;
 
-  @supports (--css: variables) {
+  @supports (height: 100dvh) {
     --dynamicHeight: 100dvh;
   }
 }

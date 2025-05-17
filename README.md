@@ -10,7 +10,7 @@ My Web Adventure.
 ## How to install and run:
 1. Install packages
     ```bash
-    npm i
+    npm ci
     ```
 2. Run project
     ```bash

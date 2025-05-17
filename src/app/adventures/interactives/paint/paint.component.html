@@ -1,0 +1,13 @@
+<div id="{{title}}-content" class="pageContent">
+  <div class="inputs">
+    <input type="color" id="colorPicker" [(ngModel)]="selectedColor" />
+
+    <span>{{selectedColor}}</span>
+  </div>
+
+  <div class="board">
+    <div class="circle" (click)="updateBgColor($event)"></div>
+
+    <div class="square" (click)="updateBgColor($event)"></div>
+  </div>
+</div>

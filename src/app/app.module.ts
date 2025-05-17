@@ -41,6 +41,7 @@ import { HoverText2Component } from './adventures/interactives/hover-text2/hover
 import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-icons.component';
 import { SodaComponent } from './adventures/forms/soda/soda.component';
 import { HoverButtonsComponent } from './adventures/interactives/hover-buttons/hover-buttons.component';
+import { PaintComponent } from './adventures/interactives/paint/paint.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { HoverButtonsComponent } from './adventures/interactives/hover-buttons/h
     HoverText2Component,
     FooterIconsComponent,
     SodaComponent,
-    HoverButtonsComponent
+    HoverButtonsComponent,
+    PaintComponent
   ],
   imports: [
     BrowserModule,

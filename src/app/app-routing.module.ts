@@ -36,6 +36,7 @@ import { HoverText2Component } from './adventures/interactives/hover-text2/hover
 import { FooterIconsComponent } from './adventures/clones/footer-icons/footer-icons.component';
 import { SodaComponent } from './adventures/forms/soda/soda.component';
 import { HoverButtonsComponent } from './adventures/interactives/hover-buttons/hover-buttons.component';
+import { PaintComponent } from './adventures/interactives/paint/paint.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: 'footer-icons', component: FooterIconsComponent, data: { status: 'wip', type: 'clone', description: 'Footer with Icons' } },
   { path: 'soda', component: SodaComponent, data: { status: 'done', type: 'form', description: 'Fill to fill' } },
   { path: 'hover-buttons', component: HoverButtonsComponent, data: { status: 'done', type: 'interactive', description: 'Hover Buttons' } },
+  { path: 'paint', component: PaintComponent, data: { status: 'wip', type: 'interactive', description: 'Paint Stuff' } },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

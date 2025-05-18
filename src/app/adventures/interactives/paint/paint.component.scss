@@ -21,19 +21,89 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  & * {
+    border-color: $black;
+    border-width: calc(var(--responsiveUnit) * 0.2);
+    border-style: solid;
+    background: $white;
+  }
 }
 
-.circle {
-  @include fixedSquare(calc(var(--responsiveUnit) * 2));
-  border-color: $black;
-  border-width: calc(var(--responsiveUnit) * 0.2);
-  border-style: solid;
-  border-radius: 50%;
+.train-body {
+  position: absolute;
+  height: calc(var(--responsiveUnit) * 4);
+  width: calc(var(--responsiveUnit) * 6);
+
+  &:nth-child(1) {
+    top: calc(var(--responsiveUnit) * 4);
+    left: calc(var(--responsiveUnit) * 4);
+  }
+  &:nth-child(2) {
+    top: calc(var(--responsiveUnit) * 4);
+    left: calc(var(--responsiveUnit) * 12);
+  }
+  &:nth-child(3) {
+    top: calc(var(--responsiveUnit) * 4);
+    left: calc(var(--responsiveUnit) * 20);
+  }
+  &:nth-child(4) {
+    top: calc(var(--responsiveUnit) * 4);
+    left: calc(var(--responsiveUnit) * 28);
+  }
 }
 
-.square {
-  @include fixedSquare(calc(var(--responsiveUnit) * 2));
-  border-color: $black;
-  border-width: calc(var(--responsiveUnit) * 0.2);
-  border-style: solid;
+.train-wheel {
+  background: lime;
+  position: absolute;
+  top: calc(var(--responsiveUnit) * 3.7);
+  left: calc(var(--responsiveUnit) * 1.4);
+  transform: rotate(180deg);
+  height: calc(var(--responsiveUnit) * 2);
+  width: calc(var(--responsiveUnit) * 3);
+  border-radius: calc(var(--responsiveUnit) * 1.5) calc(var(--responsiveUnit) * 1.5) 0 0;
+
+  & .circle {
+    position: absolute;
+    top: calc(var(--responsiveUnit) * 0.5);
+    left: calc(var(--responsiveUnit) * 0.8);
+    height: calc(var(--responsiveUnit) * 1);
+    width: calc(var(--responsiveUnit) * 1);
+    border-radius: 50%;
+  }
+}
+
+.joint {
+  position: absolute;
+  height: calc(var(--responsiveUnit) * 1);
+  width: calc(var(--responsiveUnit) * 2.5);
+  top: calc(var(--responsiveUnit) * 1.5);
+  left: calc(var(--responsiveUnit) * 5.7);
+}
+
+.booth {
+  position: absolute;
+  height: calc(var(--responsiveUnit) * 3);
+  width: calc(var(--responsiveUnit) * 3.6);
+  top: calc(var(--responsiveUnit) * -3);
+  left: calc(var(--responsiveUnit) * 2);
+
+  & .chimney {
+    position: absolute;
+    height: calc(var(--responsiveUnit) * 1.5);
+    width: calc(var(--responsiveUnit) * 1);
+    top: calc(var(--responsiveUnit) * -1.5);
+    left: calc(var(--responsiveUnit) * 2.3);
+  }
+
+  & .tip {
+    position: absolute;
+    transform: scale(0.5);
+    top: calc(var(--responsiveUnit) * -1.5);
+    left: calc(var(--responsiveUnit) * -0.6);
+    height: calc(var(--responsiveUnit) * 2);
+    width: calc(var(--responsiveUnit) * 3);
+    border-radius: calc(var(--responsiveUnit) * 1.5) calc(var(--responsiveUnit) * 1.5) 0 0;
+  }
 }

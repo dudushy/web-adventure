@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  color: $dark;
+  color: styles.$dark;
 }
 
 .pageContent {
@@ -26,5 +26,5 @@
 
 i {
   font-size: calc(var(--responsiveUnit) * 2);
-  color: $danger;
+  color: styles.$danger;
 }

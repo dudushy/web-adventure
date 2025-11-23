@@ -1,28 +1,28 @@
 <div id="{{title}}-content" class="pageContent">
   <div class="cards">
-    <a class="card" *ngFor="let page of app.allPages | keyvalue : app.defaultOrder" [attr.type]="page.value['data']['type']" href="{{page.value['path']}}">
+    <a class="card" *ngFor="let page of app.allPages | keyvalue : app.defaultOrder" [attr.type]="$any(page.value)['data']['type']" href="{{$any(page.value)['path']}}">
       <div class="cardInfo">
         <div class="cardTitle">
-          <p>{{page.value['path']}}</p>
+          <p>{{$any(page.value)['path']}}</p>
         </div>
 
         <div class="cardDescription">
-          <p>{{page.value['data']['description']}}</p>
+          <p>{{$any(page.value)['data']['description']}}</p>
         </div>
 
         <div class="cardType">
-          <p>{{page.value['data']['type']}}</p>
+          <p>{{$any(page.value)['data']['type']}}</p>
         </div>
 
         <div class="cardNo">
           <p>#{{page.key}}</p>
         </div>
 
-        <div *ngIf="page.value['data']['status'] == 'wip'" class="cardWarning" [attr.warningType]="page.value['data']['status']" title="Work In Progress">
+        <div *ngIf="$any(page.value)['data']['status'] == 'wip'" class="cardWarning" [attr.warningType]="$any(page.value)['data']['status']" title="Work In Progress">
           <i class="bi bi-exclamation-triangle-fill"></i>
         </div>
 
-        <div *ngIf="page.value['data']['status'] == 'rework'" class="cardWarning" [attr.warningType]="page.value['data']['status']" title="Rework Needed">
+        <div *ngIf="$any(page.value)['data']['status'] == 'rework'" class="cardWarning" [attr.warningType]="$any(page.value)['data']['status']" title="Rework Needed">
           <i class="bi bi-wrench"></i>
         </div>
       </div>

@@ -1,0 +1,162 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  // height: 100%;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  // background: $medium;
+  color: $dark;
+}
+
+.pageContent {
+  // height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $light;
+}
+
+.pageContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: calc(var(--responsiveUnit) * 2);
+}
+
+p {
+  font-size: calc(var(--responsiveUnit) * 1.5);
+  margin-inline: calc(var(--responsiveUnit) * 1.5);
+}
+
+span {
+  font-size: calc(var(--responsiveUnit) * 1.2);
+
+  b {
+    color: $primary;
+  }
+}
+
+.customFooter {
+  --transitionArgs: all 0.3s ease-in-out;
+  --footerHeight: calc(var(--responsiveUnit) * 4);
+  --footerBackground: #3c6e71;
+  --footerIconColor: #d9d9d9;
+  --footerIconWidth: calc(100% / var(--footerIconArrayLength));
+  --footerFontSize: calc(var(--responsiveUnit) * 2);
+  --maskHeight: calc(var(--responsiveUnit) * 3.25);
+  --maskWidth: var(--footerIconWidth);
+  --maskLeftOffset: calc(var(--maskWidth) * var(--footerIconSelectedIndex) * 1.25);
+
+  @include portrait {
+    --footerFontSize: calc(var(--responsiveUnit) * 1.5);
+  }
+
+  position: sticky;
+  // bottom: calc(var(--footerHeight) * -0.1);
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--footerHeight);
+  background: transparent;
+  color: var(--footerIconColor);
+  font-size: var(--footerFontSize);
+  padding-block: calc(var(--responsiveUnit) * 0.75);
+
+  &,
+  &::before,
+  &::after,
+  * {
+    @include allVendors(transition, var(--transitionArgs));
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--footerBackground);
+    z-index: -1;
+    @include allVendors(
+      mask-image,
+      linear-gradient(black, black),
+      url("assets/imgs/SVGs/footer-icons/curve-shape_h10.svg")
+    );
+    @include allVendors(mask-size, 100% 100%, var(--maskWidth) var(--maskHeight));
+    @include allVendors(mask-position, top left, var(--maskLeftOffset) 0);
+    @include allVendors(mask-repeat, no-repeat);
+    @include allVendors(mask-composite, exclude);
+    @include allVendors(mask-composite, xor);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: var(--maskWidth);
+    height: var(--maskHeight);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(var(--maskLeftOffset), 0);
+    background-position: top left;
+    background-size: 100% 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .customFooter-icon {
+    position: relative;
+    width: var(--footerIconWidth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon-topPart {
+      background: transparent;
+      position: absolute;
+      @include square(calc(var(--responsiveUnit) * 3));
+      border-radius: 50%;
+      padding: calc(var(--responsiveUnit) * 1.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .icon-bottomPart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-block: calc(var(--responsiveUnit) * 0.5);
+      padding-inline: calc(var(--responsiveUnit) * 1);
+      cursor: pointer;
+    }
+
+    &.floatUp {
+      .icon-topPart {
+        bottom: calc(var(--responsiveUnit) * 1.5);
+        background: var(--footerBackground);
+      }
+
+      .icon-bottomPart {
+        // display: none;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}

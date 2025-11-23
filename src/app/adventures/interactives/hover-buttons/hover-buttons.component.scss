@@ -1,0 +1,95 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  color: $dark;
+}
+
+.pageContent {
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $dark;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: calc(var(--responsiveUnit) * 1);
+  @include portrait {
+    flex-direction: column;
+    gap: calc(var(--responsiveUnit) * 4);
+  }
+  // background: red;
+
+  .button {
+    --transitionDuration: 0.5s;
+    --buttonSize: calc(var(--responsiveUnit) * 4);
+    --buttonBorderSize: calc(var(--buttonSize) * 0.025);
+    --buttonBorderOffset: calc(var(--responsiveUnit) * 0.25);
+    @include portrait {
+      --buttonSize: calc(var(--responsiveUnit) * 8);
+    }
+
+    position: relative;
+    @include square(var(--buttonSize));
+    // background: blue;
+
+    &,
+    * {
+      transition: all var(--transitionDuration) ease-in-out;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(0% - var(--buttonBorderSize) - var(--buttonBorderOffset));
+      left: 0;
+      width: 100%;
+      height: var(--buttonBorderSize);
+      background: var(--buttonColor);
+      transition: all var(--transitionDuration) ease-in-out;
+      z-index: 1;
+    }
+
+    .button-icon {
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      &.bottom {
+        // background: green;
+        fill: $medium;
+      }
+
+      &.top {
+        height: 0;
+        // background: yellow;
+        fill: var(--buttonColor);
+      }
+    }
+
+    &:hover {
+      &::before {
+        top: calc(100% + var(--buttonBorderOffset));
+      }
+
+      .button-icon {
+        &.top {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

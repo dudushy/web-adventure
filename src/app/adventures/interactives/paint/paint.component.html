@@ -1,0 +1,45 @@
+<div id="{{title}}-content" class="pageContent">
+  <div class="inputs">
+    <input type="color" id="colorPicker" [(ngModel)]="selectedColor" />
+
+    <span>{{selectedColor}}</span>
+  </div>
+
+  <div class="board">
+    <div class="train-body" (click)="updateBgColor($event)">
+      <div class="booth" (click)="updateBgColor($event)">
+        <div class="chimney" (click)="updateBgColor($event)"></div>
+        <div class="tip" (click)="updateBgColor($event)"></div>
+        <div class="window" (click)="updateBgColor($event)"></div>
+      </div>
+
+      <div class="joint" (click)="updateBgColor($event)"></div>
+
+      <div class="train-wheel" (click)="updateBgColor($event)">
+        <div class="circle" (click)="updateBgColor($event)"></div>
+      </div>
+    </div>
+
+    <div class="train-body" (click)="updateBgColor($event)">
+      <div class="joint" (click)="updateBgColor($event)"></div>
+
+      <div class="train-wheel" (click)="updateBgColor($event)">
+        <div class="circle" (click)="updateBgColor($event)"></div>
+      </div>
+    </div>
+
+    <div class="train-body" (click)="updateBgColor($event)">
+      <div class="joint" (click)="updateBgColor($event)"></div>
+
+      <div class="train-wheel" (click)="updateBgColor($event)">
+        <div class="circle" (click)="updateBgColor($event)"></div>
+      </div>
+    </div>
+
+    <div class="train-body" (click)="updateBgColor($event)">
+      <div class="train-wheel" (click)="updateBgColor($event)">
+        <div class="circle" (click)="updateBgColor($event)"></div>
+      </div>
+    </div>
+  </div>
+</div>

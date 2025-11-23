@@ -1,0 +1,7 @@
+<div id="{{title}}-content" class="pageContent">
+  <input id="textInput" value="{{text}}" (input)="updateText($event)">
+
+  <h1 [attr.data-value]="text" (mouseover)="handleMouseOver($event)">
+    {{text}}
+  </h1>
+</div>

@@ -1,0 +1,59 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  // height: 100%;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  // background: $medium;
+  color: $dark;
+}
+
+.pageContent {
+  // height: 100%;
+  padding: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $medium;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fairy {
+  @include fixedHeight(calc(var(--responsiveUnit) * 10));
+  @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  // aspect-ratio: 1;
+  background: $light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .fairy-body {
+    height: 80%;
+    width: 80%;
+    background: $dark;
+  }
+
+  .fairy-wing {
+    height: 100%;
+    width: 100%;
+    background: purple;
+    animation: flipWings 1s infinite alternate;
+  }
+}
+
+@keyframes flipWings {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}

@@ -1,0 +1,50 @@
+<div id="{{title}}-content" class="pageContent">
+  <div class="clock">
+    <div class="digit">
+      <div class="segment top" [class.active]="display[0][0]">1</div>
+      <div class="segment top-left" [class.active]="display[0][1]">2</div>
+      <div class="segment top-right" [class.active]="display[0][2]">3</div>
+      <div class="segment middle" [class.active]="display[0][3]">4</div>
+      <div class="segment bottom-left" [class.active]="display[0][4]">5</div>
+      <div class="segment bottom-right" [class.active]="display[0][5]">6</div>
+      <div class="segment bottom" [class.active]="display[0][6]">7</div>
+    </div>
+
+    <div class="digit">
+      <div class="segment top" [class.active]="display[1][0]">1</div>
+      <div class="segment top-left" [class.active]="display[1][1]">2</div>
+      <div class="segment top-right" [class.active]="display[1][2]">3</div>
+      <div class="segment middle" [class.active]="display[1][3]">4</div>
+      <div class="segment bottom-left" [class.active]="display[1][4]">5</div>
+      <div class="segment bottom-right" [class.active]="display[1][5]">6</div>
+      <div class="segment bottom" [class.active]="display[1][6]">7</div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="digit">
+      <div class="segment top" [class.active]="display[2][0]">1</div>
+      <div class="segment top-left" [class.active]="display[2][1]">2</div>
+      <div class="segment top-right" [class.active]="display[2][2]">3</div>
+      <div class="segment middle" [class.active]="display[2][3]">4</div>
+      <div class="segment bottom-left" [class.active]="display[2][4]">5</div>
+      <div class="segment bottom-right" [class.active]="display[2][5]">6</div>
+      <div class="segment bottom" [class.active]="display[2][6]">7</div>
+    </div>
+
+    <div class="digit">
+      <div class="segment top" [class.active]="display[3][0]">1</div>
+      <div class="segment top-left" [class.active]="display[3][1]">2</div>
+      <div class="segment top-right" [class.active]="display[3][2]">3</div>
+      <div class="segment middle" [class.active]="display[3][3]">4</div>
+      <div class="segment bottom-left" [class.active]="display[3][4]">5</div>
+      <div class="segment bottom-right" [class.active]="display[3][5]">6</div>
+      <div class="segment bottom" [class.active]="display[3][6]">7</div>
+    </div>
+
+    <div class="periods">
+      <div class="period" [class.active]="display['am']">am</div>
+      <div class="period" [class.active]="display['pm']">pm</div>
+    </div>
+  </div>
+</div>

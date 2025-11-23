@@ -1,0 +1,284 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: var(--defaultContentHeight);
+  width: 100%;
+  color: $dark;
+}
+
+.pageContent {
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  background: $dark;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sodaForm {
+  --sodaColorPrimary: #f7941e;
+  --sodaColorSecondary: #2d3092;
+  --sodaColorTertiary: #70bf44;
+  --sodaColorQuaternary: #609644;
+  --sodaBackground: #ffffff;
+  --sodaBeforeInitialHeight: 15%;
+  --sodaBeforeHeight: 15%;
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: calc(var(--responsiveUnit) * 16);
+  width: 80%;
+  padding: calc(var(--responsiveUnit) * 2);
+  background: var(--sodaBackground);
+  overflow: hidden;
+  border-radius: calc(var(--responsiveUnit) * 1);
+  @include portrait {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--responsiveUnit) * 32);
+  }
+
+  &,
+  &::before,
+  .soda-mask {
+    transition: all 0.5s ease-in-out;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--sodaBeforeHeight);
+    background: var(--sodaColorPrimary);
+    z-index: 1;
+  }
+
+  &.success {
+    --sodaColorPrimary: #00ff00;
+  }
+
+  &.error {
+    --sodaColorPrimary: #ff0000;
+
+    .input-wrapper {
+      input[type="text"],
+      input[type="password"] {
+        animation: shake-bottom 0.5s ease-in-out;
+      }
+    }
+  }
+
+  .soda-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--sodaBeforeHeight);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .waves {
+      position: relative;
+      width: 100%;
+      height: calc(var(--responsiveUnit) * 0.5);
+
+      .wave {
+        position: absolute;
+        bottom: var(--waveBottomOffset);
+        left: var(--waveLeftOffset);
+        @include square(calc(var(--responsiveUnit) * var(--waveSize)));
+        // border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        // border-radius: 32% 68% 54% 46% / 26% 78% 22% 74%;
+        // border-radius: 83% 17% 79% 21% / 42% 83% 17% 58%;
+        // border-radius: 62% 38% 37% 63% / 54% 32% 68% 46%;
+        // border-radius: 61% 39% 47% 53% / 43% 44% 56% 57%;
+        // border-radius: 60% 40% 50% 50% / 50% 50% 50% 50%;
+        border-radius: 60% 40% 60% 40% / 50% 50% 50% 50%;
+        background: var(--sodaBackground);
+        // background: blue;
+        animation: spin 4s infinite linear;
+        animation-delay: var(--waveDelay);
+        @include portrait {
+          top: calc(var(--waveTopOffset) * 0.5);
+        }
+      }
+    }
+
+    .bubble {
+      position: absolute;
+      top: var(--bubbleTopOffset);
+      left: var(--bubbleLeftOffset);
+      background: var(--sodaBackground);
+      opacity: 0.5;
+      @include square(calc(var(--responsiveUnit) * var(--bubbleSize)));
+      border-radius: 50%;
+      animation: float 3s infinite ease-in-out;
+      animation-delay: var(--bubbleDelay);
+    }
+  }
+
+  .header-wrapper,
+  .input-wrapper {
+    // opacity: 0.2;
+    position: relative;
+    z-index: 3;
+  }
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    @include portrait {
+      height: 30%;
+      width: 100%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: 100%;
+      border-radius: calc(var(--responsiveUnit) * 1);
+      background: $white;
+      z-index: -1;
+      @include portrait {
+        width: 50%;
+        height: 115%;
+      }
+    }
+
+    h1 {
+      font-size: calc(var(--responsiveUnit) * 1.2);
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      margin-bottom: calc(var(--responsiveUnit) * 1);
+      color: var(--sodaColorQuaternary);
+    }
+
+    img {
+      filter: invert(50%) sepia(69%) saturate(343%) hue-rotate(55deg) brightness(91%) contrast(87%);
+      @include square(60%);
+      @include portrait {
+        @include square(70%);
+      }
+    }
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    @include portrait {
+      width: 100%;
+      height: 70%;
+    }
+
+    input {
+      border: 0;
+      outline: 0;
+      width: 100%;
+      text-align: center;
+      padding: calc(var(--responsiveUnit) * 0.5);
+      padding-block: calc(var(--responsiveUnit) * 0.75);
+      font-size: calc(var(--responsiveUnit) * 1);
+      border: calc(var(--responsiveUnit) * 0.2) solid $white;
+      border-radius: calc(var(--responsiveUnit) * 0.5);
+      color: $white;
+
+      &:not(:last-child) {
+        margin-bottom: calc(var(--responsiveUnit) * 1.5);
+      }
+
+      &::placeholder {
+        color: $black;
+      }
+
+      &[type="text"],
+      &[type="password"] {
+        background: var(--sodaColorTertiary);
+        color: $dark;
+      }
+
+      &[type="submit"] {
+        background: var(--sodaColorSecondary);
+        color: $white;
+        cursor: pointer;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10%, 15%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes shake-bottom {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+}

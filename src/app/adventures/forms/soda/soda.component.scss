@@ -1,17 +1,17 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  color: $dark;
+  color: styles.$dark;
 }
 
 .pageContent {
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $dark;
+  background: styles.$dark;
 }
 
 .pageContent {
@@ -40,7 +40,7 @@
   background: var(--sodaBackground);
   overflow: hidden;
   border-radius: calc(var(--responsiveUnit) * 1);
-  @include portrait {
+  @include styles.portrait {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,7 +101,7 @@
         position: absolute;
         bottom: var(--waveBottomOffset);
         left: var(--waveLeftOffset);
-        @include square(calc(var(--responsiveUnit) * var(--waveSize)));
+        @include styles.square(calc(var(--responsiveUnit) * var(--waveSize)));
         // border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         // border-radius: 32% 68% 54% 46% / 26% 78% 22% 74%;
         // border-radius: 83% 17% 79% 21% / 42% 83% 17% 58%;
@@ -113,7 +113,7 @@
         // background: blue;
         animation: spin 4s infinite linear;
         animation-delay: var(--waveDelay);
-        @include portrait {
+        @include styles.portrait {
           top: calc(var(--waveTopOffset) * 0.5);
         }
       }
@@ -125,7 +125,7 @@
       left: var(--bubbleLeftOffset);
       background: var(--sodaBackground);
       opacity: 0.5;
-      @include square(calc(var(--responsiveUnit) * var(--bubbleSize)));
+      @include styles.square(calc(var(--responsiveUnit) * var(--bubbleSize)));
       border-radius: 50%;
       animation: float 3s infinite ease-in-out;
       animation-delay: var(--bubbleDelay);
@@ -146,7 +146,7 @@
     align-items: center;
     height: 100%;
     width: 50%;
-    @include portrait {
+    @include styles.portrait {
       height: 30%;
       width: 100%;
     }
@@ -160,9 +160,9 @@
       width: 50%;
       height: 100%;
       border-radius: calc(var(--responsiveUnit) * 1);
-      background: $white;
+      background: styles.$white;
       z-index: -1;
-      @include portrait {
+      @include styles.portrait {
         width: 50%;
         height: 115%;
       }
@@ -181,9 +181,9 @@
 
     img {
       filter: invert(50%) sepia(69%) saturate(343%) hue-rotate(55deg) brightness(91%) contrast(87%);
-      @include square(60%);
-      @include portrait {
-        @include square(70%);
+      @include styles.square(60%);
+      @include styles.portrait {
+        @include styles.square(70%);
       }
     }
   }
@@ -194,7 +194,7 @@
     justify-content: center;
     width: 50%;
     height: 100%;
-    @include portrait {
+    @include styles.portrait {
       width: 100%;
       height: 70%;
     }
@@ -207,27 +207,27 @@
       padding: calc(var(--responsiveUnit) * 0.5);
       padding-block: calc(var(--responsiveUnit) * 0.75);
       font-size: calc(var(--responsiveUnit) * 1);
-      border: calc(var(--responsiveUnit) * 0.2) solid $white;
+      border: calc(var(--responsiveUnit) * 0.2) solid styles.$white;
       border-radius: calc(var(--responsiveUnit) * 0.5);
-      color: $white;
+      color: styles.$white;
 
       &:not(:last-child) {
         margin-bottom: calc(var(--responsiveUnit) * 1.5);
       }
 
       &::placeholder {
-        color: $black;
+        color: styles.$black;
       }
 
       &[type="text"],
       &[type="password"] {
         background: var(--sodaColorTertiary);
-        color: $dark;
+        color: styles.$dark;
       }
 
       &[type="submit"] {
         background: var(--sodaColorSecondary);
-        color: $white;
+        color: styles.$white;
         cursor: pointer;
         font-weight: bolder;
       }

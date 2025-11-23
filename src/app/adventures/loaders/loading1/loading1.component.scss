@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,8 +6,8 @@
   // height: 100%;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
 }
 
 .pageContent {
@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
@@ -29,23 +29,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+  // @include styles.fixedHeight(calc(var(--responsiveUnit) * 3));
   height: (calc(var(--responsiveUnit) * 3));
   width: (calc(var(--responsiveUnit) * 3));
   // aspect-ratio: 1;
   border-radius: 50%;
-  // border: calc(var(--responsiveUnit) * 0.15) solid $dark;
-  // box-shadow: 0 0 15px 5px $warning;
-  box-shadow: 0 0 calc(var(--responsiveUnit) * 0.6) calc(var(--responsiveUnit) * 0.2) $warning;
-  background: $warning;
+  // border: calc(var(--responsiveUnit) * 0.15) solid styles.$dark;
+  // box-shadow: 0 0 15px 5px styles.$warning;
+  box-shadow: 0 0 calc(var(--responsiveUnit) * 0.6) calc(var(--responsiveUnit) * 0.2) styles.$warning;
+  background: styles.$warning;
   position: relative;
   // animation: rotate 200ms linear infinite;
   // animation: rotateAndPulse 200ms linear infinite;
 
   .flower-petal {
-    // @include fixedHeight(calc(var(--responsiveUnit) * 6));
+    // @include styles.fixedHeight(calc(var(--responsiveUnit) * 6));
     height: (calc(var(--responsiveUnit) * 6));
-    // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    // @include styles.fixedWidth(calc(var(--responsiveUnit) * 3));
     width: (calc(var(--responsiveUnit) * 3));
     border-radius: 50%;
     // border: calc(var(--responsiveUnit) * 0.2) solid $dark;

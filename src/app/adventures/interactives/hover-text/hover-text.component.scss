@@ -1,17 +1,17 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  color: $dark;
+  color: styles.$dark;
 }
 
 .pageContent {
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $dark;
+  background: styles.$dark;
 }
 
 .pageContent {
@@ -26,8 +26,8 @@ input {
   background: none;
   text-align: center;
   outline: none;
-  color: $light;
-  background: $black;
+  color: styles.$light;
+  background: styles.$black;
   font-size: calc(var(--responsiveUnit) * 0.8);
   width: calc(var(--responsiveUnit) * 20);
   height: calc(var(--responsiveUnit) * 2);
@@ -47,7 +47,7 @@ input {
   height: calc(var(--responsiveUnit) * 10);
   width: var(--textWrapperWidth);
   border-radius: calc(var(--responsiveUnit) * 0.5);
-  background: $light;
+  background: styles.$light;
   margin-top: calc(var(--responsiveUnit) * 0.5);
   font-size: calc(var(--responsiveUnit) * 5);
   text-transform: uppercase;
@@ -55,8 +55,8 @@ input {
 
   &,
   * {
-    @include allVendors(transition, var(--animationSetup));
-    @include allVendors(user-select, none);
+    @include styles.allVendors(transition, var(--animationSetup));
+    @include styles.allVendors(user-select, none);
   }
 
   .letter {
@@ -74,7 +74,7 @@ input {
     align-items: center;
     height: 100%;
     width: var(--letterWidth);
-    color: $dark;
+    color: styles.$dark;
     z-index: 1;
 
     &::before {
@@ -86,13 +86,13 @@ input {
       justify-content: center;
       align-items: center;
       width: var(--letterWidth);
-      @include allVendors(transition, var(--animationSetup));
-      @include allVendors(transform, scaleX(var(--letterScaleX)));
+      @include styles.allVendors(transition, var(--animationSetup));
+      @include styles.allVendors(transform, scaleX(var(--letterScaleX)));
     }
 
     &:hover {
       &::before {
-        @include allVendors(transform, translateY(0%) scaleX(var(--letterScaleX)) scaleY(var(--letterScaleY)));
+        @include styles.allVendors(transform, translateY(0%) scaleX(var(--letterScaleX)) scaleY(var(--letterScaleY)));
       }
     }
   }

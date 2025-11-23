@@ -1,17 +1,17 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  color: $dark;
+  color: styles.$dark;
 }
 
 .pageContent {
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: linear-gradient(145deg, $black, $dark, $black);
+  background: linear-gradient(145deg, styles.$black, styles.$dark, styles.$black);
 }
 
 .pageContent {
@@ -38,19 +38,19 @@
   width: calc(var(--responsiveUnit) * 50);
   height: calc(var(--responsiveUnit) * 15);
   margin: calc(var(--responsiveUnit) * 0.5);
-  // background: darken($medium, 40%);
-  background: $black;
+  // background: darken(styles.$medium, 40%);
+  background: styles.$black;
   border-radius: calc(var(--responsiveUnit) * 0.5);
   // overflow: visible;
 
-  @include portrait {
+  @include styles.portrait {
     transform: rotate(90deg) scale(0.8);
   }
 
   &,
   * {
-    @include allVendors(transition, all var(--animationDuration) ease-in-out);
-    @include allVendors(user-select, none);
+    @include styles.allVendors(transition, all var(--animationDuration) ease-in-out);
+    @include styles.allVendors(user-select, none);
   }
 
   .digit {
@@ -70,11 +70,11 @@
       align-items: center;
       // background: yellow;
       background: var(--inactiveColor);
-      // color: $light;
+      // color: styles.$light;
       color: transparent;
       width: calc(var(--segmentSize) * 0.4);
       height: calc(var(--segmentSize));
-      @include allVendors(clip-path, var(--segmentPolygon));
+      @include styles.allVendors(clip-path, var(--segmentPolygon));
 
       &.active {
         background: var(--activeColor);
@@ -136,10 +136,10 @@
       position: absolute;
       content: "";
       // background: yellow;
-      @include allVendors(animation, blink calc(var(--animationDuration) * 3) infinite);
+      @include styles.allVendors(animation, blink calc(var(--animationDuration) * 3) infinite);
       width: calc(var(--separatorSize));
       height: calc(var(--separatorSize) * 1.5);
-      @include allVendors(clip-path, var(--segmentPolygon));
+      @include styles.allVendors(clip-path, var(--segmentPolygon));
     }
 
     &::before {

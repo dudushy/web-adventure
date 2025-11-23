@@ -1,17 +1,17 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  color: $dark;
+  color: styles.$dark;
 }
 
 .pageContent {
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $dark;
+  background: styles.$dark;
 }
 
 .pageContent {
@@ -26,8 +26,8 @@ input {
   background: none;
   text-align: center;
   outline: none;
-  color: $light;
-  background: $black;
+  color: styles.$light;
+  background: styles.$black;
   font-size: calc(var(--responsiveUnit) * 0.8);
   width: calc(var(--responsiveUnit) * 20);
   height: calc(var(--responsiveUnit) * 2);
@@ -43,8 +43,8 @@ h1 {
   justify-content: center;
   align-items: center;
   border-radius: calc(var(--responsiveUnit) * 0.5);
-  background: $white;
-  color: $black;
+  background: styles.$white;
+  color: styles.$black;
   padding-inline: calc(var(--responsiveUnit) *1);
   padding-block: calc(var(--responsiveUnit) * 0.5);
   margin-top: calc(var(--responsiveUnit) * 0.5);
@@ -53,11 +53,11 @@ h1 {
   max-width: calc(var(--responsiveUnit) * 62);
   // text-transform: uppercase;
   font-family: 'Space Mono', monospace;
-  @include allVendors(transition, var(--animationParams));
-  @include allVendors(user-select, none);
+  @include styles.allVendors(transition, var(--animationParams));
+  @include styles.allVendors(user-select, none);
 
   &:hover {
-    background: $black;
-    color: $white;
+    background: styles.$black;
+    color: styles.$white;
   }
 }

@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -12,7 +12,7 @@
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
@@ -26,7 +26,7 @@
 #dicesConfig {
   --contentHeight: calc(var(--responsiveUnit) * 18);
 
-  @include portrait {
+  @include styles.portrait {
     --contentHeight: calc(var(--responsiveUnit) * 16);
   }
 
@@ -37,11 +37,11 @@
   align-items: center;
   top: calc(var(--contentHeight) * -1);
   width: 98%;
-  background: $primary;
+  background: styles.$primary;
 
   &,
   * {
-    @include allVendors(transition, all 0.5s ease-in-out);
+    @include styles.allVendors(transition, all 0.5s ease-in-out);
   }
 
   .config-content {
@@ -51,8 +51,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: $dark;
-    color: $light;
+    background: styles.$dark;
+    color: styles.$light;
     z-index: 2;
 
     h1 {
@@ -66,8 +66,8 @@
       margin: 1%;
       padding: 1%;
       width: 100%;
-      background: $dark;
-      color: $light;
+      background: styles.$dark;
+      color: styles.$light;
       border-radius: calc(var(--responsiveUnit) * 4);
 
       label {
@@ -76,8 +76,8 @@
       }
 
       input {
-        background: $success;
-        color: $light;
+        background: styles.$success;
+        color: styles.$light;
         outline: 0;
         border: none;
         border-radius: calc(var(--responsiveUnit) * 2);
@@ -91,8 +91,8 @@
       margin: 1%;
       padding: 1%;
       width: 50%;
-      background: $success;
-      color: $light;
+      background: styles.$success;
+      color: styles.$light;
       border: 0;
       outline: 0;
       border-radius: calc(var(--responsiveUnit) * 4);
@@ -108,20 +108,20 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
-    background: $light;
+    background: styles.$light;
     padding: calc(var(--responsiveUnit) * 2.5);
     border-radius: calc(var(--responsiveUnit) * 4);
     cursor: pointer;
 
     &, * {
-      @include allVendors(user-select, none);
+      @include styles.allVendors(user-select, none);
     }
 
     i {
       position: absolute;
       bottom: 0;
       font-size: calc(var(--responsiveUnit) * 2);
-      color: $dark;
+      color: styles.$dark;
     }
   }
 
@@ -129,11 +129,11 @@
     top: 0;
 
     .config-toggle {
-      background: $dark;
+      background: styles.$dark;
 
       i {
         transform: rotate(180deg);
-        color: $light;
+        color: styles.$light;
       }
     }
   }
@@ -155,7 +155,7 @@
   justify-content: flex-start;
   width: var(--gridWidth);
   height: var(--gridHeight);
-  background: $success;
+  background: styles.$success;
 
   .dice {
     width: var(--diceWidth);
@@ -166,6 +166,6 @@
     justify-content: center;
     flex-direction: column;
     margin: var(--diceGap);
-    background: $danger;
+    background: styles.$danger;
   }
 }

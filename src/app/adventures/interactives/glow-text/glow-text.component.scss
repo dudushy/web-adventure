@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,8 +6,8 @@
   // height: 100%;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
   overflow: hidden;
 }
 
@@ -15,23 +15,23 @@
   // height: 100%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
   display: flex;
   justify-content: center;
   align-items: center;
-  @include portrait {
+  @include styles.portrait {
     flex-direction: column;
   }
 }
 
 .glowChar {
-  @include fixedHeight(calc(var(--responsiveUnit) * 5));
-  @include fixedWidth(calc(var(--responsiveUnit) * 5));
-  background: $black;
-  color: $white;
+  @include styles.fixedHeight(calc(var(--responsiveUnit) * 5));
+  @include styles.fixedWidth(calc(var(--responsiveUnit) * 5));
+  background: styles.$black;
+  color: styles.$white;
   font-size: calc(var(--responsiveUnit) * 3);
   font-weight: bolder;
   display: flex;
@@ -40,8 +40,8 @@
   margin: calc(var(--responsiveUnit) * 0.5);
   cursor: pointer;
   text-shadow:
-    0 0 calc(var(--responsiveUnit) * 0.5) $white,
-    0 0 calc(var(--responsiveUnit) * 1) $white,
+    0 0 calc(var(--responsiveUnit) * 0.5) styles.$white,
+    0 0 calc(var(--responsiveUnit) * 1) styles.$white,
     0 0 calc(var(--responsiveUnit) * 1.5) #ff0000,
     0 0 calc(var(--responsiveUnit) * 2) #ff0000,
     0 0 calc(var(--responsiveUnit) * 2.5) #ff0000,
@@ -50,12 +50,12 @@
     0 0 calc(var(--responsiveUnit) * 4) #ff0000,
     0 0 calc(var(--responsiveUnit) * 4.5) #ff0000,
     0 0 calc(var(--responsiveUnit) * 5) #ff0000;
-  box-shadow: 0 0 20px $white;
-  @include allVendors(transition, 0.5s ease-in-out);
-  @include portrait {
+  box-shadow: 0 0 20px styles.$white;
+  @include styles.allVendors(transition, 0.5s ease-in-out);
+  @include styles.portrait {
     font-size: calc(var(--responsiveUnit) * 2.5);
-    @include fixedHeight(calc(var(--responsiveUnit) * 4));
-    @include fixedWidth(calc(var(--responsiveUnit) * 4));
+    @include styles.fixedHeight(calc(var(--responsiveUnit) * 4));
+    @include styles.fixedWidth(calc(var(--responsiveUnit) * 4));
   }
 
   &.glow {

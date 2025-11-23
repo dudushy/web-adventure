@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,8 +6,8 @@
   // height: 100%;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
 }
 
 .pageContent {
@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $medium;
+  background: styles.$medium;
 }
 
 .pageContent {
@@ -26,20 +26,20 @@
 }
 
 .loader-wrapper {
-  @include fixedHeight(calc(var(--responsiveUnit) * 10));
-  @include fixedWidth(calc(var(--responsiveUnit) * 10));
+  @include styles.fixedHeight(calc(var(--responsiveUnit) * 10));
+  @include styles.fixedWidth(calc(var(--responsiveUnit) * 10));
   // aspect-ratio: 1;
-  background: $medium;
+  background: styles.$medium;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .ball {
-    @include fixedHeight(calc(var(--responsiveUnit) * 2));
-    @include fixedWidth(calc(var(--responsiveUnit) * 2));
+    @include styles.fixedHeight(calc(var(--responsiveUnit) * 2));
+    @include styles.fixedWidth(calc(var(--responsiveUnit) * 2));
     // aspect-ratio: 1;
     border-radius: 50%;
-    background: $dark;
+    background: styles.$dark;
     animation: pulse 2s infinite ease-in-out;
     margin-inline: 2%;
     &:nth-child(1) {
@@ -57,14 +57,14 @@
 @keyframes pulse {
   0% {
     transform: scale(1);
-    background: $dark;
+    background: styles.$dark;
   }
   50% {
     transform: scale(1.1);
-    background: $light;
+    background: styles.$light;
   }
   100% {
     transform: scale(1);
-    background: $dark;
+    background: styles.$dark;
   }
 }

@@ -1,12 +1,12 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
 }
 
 .pageContent {
@@ -14,7 +14,7 @@
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
@@ -27,18 +27,18 @@
   --animationDuration: 3s;
 
   position: relative;
-  @include square(calc(var(--responsiveUnit) * 6));
+  @include styles.square(calc(var(--responsiveUnit) * 6));
   border-radius: 50%;
-  background: $success;
-  @include allVendors(animation, pulse var(--animationDuration) infinite);
+  background: styles.$success;
+  @include styles.allVendors(animation, pulse var(--animationDuration) infinite);
 
   .circle-pulse {
     position: absolute;
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    background: $success;
-    @include allVendors(animation, spread var(--animationDuration) infinite);
+    background: styles.$success;
+    @include styles.allVendors(animation, spread var(--animationDuration) infinite);
   }
 }
 

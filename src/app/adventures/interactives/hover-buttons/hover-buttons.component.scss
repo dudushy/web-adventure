@@ -1,17 +1,17 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  color: $dark;
+  color: styles.$dark;
 }
 
 .pageContent {
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $dark;
+  background: styles.$dark;
 }
 
 .pageContent {
@@ -26,7 +26,7 @@
   align-items: center;
   width: 100%;
   gap: calc(var(--responsiveUnit) * 1);
-  @include portrait {
+  @include styles.portrait {
     flex-direction: column;
     gap: calc(var(--responsiveUnit) * 4);
   }
@@ -37,12 +37,12 @@
     --buttonSize: calc(var(--responsiveUnit) * 4);
     --buttonBorderSize: calc(var(--buttonSize) * 0.025);
     --buttonBorderOffset: calc(var(--responsiveUnit) * 0.25);
-    @include portrait {
+    @include styles.portrait {
       --buttonSize: calc(var(--responsiveUnit) * 8);
     }
 
     position: relative;
-    @include square(var(--buttonSize));
+    @include styles.square(var(--buttonSize));
     // background: blue;
 
     &,
@@ -70,7 +70,7 @@
 
       &.bottom {
         // background: green;
-        fill: $medium;
+        fill: styles.$medium;
       }
 
       &.top {

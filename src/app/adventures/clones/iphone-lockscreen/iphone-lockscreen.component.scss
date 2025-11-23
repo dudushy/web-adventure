@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -12,7 +12,7 @@
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
@@ -25,7 +25,7 @@
 
   &,
   * {
-    @include allVendors(user-select, none);
+    @include styles.allVendors(user-select, none);
   }
 }
 
@@ -48,7 +48,7 @@
     --lockscreenRainbowRotation: -20deg;
   }
 
-  @include landscape {
+  @include styles.landscape {
     --lockscreenRainbowHeight: calc(var(--responsiveUnit) * 1.5);
     --lockscreenRainbowTopOffset: calc(var(--responsiveUnit) * 13);
     --lockscreenRainbowRotation: -8deg;
@@ -93,7 +93,7 @@
     height: 100%;
     width: 100%;
     // overflow: hidden;
-    @include allVendors(transition, 0.3s ease-in-out);
+    @include styles.allVendors(transition, 0.3s ease-in-out);
     // background: transparentize($color: $white, $amount: 0.95);
     // z-index: 1;
 
@@ -103,11 +103,11 @@
 
     &.above {
       z-index: 3;
-      @include allVendors(
+      @include styles.allVendors(
         box-shadow,
-        0 calc(var(--responsiveUnit) * -1) calc(var(--responsiveUnit) * 2) calc(var(--responsiveUnit) * 0.01) $dark
+        0 calc(var(--responsiveUnit) * -1) calc(var(--responsiveUnit) * 2) calc(var(--responsiveUnit) * 0.01) styles.$dark
       );
-      background: transparentize($color: $white, $amount: 0.925);
+      background: transparentize($color: styles.$white, $amount: 0.925);
     }
 
     .dateAndClock {
@@ -122,7 +122,7 @@
 
       .date,
       .clock {
-        color: transparentize($color: $white, $amount: 0.4);
+        color: transparentize($color: styles.$white, $amount: 0.4);
         text-align: center;
       }
 
@@ -157,25 +157,25 @@
         align-items: center;
         padding: calc(var(--responsiveUnit) * 1);
         border-radius: 50%;
-        @include square(calc(var(--responsiveUnit) * 5));
-        background: transparentize($color: $black, $amount: 0.8);
+        @include styles.square(calc(var(--responsiveUnit) * 5));
+        background: transparentize($color: styles.$black, $amount: 0.8);
 
         &,
         * {
-          @include allVendors(transition, 200ms ease-in-out);
+          @include styles.allVendors(transition, 200ms ease-in-out);
         }
 
         i {
           font-size: calc(var(--responsiveUnit) * 2);
-          color: $white;
+          color: styles.$white;
         }
 
         &:active {
           transform: scale(0.9);
-          background: transparentize($color: $white, $amount: 0.8);
+          background: transparentize($color: styles.$white, $amount: 0.8);
 
           i {
-            color: $medium;
+            color: styles.$medium;
           }
         }
       }
@@ -184,7 +184,7 @@
     .bottomBar {
       position: absolute;
       bottom: 2%;
-      background: $white;
+      background: styles.$white;
       width: 40%;
       height: 0.75%;
       border-radius: calc(var(--responsiveUnit) * 1);
@@ -253,25 +253,25 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    @include square(calc(var(--responsiveUnit) * 3));
-    background: transparentize($color: $black, $amount: 0.8);
+    @include styles.square(calc(var(--responsiveUnit) * 3));
+    background: transparentize($color: styles.$black, $amount: 0.8);
 
     &,
     * {
-      @include allVendors(transition, 200ms ease-in-out);
+      @include styles.allVendors(transition, 200ms ease-in-out);
     }
 
     i {
       font-size: calc(var(--responsiveUnit) * 1.5);
-      color: $white;
+      color: styles.$white;
     }
 
     &:active {
       transform: scale(0.9);
-      background: transparentize($color: $white, $amount: 0.8);
+      background: transparentize($color: styles.$white, $amount: 0.8);
 
       i {
-        color: $medium;
+        color: styles.$medium;
       }
     }
   }

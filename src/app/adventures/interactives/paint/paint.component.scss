@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,15 +6,15 @@
   // height: 100%;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
   overflow: hidden;
 }
 
 .pageContent {
   // height: 100%;
   width: 100%;
-  background: $white;
+  background: styles.$white;
 }
 
 .board {
@@ -24,10 +24,10 @@
   position: relative;
 
   & * {
-    border-color: $black;
+    border-color: styles.$black;
     border-width: calc(var(--responsiveUnit) * 0.2);
     border-style: solid;
-    background: $white;
+    background: styles.$white;
   }
 }
 

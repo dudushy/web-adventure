@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,15 +6,15 @@
   // height: 100%;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
 }
 
 .pageContent {
   // height: 100%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
@@ -33,7 +33,7 @@
   font-weight: bolder;
   // letter-spacing: calc(var(--responsiveUnit) * 0.1);
   letter-spacing: calc(var(--responsiveUnit) * -0.2);
-  color: $black;
+  color: styles.$black;
   background: linear-gradient(
     90deg,
     rgb(251, 0, 109),
@@ -44,7 +44,7 @@
     rgb(228, 252, 58),
     rgb(255, 219, 9)
   );
-  @include allVendors(background-clip, text);
-  @include allVendors(text-stroke-color, transparent);
-  @include allVendors(text-stroke-width, calc(var(--responsiveUnit) * 0.5));
+  @include styles.allVendors(background-clip, text);
+  @include styles.allVendors(text-stroke-color, transparent);
+  @include styles.allVendors(text-stroke-width, calc(var(--responsiveUnit) * 0.5));
 }

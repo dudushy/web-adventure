@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -11,7 +11,7 @@
   padding: 1%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $dark;
+  background: styles.$dark;
 }
 
 .pageContent {
@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
 
-  @include portrait {
+  @include styles.portrait {
     flex-direction: column;
   }
 }
@@ -29,7 +29,7 @@
   --iconSize: calc(var(--responsiveUnit) * 2);
   --tooltipFlagSize: calc(var(--responsiveUnit) * 0.8);
 
-  @include portrait {
+  @include styles.portrait {
     --iconSize: calc(var(--responsiveUnit) * 4);
     --tooltipFlagSize: calc(var(--responsiveUnit) * 1);
   }
@@ -42,29 +42,29 @@
 
   &,
   * {
-    @include allVendors(user-select, none);
-    @include allVendors(transition, all var(--animationDuration) ease-in-out);
+    @include styles.allVendors(user-select, none);
+    @include styles.allVendors(transition, all var(--animationDuration) ease-in-out);
   }
 
   .socialIcon-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $white;
-    color: $black;
-    @include square(var(--iconSize));
+    background: styles.$white;
+    color: styles.$black;
+    @include styles.square(var(--iconSize));
     border-radius: 50%;
     padding: calc(var(--responsiveUnit) * 1.5);
     z-index: 1;
 
-    @include portrait {
+    @include styles.portrait {
       padding: calc(var(--responsiveUnit) * 3);
     }
 
     i {
       font-size: calc(var(--responsiveUnit) * 1.2);
 
-      @include portrait {
+      @include styles.portrait {
         font-size: calc(var(--responsiveUnit) * 2.4);
       }
     }
@@ -76,29 +76,29 @@
     align-items: center;
     top: 0;
     position: absolute;
-    background: $white;
+    background: styles.$white;
     padding: calc(var(--responsiveUnit) * 0.4);
     border-radius: calc(var(--responsiveUnit) * 0.4);
-    color: $white;
+    color: styles.$white;
     font-size: calc(var(--responsiveUnit) * 0.8);
     font-family: "Comfortaa";
     font-weight: bold;
     opacity: 0;
 
-    @include portrait {
+    @include styles.portrait {
       font-size: calc(var(--responsiveUnit) * 1.6);
     }
 
     &::before {
       content: "";
-      @include square(var(--tooltipFlagSize));
+      @include styles.square(var(--tooltipFlagSize));
       position: absolute;
       background: var(--iconColor);
       top: calc(var(--responsiveUnit) * 1.25);
       transform: rotate(0.5turn);
-      @include allVendors(clip-path, polygon(50% 0%, 0% 100%, 100% 100%));
+      @include styles.allVendors(clip-path, polygon(50% 0%, 0% 100%, 100% 100%));
 
-      @include portrait {
+      @include styles.portrait {
         top: calc(var(--responsiveUnit) * 2.5);
       }
     }
@@ -109,10 +109,10 @@
 
     .socialIcon-icon {
       background: var(--iconColor);
-      color: $white;
+      color: styles.$white;
 
       i {
-        @include allVendors(transition, all calc(var(--animationDuration) / 4) ease-in-out);
+        @include styles.allVendors(transition, all calc(var(--animationDuration) / 4) ease-in-out);
       }
     }
 
@@ -121,7 +121,7 @@
       background: var(--iconColor);
       opacity: 1;
 
-      @include portrait {
+      @include styles.portrait {
         top: calc(var(--responsiveUnit) * -4.3);
       }
     }

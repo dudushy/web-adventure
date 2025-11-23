@@ -1,12 +1,12 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
   justify-content: center;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
 }
 
 .pageContent {
@@ -14,7 +14,7 @@
   width: 100%;
   max-width: 1200px;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $medium;
+  background: styles.$medium;
 }
 
 .pageContent {
@@ -28,11 +28,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @include square(calc(var(--responsiveUnit) * 10));
-  // background: $dark;
+  @include styles.square(calc(var(--responsiveUnit) * 10));
+  // background: styles.$dark;
   border-radius: 50%;
   overflow: hidden;
-  @include allVendors(animation, spin 6s linear infinite);
+  @include styles.allVendors(animation, spin 6s linear infinite);
 
   .spinner {
     --animationDuration: 1.8s;
@@ -42,22 +42,22 @@
     height: 100%;
     border-radius: 50%;
     border: calc(var(--responsiveUnit) * 1) solid transparent;
-    border-top-color: $light;
-    @include allVendors(animation, spin var(--animationDuration) cubic-bezier(0.5, 0, 0.5, 1) infinite);
+    border-top-color: styles.$light;
+    @include styles.allVendors(animation, spin var(--animationDuration) cubic-bezier(0.5, 0, 0.5, 1) infinite);
     &:nth-child(1) {
-      @include allVendors(animation-delay, calc(var(--animationDuration) * 0));
+      @include styles.allVendors(animation-delay, calc(var(--animationDuration) * 0));
     }
     &:nth-child(2) {
-      @include allVendors(animation-delay, calc(var(--animationDuration) * -0.1));
+      @include styles.allVendors(animation-delay, calc(var(--animationDuration) * -0.1));
     }
     &:nth-child(3) {
-      @include allVendors(animation-delay, calc(var(--animationDuration) * -0.2));
+      @include styles.allVendors(animation-delay, calc(var(--animationDuration) * -0.2));
     }
     &:nth-child(4) {
-      @include allVendors(animation-delay, calc(var(--animationDuration) * -0.3));
+      @include styles.allVendors(animation-delay, calc(var(--animationDuration) * -0.3));
     }
     &:nth-child(5) {
-      @include allVendors(animation-delay, calc(var(--animationDuration) * -0.4));
+      @include styles.allVendors(animation-delay, calc(var(--animationDuration) * -0.4));
     }
   }
 }

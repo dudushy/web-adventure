@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -11,7 +11,7 @@
   padding: 1%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $black;
+  background: styles.$black;
 }
 
 .pageContent {
@@ -58,8 +58,8 @@
     align-items: center;
     height: calc(var(--faceHeight));
     width: calc(var(--faceWidth));
-    @include allVendors(clip-path, var(--facePolygon));
-    background: $white;
+    @include styles.allVendors(clip-path, var(--facePolygon));
+    background: styles.$white;
 
     &::before {
       content: "";
@@ -68,8 +68,8 @@
       left: var(--faceBorder);
       height: calc(var(--faceHeight) - (var(--faceBorder) * 2));
       width: calc(var(--faceWidth) - (var(--faceBorder) * 2));
-      @include allVendors(clip-path, var(--facePolygon));
-      background: $black;
+      @include styles.allVendors(clip-path, var(--facePolygon));
+      background: styles.$black;
     }
 
     .eye-middle {
@@ -104,8 +104,8 @@
     bottom: calc(var(--earOffset) * 0.95);
     height: calc(var(--earHeight));
     width: calc(var(--earWidth));
-    @include allVendors(clip-path, var(--earPolygon));
-    background: $white;
+    @include styles.allVendors(clip-path, var(--earPolygon));
+    background: styles.$white;
 
     &::before {
       content: "";
@@ -114,8 +114,8 @@
       left: var(--earBorder);
       height: calc(var(--earHeight) - (var(--earBorder) * 2));
       width: calc(var(--earWidth) - (var(--earBorder) * 2));
-      @include allVendors(clip-path, var(--earPolygon));
-      background: $black;
+      @include styles.allVendors(clip-path, var(--earPolygon));
+      background: styles.$black;
     }
 
     &.right {
@@ -141,8 +141,8 @@
     top: calc(var(--neckOffset));
     height: calc(var(--neckHeight));
     width: calc(var(--neckWidth));
-    @include allVendors(clip-path, var(--neckPolygon));
-    background: $white;
+    @include styles.allVendors(clip-path, var(--neckPolygon));
+    background: styles.$white;
 
     &::before {
       content: "";
@@ -151,8 +151,8 @@
       left: var(--neckBorder);
       height: calc(var(--neckHeight));
       width: calc(var(--neckWidth) - (var(--neckBorder) * 2));
-      @include allVendors(clip-path, var(--neckPolygon));
-      background: $black;
+      @include styles.allVendors(clip-path, var(--neckPolygon));
+      background: styles.$black;
     }
   }
 }
@@ -166,7 +166,7 @@
   position: absolute;
   display: flex;
   align-items: center;
-  background: lighten($color: $medium, $amount: 5%);
+  background: lighten($color: styles.$medium, $amount: 5%);
   height: calc(var(--switchSize) / 2);
   width: var(--switchSize);
   border-radius: calc(var(--responsiveUnit) * 1);
@@ -175,7 +175,7 @@
 
   &,
   * {
-    @include allVendors(transition, all var(--animationDuration) ease-in-out);
+    @include styles.allVendors(transition, all var(--animationDuration) ease-in-out);
   }
 
   &.active {
@@ -193,10 +193,10 @@
   .lever {
     position: absolute;
     left: calc(var(--leverSize) * 0.1);
-    @include square(var(--leverSize));
-    background: $light;
+    @include styles.square(var(--leverSize));
+    background: styles.$light;
     border-radius: 50%;
     box-shadow: calc(var(--responsiveUnit) * 0) calc(var(--responsiveUnit) * 0) calc(var(--responsiveUnit) * 0.2)
-      calc(var(--responsiveUnit) * 0.01) $dark;
+      calc(var(--responsiveUnit) * 0.01) styles.$dark;
   }
 }

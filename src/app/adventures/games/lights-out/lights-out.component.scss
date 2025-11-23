@@ -1,4 +1,4 @@
-@import "../../../../styles.scss";
+@use "../../../../styles.scss" as styles;
 
 :host {
   display: flex;
@@ -6,8 +6,8 @@
   // height: 100%;
   min-height: var(--defaultContentHeight);
   width: 100%;
-  // background: $medium;
-  color: $dark;
+  // background: styles.$medium;
+  color: styles.$dark;
   overflow: hidden;
 }
 
@@ -15,7 +15,7 @@
   // height: 100%;
   width: 100%;
   font-size: calc(var(--responsiveUnit) * 0.8);
-  background: $light;
+  background: styles.$light;
 }
 
 .pageContent {
@@ -29,8 +29,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: $success;
-  border: calc(var(--responsiveUnit) * 0.2) solid $light;
+  background: styles.$success;
+  border: calc(var(--responsiveUnit) * 0.2) solid styles.$light;
   border-radius: calc(var(--responsiveUnit) * 0.2);
   padding: 1%;
 }
@@ -69,7 +69,7 @@ footer {
   display: flex;
   flex-direction: row;
 
-  @include portrait {
+  @include styles.portrait {
     flex-direction: column;
   }
 }
@@ -80,30 +80,30 @@ footer {
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-column-gap: calc(var(--responsiveUnit) * 0.1);
   grid-row-gap: calc(var(--responsiveUnit) * 0.1);
-  background: $black;
+  background: styles.$black;
   height: calc(var(--responsiveUnit) * 20);
   width: calc(var(--responsiveUnit) * 20);
-  border: calc(var(--responsiveUnit) * 0.2) solid $warning;
+  border: calc(var(--responsiveUnit) * 0.2) solid styles.$warning;
 
-  @include landscape {
+  @include styles.landscape {
     margin-right: 5%;
   }
 
-  @include portrait {
+  @include styles.portrait {
     margin-bottom: 5%;
   }
 
   .pattern-cell {
-    background-color: $medium;
-    background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-off.webp");
+    background-color: styles.$medium;
+    background-image: url("../../../../../public/assets/imgs/WEBPs/redstone_lamp-off.webp");
     // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-off.webp");
     background-position: center;
     background-size: cover;
-    border: calc(var(--responsiveUnit) * 0.1) solid $dark;
-    @include allVendors(transition, all 100ms ease-in-out);
+    border: calc(var(--responsiveUnit) * 0.1) solid styles.$dark;
+    @include styles.allVendors(transition, all 100ms ease-in-out);
     &.on {
-      background-color: $light;
-      background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-on.webp");
+      background-color: styles.$light;
+      background-image: url("../../../../../public/assets/imgs/WEBPs/redstone_lamp-on.webp");
       // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-on.webp");
     }
   }
@@ -116,26 +116,26 @@ footer {
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-column-gap: calc(var(--responsiveUnit) * 0.1);
   grid-row-gap: calc(var(--responsiveUnit) * 0.1);
-  background: $black;
+  background: styles.$black;
   height: calc(var(--responsiveUnit) * 20);
   width: calc(var(--responsiveUnit) * 20);
-  border: calc(var(--responsiveUnit) * 0.2) solid $dark;
+  border: calc(var(--responsiveUnit) * 0.2) solid styles.$dark;
 
   .grid-cell {
-    background-color: $medium;
-    background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-off.webp");
+    background-color: styles.$medium;
+    background-image: url("../../../../../public/assets/imgs/WEBPs/redstone_lamp-off.webp");
     // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-off.webp");
     background-position: center;
     background-size: cover;
-    border: calc(var(--responsiveUnit) * 0.1) solid $dark;
-    @include allVendors(transition, all 100ms ease-in-out);
+    border: calc(var(--responsiveUnit) * 0.1) solid styles.$dark;
+    @include styles.allVendors(transition, all 100ms ease-in-out);
     &:hover {
       // filter: brightness(1.5);
-      border: calc(var(--responsiveUnit) * 0.1) solid $light;
+      border: calc(var(--responsiveUnit) * 0.1) solid styles.$light;
     }
     &.on {
-      background-color: $light;
-      background-image: url("../../../../assets/imgs/WEBPs/redstone_lamp-on.webp");
+      background-color: styles.$light;
+      background-image: url("../../../../../public/assets/imgs/WEBPs/redstone_lamp-on.webp");
       // background-image: url("https://raw.githubusercontent.com/dudushy/assets/main/redstone_lamp-on.webp");
     }
   }
@@ -143,13 +143,13 @@ footer {
 
 
 #content[gameEnd="true"] {
-  // background: $light;
+  // background: styles.$light;
 
   header span, footer span{
-    color: $success;
+    color: styles.$success;
   }
 
   .pattern, .grid {
-    border-color: $success;
+    border-color: styles.$success;
   }
 }

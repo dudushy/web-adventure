@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../../../app.component';
+import { SvgRendererComponent } from "../../../components/svg-renderer/svg-renderer.component";
 
 @Component({
   selector: 'app-svg',
   templateUrl: './svg.component.html',
   styleUrls: ['./svg.component.scss'],
+  imports: [SvgRendererComponent],
 })
 export class SvgComponent implements OnInit {
   title = 'SvgComponent';

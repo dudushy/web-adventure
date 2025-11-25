@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": ["mixed-decls", "color-functions", "global-builtin", "import"]
+              }
+            },
             "outputPath": "dist/web-adventure",
             "index": "src/index.html",
             "browser": "src/main.ts",

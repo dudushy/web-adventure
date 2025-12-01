@@ -1,28 +1,41 @@
-<div id="{{title}}-content" class="pageContent">
+<div id="{{ title }}-content" class="pageContent">
   <div class="cards">
-    <a class="card" *ngFor="let page of app.allPages | keyvalue : app.defaultOrder" [attr.type]="$any(page.value)['data']['type']" href="{{$any(page.value)['path']}}">
-      <div class="cardInfo">
-        <div class="cardTitle">
-          <p>{{$any(page.value)['path']}}</p>
-        </div>
-
-        <div class="cardDescription">
-          <p>{{$any(page.value)['data']['description']}}</p>
-        </div>
-
+    <a
+      class="card"
+      *ngFor="let page of app.allPages | keyvalue : app.defaultOrder"
+      [attr.type]="$any(page.value)['data']['type']"
+      href="{{ $any(page.value)['path'] }}"
+    >
+      <div class="row1">
+        <div class="cardNo">#{{ page.key }}</div>
         <div class="cardType">
-          <p>{{$any(page.value)['data']['type']}}</p>
+          {{ $any(page.value)['data']['type'] }}
         </div>
-
-        <div class="cardNo">
-          <p>#{{page.key}}</p>
+      </div>
+      <div class="row2">
+        <div class="cardTitle">
+          {{ $any(page.value)['path'] }}
         </div>
-
-        <div *ngIf="$any(page.value)['data']['status'] == 'wip'" class="cardWarning" [attr.warningType]="$any(page.value)['data']['status']" title="Work In Progress">
+        <div class="cardDescription">
+          {{ $any(page.value)['data']['description'] }}
+        </div>
+      </div>
+      <div class="row3">
+        <div
+          *ngIf="$any(page.value)['data']['status'] == 'wip'"
+          class="cardStatus"
+          [attr.warningType]="$any(page.value)['data']['status']"
+          title="Work In Progress"
+        >
           <i class="bi bi-exclamation-triangle-fill"></i>
         </div>
 
-        <div *ngIf="$any(page.value)['data']['status'] == 'rework'" class="cardWarning" [attr.warningType]="$any(page.value)['data']['status']" title="Rework Needed">
+        <div
+          *ngIf="$any(page.value)['data']['status'] == 'rework'"
+          class="cardStatus"
+          [attr.warningType]="$any(page.value)['data']['status']"
+          title="Rework Needed"
+        >
           <i class="bi bi-wrench"></i>
         </div>
       </div>

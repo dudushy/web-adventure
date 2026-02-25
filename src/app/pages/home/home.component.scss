@@ -24,24 +24,65 @@
   margin-inline: 5rem;
 
   .card {
+    --color: #fff;
+
     all: unset;
-    background: white;
+    overflow: hidden;
+    background: var(--color);
+    border-radius: 1rem;
     height: 12rem;
     width: 20rem;
-    margin: 1rem;
+    margin: 0.7rem;
+    border: 0.3rem solid black;
+
+    &[type="form"] {
+      --color: #a8fffb;
+    }
+
+    &[type="loader"] {
+      --color: #a8ffac;
+    }
+
+    &[type="interactive"] {
+      --color: #a8b8ff;
+    }
+
+    &[type="game"] {
+      --color: #ffa8f8;
+    }
+
+    &[type="random"] {
+      --color: #ffd9a8;
+    }
+
+    &[type="clone"] {
+      --color: #ffaba8;
+    }
 
     .row1 {
       display: flex;
       justify-content: space-between;
 
       .cardNo {
-        background: green;
-        margin: 0.5rem;
+        background: color-mix(in srgb, var(--color), white 30%);
+        padding: 1rem;
+        padding-top: 0.5rem;
+        padding-left: 0.5rem;
+        border: 0.3rem solid black;
+        border-top: none;
+        border-left: none;
+        border-bottom-right-radius: 2rem;
       }
 
       .cardType {
-        background: red;
-        margin: 0.5rem;
+        background: color-mix(in srgb, var(--color), black 20%);
+        padding: 1rem;
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+        border: 0.3rem solid black;
+        border-top: none;
+        border-right: none;
+        border-bottom-left-radius: 2rem;
       }
     }
 
@@ -52,12 +93,13 @@
       align-items: center;
 
       .cardTitle {
-        background: blue;
-        margin-bottom: 1rem;
+        margin-top: 1rem;
+        font-family: "Apple-San Francisco";
       }
 
       .cardDescription {
-        background: yellow;
+        margin-top: 1rem;
+        font-family: "CaviarDreams";
       }
     }
 

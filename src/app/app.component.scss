@@ -7,7 +7,7 @@
   --contentGradient: none;
   // --footerGradient: linear-gradient(0deg, #ce9ffc 1%, #7367f0 99%);
   --footerGradient: none;
-  --mainGradient: linear-gradient(180deg, #111111, #3a3a3a);
+  --mainGradient: linear-gradient(180deg, #321446, #5c01a7);
 
   position: relative;
   color: styles.$dark;
@@ -49,7 +49,7 @@ header {
 
   a {
     margin: 0;
-    font-size: calc(var(--responsiveUnit) * 2);
+    font-size: calc(var(--responsiveUnit) * 1);
     font-family: sans-serif;
     font-weight: bolder;
     color: styles.$medium;
@@ -76,7 +76,7 @@ footer {
   @include styles.fixedHeight(var(--footerHeight));
 
   h2 {
-    font-size: calc(var(--responsiveUnit) * 0.7);
+    font-size: calc(var(--responsiveUnit) * 0.6);
     text-align: center;
     font-family: sans-serif;
     color: styles.$medium;

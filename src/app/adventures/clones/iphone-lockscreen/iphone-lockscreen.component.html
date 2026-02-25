@@ -1,16 +1,21 @@
-<div id="{{title}}-content" class="pageContent">
+<div id="{{ title }}-content" class="pageContent">
   <div id="lockscreen">
-    <div class="lockscreen-background">
-    </div>
+    <div class="lockscreen-background"></div>
 
-    <div class="lockscreen-content below" [style.transform]="'translateY(' + pullGestureConfig.translateY + 'px)'">
+    <div
+      class="lockscreen-content below"
+      [style.transform]="'translateY(' + pullGestureConfig.translateY + 'px)'"
+    >
       <div class="dateAndClock">
-        <div class="date">{{date}}</div>
-        <div class="clock">{{time}}</div>
+        <div class="date">{{ date }}</div>
+        <div class="clock">{{ time }}</div>
       </div>
     </div>
 
-    <div class="lockscreen-content above" [style.transform]="'translateY(' + pullGestureConfig.translateY + 'px)'">
+    <div
+      class="lockscreen-content above"
+      [style.transform]="'translateY(' + pullGestureConfig.translateY + 'px)'"
+    >
       <div class="bottomButtons">
         <div class="button">
           <i class="bi bi-lightbulb-fill"></i>

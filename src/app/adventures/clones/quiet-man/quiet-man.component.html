@@ -1,19 +1,39 @@
-<div id="{{title}}-content" class="pageContent">
+<div id="{{ title }}-content" class="pageContent">
   <div class="man">
     <div class="face">
-      <div class="customSwitch eye-middle glow" [style.--activeBackground]="green" [class.active]="quiet" (click)="toggleSwitches()">
+      <div
+        class="customSwitch eye-middle glow"
+        [style.--activeBackground]="green"
+        [class.active]="quiet"
+        (click)="toggleSwitches()"
+      >
         <div class="lever"></div>
       </div>
 
-      <div class="customSwitch eye-left glow" [style.--activeBackground]="green" [class.active]="quiet" (click)="toggleSwitches()">
+      <div
+        class="customSwitch eye-left glow"
+        [style.--activeBackground]="green"
+        [class.active]="quiet"
+        (click)="toggleSwitches()"
+      >
         <div class="lever"></div>
       </div>
 
-      <div class="customSwitch eye-right glow" [style.--activeBackground]="green" [class.active]="quiet" (click)="toggleSwitches()">
+      <div
+        class="customSwitch eye-right glow"
+        [style.--activeBackground]="green"
+        [class.active]="quiet"
+        (click)="toggleSwitches()"
+      >
         <div class="lever"></div>
       </div>
 
-      <div class="customSwitch mouth" [style.--activeBackground]="red" [class.active]="!quiet" (click)="toggleSwitches()">
+      <div
+        class="customSwitch mouth"
+        [style.--activeBackground]="red"
+        [class.active]="!quiet"
+        (click)="toggleSwitches()"
+      >
         <div class="lever"></div>
       </div>
     </div>

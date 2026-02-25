@@ -2,7 +2,7 @@
   <div class="cards">
     <a
       class="card"
-      *ngFor="let page of app.allPages | keyvalue : app.defaultOrder"
+      *ngFor="let page of app.allPages | keyvalue: app.defaultOrder"
       [attr.type]="$any(page.value)['data']['type']"
       href="{{ $any(page.value)['path'] }}"
     >

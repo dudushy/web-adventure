@@ -21,19 +21,29 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-inline: 5rem;
+  margin-inline: calc(var(--responsiveUnit) * 2.5);
 
   .card {
+    all: unset;
+
     --color: #fff;
 
-    all: unset;
     overflow: hidden;
+    cursor: pointer;
     background: var(--color);
-    border-radius: 1rem;
-    height: 12rem;
-    width: 20rem;
-    margin: 0.7rem;
-    border: 0.3rem solid black;
+    border-radius: calc(var(--responsiveUnit) * 0.3);
+    @include styles.square(calc(var(--responsiveUnit) * 6.5));
+    margin: calc(var(--responsiveUnit) * 0.2);
+    border: calc(var(--responsiveUnit) * 0.08) solid;
+    border-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &,
+    * {
+      transition: all 0.2s ease-in-out;
+    }
 
     &[type="form"] {
       --color: #a8fffb;
@@ -65,24 +75,28 @@
 
       .cardNo {
         background: color-mix(in srgb, var(--color), white 30%);
-        padding: 1rem;
-        padding-top: 0.5rem;
-        padding-left: 0.5rem;
-        border: 0.3rem solid black;
+        padding: calc(var(--responsiveUnit) * 0.3);
+        padding-top: calc(var(--responsiveUnit) * 0.15);
+        padding-left: calc(var(--responsiveUnit) * 0.15);
+        border: calc(var(--responsiveUnit) * 0.08) solid;
+        border-color: #000;
         border-top: none;
         border-left: none;
-        border-bottom-right-radius: 2rem;
+        border-bottom-right-radius: calc(var(--responsiveUnit) * 0.5);
+        font-size: calc(var(--responsiveUnit) * 0.5);
       }
 
       .cardType {
         background: color-mix(in srgb, var(--color), black 20%);
-        padding: 1rem;
-        padding-top: 0.5rem;
-        padding-right: 0.5rem;
-        border: 0.3rem solid black;
+        padding: calc(var(--responsiveUnit) * 0.3);
+        padding-top: calc(var(--responsiveUnit) * 0.15);
+        padding-right: calc(var(--responsiveUnit) * 0.15);
+        border: calc(var(--responsiveUnit) * 0.08) solid;
+        border-color: #000;
         border-top: none;
         border-right: none;
-        border-bottom-left-radius: 2rem;
+        border-bottom-left-radius: calc(var(--responsiveUnit) * 0.5);
+        font-size: calc(var(--responsiveUnit) * 0.45);
       }
     }
 
@@ -93,13 +107,25 @@
       align-items: center;
 
       .cardTitle {
-        margin-top: 1rem;
+        margin-top: calc(var(--responsiveUnit) * 0.1);
         font-family: "Apple-San Francisco";
+        font-size: calc(var(--responsiveUnit) * 0.75);
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        // text-wrap: wrap;
+        margin-inline: calc(var(--responsiveUnit) * 0.1);
+        text-transform: uppercase;
       }
 
       .cardDescription {
-        margin-top: 1rem;
-        font-family: "CaviarDreams";
+        margin-top: calc(var(--responsiveUnit) * 0.1);
+        font-family: "Comfortaa";
+        font-size: calc(var(--responsiveUnit) * 0.45);
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-inline: calc(var(--responsiveUnit) * 0.1);
       }
     }
 
@@ -107,7 +133,60 @@
       display: flex;
 
       .cardStatus {
-        background: purple;
+        background: color-mix(in srgb, var(--color), white 60%);
+        padding: calc(var(--responsiveUnit) * 0.3);
+        padding-bottom: calc(var(--responsiveUnit) * 0.15);
+        padding-left: calc(var(--responsiveUnit) * 0.15);
+        border: calc(var(--responsiveUnit) * 0.08) solid;
+        border-color: #000;
+        border-bottom: none;
+        border-left: none;
+        border-top-right-radius: calc(var(--responsiveUnit) * 0.5);
+        font-size: calc(var(--responsiveUnit) * 0.5);
+
+        &[warningType="wip"] {
+          i {
+            color: #ff9c00;
+          }
+        }
+        &[warningType="done"] {
+          i {
+            color: #00ff00;
+          }
+        }
+        &[warningType="rework"] {
+          i {
+            color: #ff0000;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background: black;
+
+      &,
+      * {
+        border-color: var(--color) !important;
+
+        .cardNo {
+          background: black;
+          color: var(--color);
+        }
+
+        .cardTitle,
+        .cardDescription {
+          color: var(--color);
+        }
+
+        .cardType {
+          background: var(--color);
+        }
+
+        .cardStatus {
+          background: black;
+        }
       }
     }
   }

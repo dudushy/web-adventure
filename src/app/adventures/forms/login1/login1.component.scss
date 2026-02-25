@@ -32,20 +32,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include styles.fixedHeight(calc(var(--responsiveUnit) * 16.5));
-  @include styles.fixedWidth(calc(var(--responsiveUnit) * 16));
-  backdrop-filter: blur(25px);
+  @include styles.fixedHeight(calc(var(--responsiveUnit) * 8));
+  @include styles.fixedWidth(calc(var(--responsiveUnit) * 10));
+  backdrop-filter: blur(calc(var(--responsiveUnit) * 0.5));
   overflow: hidden;
   border-radius: calc(var(--responsiveUnit) * 0.4);
-  border: calc(var(--responsiveUnit) * 0.08) solid transparentize($color: styles.$light, $amount: 0.8);
-  box-shadow: 0px 0px 15px 3px transparentize($color: styles.$dark, $amount: 0.6);
+  border: calc(var(--responsiveUnit) * 0.04) solid transparentize($color: styles.$light, $amount: 0.8);
+  box-shadow: 0 0 calc(var(--responsiveUnit) * 1) calc(var(--responsiveUnit) * 0.1) transparentize($color: styles.$dark, $amount: 0.6);
   @include styles.portrait {
-    @include styles.fixedHeight(calc(var(--responsiveUnit) * 35));
-    @include styles.fixedWidth(calc(var(--responsiveUnit) * 25));
+    @include styles.fixedHeight(calc(var(--responsiveUnit) * 15));
+    @include styles.fixedWidth(calc(var(--responsiveUnit) * 12.5));
   }
 
   .loginTitle {
-    font-size: calc(var(--responsiveUnit) * 1.5);
+    font-size: calc(var(--responsiveUnit) * 0.5);
     color: styles.$light;
     font-weight: bolder;
     @include styles.fixedHeight(25%);
@@ -55,7 +55,7 @@
     justify-content: center;
     @include styles.portrait {
       @include styles.fixedHeight(18%);
-      font-size: calc(var(--responsiveUnit) * 1.8);
+      font-size: calc(var(--responsiveUnit) * 1);
     }
   }
 
@@ -79,16 +79,16 @@
       margin: 0;
       padding: 0;
       background: none;
-      border: calc(var(--responsiveUnit) * 0.09) solid transparentize($color: styles.$light, $amount: 0.8);
+      border: calc(var(--responsiveUnit) * 0.02) solid transparentize($color: styles.$light, $amount: 0.8);
       border-radius: calc(var(--responsiveUnit) * 1);
-      font-size: calc(var(--responsiveUnit) * 0.7);
+      font-size: calc(var(--responsiveUnit) * 0.3);
       color: styles.$light;
       text-indent: 5%;
       &::placeholder {
         color: styles.$light;
       }
       @include styles.portrait {
-        font-size: calc(var(--responsiveUnit) * 1.1);
+        font-size: calc(var(--responsiveUnit) * 0.55);
       }
     }
 
@@ -114,9 +114,9 @@
       color: styles.$light;
       & > * {
         cursor: pointer;
-        font-size: calc(var(--responsiveUnit) * 0.6);
+        font-size: calc(var(--responsiveUnit) * 0.3);
         @include styles.portrait {
-          font-size: calc(var(--responsiveUnit) * 1.05);
+          font-size: calc(var(--responsiveUnit) * 0.5);
         }
       }
     }
@@ -157,13 +157,13 @@
       margin: 0;
       padding: 0;
       border-radius: calc(var(--responsiveUnit) * 1);
-      font-size: calc(var(--responsiveUnit) * 0.7);
+      font-size: calc(var(--responsiveUnit) * 0.4);
       background: styles.$light;
       color: styles.$dark;
       font-weight: bolder;
       cursor: pointer;
       @include styles.portrait {
-        font-size: calc(var(--responsiveUnit) * 1.5);
+        font-size: calc(var(--responsiveUnit) * 0.9);
       }
     }
   }
@@ -172,9 +172,9 @@
     @include styles.fixedWidth(80%);
     display: flex;
     justify-content: center;
-    font-size: calc(var(--responsiveUnit) * 0.7);
+    font-size: calc(var(--responsiveUnit) * 0.3);
     @include styles.portrait {
-      font-size: calc(var(--responsiveUnit) * 1.2);
+      font-size: calc(var(--responsiveUnit) * 0.5);
     }
 
     span {

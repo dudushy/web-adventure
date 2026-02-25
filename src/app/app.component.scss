@@ -76,7 +76,7 @@ footer {
   @include styles.fixedHeight(var(--footerHeight));
 
   h2 {
-    font-size: calc(var(--responsiveUnit) * 1);
+    font-size: calc(var(--responsiveUnit) * 0.7);
     text-align: center;
     font-family: sans-serif;
     color: styles.$medium;

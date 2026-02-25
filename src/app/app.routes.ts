@@ -52,7 +52,7 @@ export const routes: Routes = [
   { path: 'svg', component: SvgComponent, data: { status: 'done', type: 'random', description: 'Testing SVGs' } },
   { path: 'hover-pattern', component: HoverPatternComponent, data: { status: 'done', type: 'interactive', description: 'Hover this!' } },
   { path: 'rubiks-cube', component: RubiksCubeComponent, data: { status: 'done', type: 'interactive', description: 'Rubik\u0027s Cube' } },
-  { path: 'lights-out', component: LightsOutComponent, data: { status: 'done', type: 'game', description: 'Lights Out' } },
+  { path: 'lights-out', component: LightsOutComponent, data: { status: 'rework', type: 'game', description: 'Lights Out' } },
   { path: 'qxir', component: QxirComponent, data: { status: 'done', type: 'clone', description: 'Qxir Text' } },
   { path: 'glow-text', component: GlowTextComponent, data: { status: 'done', type: 'interactive', description: 'Glow Text' } },
   { path: 'mouse-trail', component: MouseTrailComponent, data: { status: 'done', type: 'interactive', description: 'Mouse Trail' } },

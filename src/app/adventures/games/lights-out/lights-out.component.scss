@@ -46,7 +46,7 @@ header {
     text-align: center;
     text-transform: uppercase;
     font-weight: bolder;
-    font-size: calc(var(--responsiveUnit) * 1.5);
+    font-size: calc(var(--responsiveUnit) * 0.5);
   }
 }
 
@@ -61,7 +61,7 @@ footer {
     text-align: center;
     text-transform: uppercase;
     font-weight: bolder;
-    font-size: calc(var(--responsiveUnit) * 1.5);
+    font-size: calc(var(--responsiveUnit) * 0.5);
   }
 }
 
@@ -81,8 +81,8 @@ footer {
   grid-column-gap: calc(var(--responsiveUnit) * 0.1);
   grid-row-gap: calc(var(--responsiveUnit) * 0.1);
   background: styles.$black;
-  height: calc(var(--responsiveUnit) * 20);
-  width: calc(var(--responsiveUnit) * 20);
+  height: calc(var(--responsiveUnit) * 10);
+  width: calc(var(--responsiveUnit) * 10);
   border: calc(var(--responsiveUnit) * 0.2) solid styles.$warning;
 
   @include styles.landscape {
@@ -117,8 +117,8 @@ footer {
   grid-column-gap: calc(var(--responsiveUnit) * 0.1);
   grid-row-gap: calc(var(--responsiveUnit) * 0.1);
   background: styles.$black;
-  height: calc(var(--responsiveUnit) * 20);
-  width: calc(var(--responsiveUnit) * 20);
+  height: calc(var(--responsiveUnit) * 10);
+  width: calc(var(--responsiveUnit) * 10);
   border: calc(var(--responsiveUnit) * 0.2) solid styles.$dark;
 
   .grid-cell {

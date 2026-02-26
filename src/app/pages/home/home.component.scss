@@ -36,15 +36,15 @@
     background: var(--color);
     border-radius: calc(var(--responsiveUnit) * 0.3);
     @include styles.square(calc(var(--responsiveUnit) * 6.5));
-    @include styles.portrait {
-      @include styles.square(calc(var(--responsiveUnit) * 5));
-    }
     margin: calc(var(--responsiveUnit) * 0.2);
     border: calc(var(--responsiveUnit) * 0.08) solid;
     border-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include styles.portrait {
+      @include styles.square(calc(var(--responsiveUnit) * 6.25));
+    }
 
     &,
     * {
@@ -91,7 +91,7 @@
         border-bottom-right-radius: calc(var(--responsiveUnit) * 0.5);
         font-size: calc(var(--responsiveUnit) * 0.5);
         @include styles.portrait {
-          font-size: calc(var(--responsiveUnit) * 0.35);
+          font-size: calc(var(--responsiveUnit) * 0.6);
         }
       }
 
@@ -107,7 +107,7 @@
         border-bottom-left-radius: calc(var(--responsiveUnit) * 0.5);
         font-size: calc(var(--responsiveUnit) * 0.45);
         @include styles.portrait {
-          font-size: calc(var(--responsiveUnit) * 0.3);
+          font-size: calc(var(--responsiveUnit) * 0.525);
         }
       }
     }
@@ -129,7 +129,7 @@
         margin-inline: calc(var(--responsiveUnit) * 0.1);
         text-transform: uppercase;
         @include styles.portrait {
-          font-size: calc(var(--responsiveUnit) * 0.5);
+          font-size: calc(var(--responsiveUnit) * 0.7);
         }
       }
 
@@ -142,7 +142,7 @@
         text-align: center;
         margin-inline: calc(var(--responsiveUnit) * 0.1);
         @include styles.portrait {
-          font-size: calc(var(--responsiveUnit) * 0.3);
+          font-size: calc(var(--responsiveUnit) * 0.5);
         }
       }
     }
@@ -162,7 +162,7 @@
         border-top-right-radius: calc(var(--responsiveUnit) * 0.5);
         font-size: calc(var(--responsiveUnit) * 0.5);
         @include styles.portrait {
-          font-size: calc(var(--responsiveUnit) * 0.35);
+          font-size: calc(var(--responsiveUnit) * 0.5);
         }
 
         &[warningType="wip"] {
